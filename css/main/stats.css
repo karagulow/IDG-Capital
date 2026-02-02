@@ -1,0 +1,164 @@
+.stats {
+	background-color: #f7f5f2;
+	padding: 180px 0;
+}
+
+.stats__wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 60px;
+	overflow: visible;
+}
+
+.stats__top {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.stats__title {
+	color: #26292f;
+}
+
+.stats__arrows {
+	display: flex;
+	flex-direction: row;
+	column-gap: 15px;
+}
+
+.stats__arrows_mobile {
+	display: none;
+}
+
+.stats__arrow-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 50px;
+	height: 50px;
+	border: 1px solid #26292f;
+	cursor: pointer;
+
+	transition: opacity 0.2s ease-in-out;
+}
+
+.stats__arrow-btn_disabled {
+	opacity: 0.2;
+	cursor: default;
+}
+
+.stats__arrow-btn_prev img {
+	transform: rotate(180deg);
+}
+
+.stats__cards {
+	overflow: visible;
+}
+
+.stats__card {
+	display: flex;
+	flex-direction: column;
+	padding: 24px;
+	width: 100%;
+	height: 320px;
+
+	background-color: #eeebe7;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.stats__tags {
+	color: #22273499;
+	margin-bottom: 16px;
+	transition: color 0.2s ease-in-out;
+}
+
+.stats__value {
+	color: #26292f;
+	transition: color 0.2s ease-in-out;
+}
+
+.stats__text {
+	color: #22273499;
+	margin-top: auto;
+	transition: color 0.2s ease-in-out;
+}
+
+.stats__card-1:hover {
+	background-color: #f2ceca;
+}
+
+.stats__card-2:hover {
+	background-color: #970000;
+}
+
+.stats__card-3:hover {
+	background-color: #d0eaff;
+}
+
+.stats__card-4:hover {
+	background-color: #26292f;
+}
+
+.stats__card-5:hover {
+	background-color: #f2ceca;
+}
+
+.stats__card-1:hover .stats__tags,
+.stats__card-1:hover .stats__value,
+.stats__card-1:hover .stats__text {
+	color: #970000;
+}
+
+.stats__card-2:hover .stats__tags,
+.stats__card-2:hover .stats__value,
+.stats__card-2:hover .stats__text {
+	color: #f2ceca;
+}
+
+.stats__card-3:hover .stats__tags,
+.stats__card-3:hover .stats__value,
+.stats__card-3:hover .stats__text {
+	color: #26292f;
+}
+
+.stats__card-4:hover .stats__tags,
+.stats__card-4:hover .stats__value,
+.stats__card-4:hover .stats__text {
+	color: #d0eaff;
+}
+
+.stats__card-5:hover .stats__tags,
+.stats__card-5:hover .stats__value,
+.stats__card-5:hover .stats__text {
+	color: #970000;
+}
+
+@media (max-width: 1024px) {
+	.stats {
+		padding: 80px 0;
+	}
+
+	.stats__wrapper {
+		row-gap: 56px;
+	}
+}
+
+@media (max-width: 640px) {
+	.stats__wrapper {
+		row-gap: 48px;
+	}
+
+	.stats__card {
+		height: 230px;
+	}
+
+	.stats__arrows_desktop {
+		display: none;
+	}
+
+	.stats__arrows_mobile {
+		display: flex;
+	}
+}

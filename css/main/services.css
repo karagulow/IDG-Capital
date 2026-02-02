@@ -1,0 +1,127 @@
+.services {
+	position: relative;
+	padding: 120px 0;
+	background-color: #d0eaff;
+	background-image: url(../../images/services-bg.png);
+	background-repeat: no-repeat;
+	background-position: -300px 200%;
+}
+
+.services__wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: start;
+	gap: 20px;
+}
+
+.services__text {
+	color: #22273499;
+	margin-bottom: 20px;
+}
+
+.services__title {
+	color: #26292f;
+	margin-bottom: 36px;
+	max-width: 410px;
+}
+
+.services__btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin-top: 16px;
+	width: 140px;
+	height: 50px;
+	background-color: #26292f;
+	border-radius: 34px;
+
+	color: #d0eaff;
+}
+
+.services__list {
+	display: flex;
+	flex-direction: column;
+	width: min(100%, 550px);
+}
+
+.services__item {
+	display: flex;
+	flex-direction: column;
+	row-gap: 16px;
+
+	padding: 28px;
+	border-bottom: 1px solid #26292f33;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.services__item--title {
+	color: #26292f;
+	transition: color 0.2s ease-in-out;
+}
+
+.services__item--text {
+	color: #22273499;
+	transition: color 0.2s ease-in-out;
+}
+
+.services__item:hover {
+	background-color: #26292f;
+}
+
+.services__item:hover .services__item--title,
+.services__item:hover .services__item--text {
+	color: #d0eaff;
+}
+
+@media (max-width: 1024px) {
+	.services {
+		padding: 80px 0;
+		background-image: url(../../images/services-bg-mobile.png);
+		background-position: 400px 0;
+	}
+
+	.services__wrapper {
+		flex-direction: column;
+		gap: 56px;
+	}
+
+	.services__text {
+		margin-bottom: 16px;
+	}
+
+	.services__title {
+		margin-bottom: 24px;
+		max-width: 587px;
+	}
+
+	.services__list {
+		width: 100%;
+	}
+
+	.services__item {
+		row-gap: 12px;
+		padding: 24px;
+	}
+}
+
+@media (max-width: 768px) {
+	.services {
+		background-position: 300px 50px;
+		background-size: 800px;
+	}
+}
+
+@media (max-width: 640px) {
+	.services {
+		background-position: 200px 50px;
+		background-size: 700px;
+	}
+}
+
+@media (max-width: 500px) {
+	.services {
+		background-position: 50px 50px;
+	}
+}
