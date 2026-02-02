@@ -128,7 +128,7 @@ function renderList(region) {
 
 let tooltip;
 
-fetch('/components/map.html')
+fetch('components/map.html')
 	.then(r => r.text())
 	.then(html => {
 		document.querySelector('#locations-map').innerHTML = html;
