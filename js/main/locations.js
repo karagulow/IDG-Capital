@@ -208,3 +208,37 @@ document.addEventListener('click', e => {
 		hideTooltip();
 	}
 });
+
+const svg = document.querySelector('.map-wrapper svg');
+
+let startDist = 0;
+let scale = 1;
+
+svg.addEventListener('touchstart', e => {
+	if (e.touches.length === 2) {
+		startDist = getDistance(e.touches[0], e.touches[1]);
+	}
+});
+
+svg.addEventListener(
+	'touchmove',
+	e => {
+		if (e.touches.length === 2) {
+			e.preventDefault();
+			const newDist = getDistance(e.touches[0], e.touches[1]);
+			const delta = newDist / startDist;
+
+			scale = Math.min(Math.max(scale * delta, 1), 4);
+
+			svg.style.transform = `scale(${scale})`;
+			svg.style.transformOrigin = 'center center';
+
+			startDist = newDist;
+		}
+	},
+	{ passive: false },
+);
+
+function getDistance(t1, t2) {
+	return Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+}
