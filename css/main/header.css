@@ -1,3 +1,9 @@
+@property --angle {
+	syntax: '<angle>';
+	initial-value: 0deg;
+	inherits: false;
+}
+
 .header {
 	position: relative;
 	display: flex;
@@ -89,14 +95,17 @@
 .header__tabs--btn.is-active {
 	opacity: 1;
 
+	--angle: 0deg;
+
 	border: 1px solid;
 	border-image: conic-gradient(
-			from 0deg,
-			rgba(38, 41, 47, 0.1) 0.1turn,
-			rgba(38, 41, 47, 0.1) 0.1turn,
-			rgba(38, 41, 47, 1) 1turn
+			from var(--angle),
+			rgba(38, 41, 47, 0.1) 0deg,
+			rgba(38, 41, 47, 0.1) 90deg,
+			rgba(38, 41, 47, 1) 360deg
 		)
 		1;
+	animation: borderRotate 3s linear infinite forwards;
 }
 
 .header__text {
@@ -219,5 +228,11 @@
 	.header__text {
 		margin-bottom: 20px;
 		height: 80px;
+	}
+}
+
+@keyframes borderRotate {
+	to {
+		--angle: 360deg;
 	}
 }
