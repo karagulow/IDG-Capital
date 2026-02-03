@@ -5,6 +5,11 @@
 	padding: 120px 0;
 }
 
+.locations--global {
+	row-gap: 24px !important;
+	padding-bottom: 0 !important;
+}
+
 .locations__top--wrapper {
 	display: flex;
 	flex-direction: row;
@@ -131,6 +136,10 @@
 }
 
 @media (max-width: 1024px) {
+	.locations--global {
+		row-gap: 70px !important;
+	}
+
 	.locations {
 		row-gap: 56px;
 		padding: 70px 0;

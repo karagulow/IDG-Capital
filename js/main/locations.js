@@ -24,10 +24,10 @@ const locations = [
 		text: 'Boston University Innovate@BU<br />730 Commonwealth Ave.<br />Brookline, MA 02446',
 	},
 	{
-		id: 'milan',
+		id: 'barcelona',
 		region: 'europe',
-		title: 'Milan',
-		text: 'Boston University Innovate@BU<br />730 Commonwealth Ave.<br />Brookline, MA 02446',
+		title: 'Barcelona',
+		text: 'Avinguda Diagonal 640, P6, 08017 Barcelona',
 	},
 	{
 		id: 'hong-kong',
@@ -100,10 +100,12 @@ tabs.forEach(btn => {
 		const tab = btn.dataset.tab;
 
 		if (tab === 'global') {
+			locationsSection.classList.add('locations--global');
 			map.hidden = false;
 			listBlock.hidden = true;
 			renderMap();
 		} else {
+			locationsSection.classList.remove('locations--global');
 			map.hidden = true;
 			listBlock.hidden = false;
 			renderList(tab);
