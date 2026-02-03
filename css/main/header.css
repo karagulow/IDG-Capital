@@ -215,6 +215,7 @@
 	.header {
 		height: 603px;
 		padding-bottom: 30px;
+		margin: 12px;
 	}
 
 	.header__tabs {
