@@ -144,8 +144,12 @@
 		margin: 20px;
 	}
 
+	.header__bg {
+		height: 80vh;
+	}
+
 	.header__bg-blur {
-		inset: 50% 0 0 0;
+		inset: 20% 0 0 0;
 
 		-webkit-mask-image: linear-gradient(
 			to top,

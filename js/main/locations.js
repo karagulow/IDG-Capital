@@ -140,11 +140,18 @@ const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
 function initMap() {
 	document.querySelectorAll('.map-dot').forEach(dot => {
-		dot.addEventListener(isMobile ? 'click' : 'mouseenter', e => {
-			showTooltip(dot.dataset.id, e.pageX, e.pageY);
-		});
+		if (isMobile) {
+			dot.addEventListener('click', e => {
+				e.stopPropagation();
+				showTooltip(dot.dataset.id, e.pageX, e.pageY);
+			});
+		} else {
+			dot.addEventListener('mouseenter', e => {
+				showTooltip(dot.dataset.id, e.pageX, e.pageY);
+			});
 
-		dot.addEventListener('mouseleave', hideTooltip);
+			dot.addEventListener('mouseleave', hideTooltip);
+		}
 	});
 }
 
@@ -188,3 +195,14 @@ function showTooltip(id, x, y) {
 function hideTooltip() {
 	tooltip.hidden = true;
 }
+
+document.addEventListener('click', e => {
+	if (!tooltip || tooltip.hidden) return;
+
+	const isDot = e.target.closest('.map-dot');
+	const isTooltip = e.target.closest('.map-tooltip');
+
+	if (!isDot && !isTooltip) {
+		hideTooltip();
+	}
+});
