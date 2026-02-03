@@ -5,7 +5,7 @@
 
 	margin: 20px 20px 0;
 	padding-bottom: 60px;
-	height: calc(100vh - 20px);
+	height: 700px;
 
 	overflow: hidden;
 }
@@ -48,9 +48,20 @@
 
 .header__title {
 	color: #26292f;
-	max-width: 65%;
 	margin-inline: 60px;
 	z-index: 2;
+}
+
+.header__title_1 {
+	max-width: 743px;
+}
+
+.header__title_2 {
+	max-width: 850px;
+}
+
+.header__title_3 {
+	max-width: 1033px;
 }
 
 .header__content {
@@ -69,7 +80,7 @@
 
 .header__tabs--btn {
 	color: #26292f;
-	padding: 16px 12px;
+	padding: 12px 12px;
 	border: 1px solid #26292f;
 	opacity: 0.3;
 	transition: all 0.2s ease-in-out;
@@ -77,6 +88,15 @@
 
 .header__tabs--btn.is-active {
 	opacity: 1;
+
+	border: 1px solid;
+	border-image: conic-gradient(
+			from 0deg,
+			rgba(38, 41, 47, 0.1) 0.1turn,
+			rgba(38, 41, 47, 0.1) 0.1turn,
+			rgba(38, 41, 47, 1) 1turn
+		)
+		1;
 }
 
 .header__text {
@@ -86,7 +106,22 @@
 	margin-bottom: 32px;
 }
 
+.header__text_1 {
+	max-width: 383px;
+}
+
+.header__text_2 {
+	max-width: 350px;
+}
+
+.header__text_3 {
+	max-width: 350px;
+}
+
 .header__btn {
+	display: flex;
+
+	width: fit-content;
 	padding: 16px 24px;
 	background-color: #dd1600;
 	border-radius: 34px;
@@ -103,41 +138,10 @@
 	opacity: 0.4;
 }
 
-@media (max-width: 1600px) {
-	.header__title {
-		max-width: 70%;
-	}
-}
-
-@media (max-width: 1500px) {
-	.header__title {
-		max-width: 76%;
-	}
-}
-
-@media (max-width: 1400px) {
-	.header__title {
-		max-width: 82%;
-	}
-}
-
-@media (max-width: 1300px) {
-	.header__title {
-		max-width: 90%;
-	}
-}
-
-@media (max-width: 1200px) {
-	.header__title {
-		max-width: 100%;
-	}
-}
-
 @media (max-width: 1024px) {
 	.header {
 		padding-bottom: 36px;
 		margin: 20px;
-		height: calc(100vh - 40px);
 	}
 
 	.header__bg-blur {
@@ -163,12 +167,28 @@
 		margin-inline: 36px;
 	}
 
+	.header__title_1 {
+		max-width: 589px;
+	}
+
+	.header__title_2 {
+		max-width: 650px;
+	}
+
+	.header__title_3 {
+		max-width: 728px;
+	}
+
 	.header__content {
 		margin-inline: 36px;
 	}
 }
 
 @media (max-width: 768px) {
+	.header {
+		height: 659px;
+	}
+
 	.header__title {
 		margin-inline: 20px;
 	}
@@ -179,7 +199,21 @@
 }
 
 @media (max-width: 640px) {
+	.header {
+		height: 603px;
+		padding-bottom: 30px;
+	}
+
+	.header__tabs {
+		column-gap: 6px;
+	}
+
+	.header__tabs--btn {
+		padding: 8px 10px;
+	}
+
 	.header__text {
 		margin-bottom: 20px;
+		height: 80px;
 	}
 }

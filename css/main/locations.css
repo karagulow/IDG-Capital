@@ -90,8 +90,14 @@
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	overflow-x: auto;
+	overflow-x: hidden;
 	-webkit-overflow-scrolling: touch;
+}
+
+.map-wrapper::-webkit-scrollbar {
+	display: none;
+	width: 0px;
+	background: rgba(255, 255, 255, 0);
 }
 
 .world-map {
@@ -146,12 +152,19 @@
 }
 
 @media (max-width: 768px) {
+	.world-map {
+		min-width: 850px;
+	}
+}
+
+@media (max-width: 640px) {
 	.locations__list {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
 	.map-wrapper {
 		justify-content: start;
+		overflow-x: scroll;
 	}
 
 	.world-map {

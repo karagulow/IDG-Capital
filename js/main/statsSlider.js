@@ -1,5 +1,5 @@
 const swiper = new Swiper('.stats__wrapper', {
-	slidesPerView: 1,
+	slidesPerView: 1.3,
 	spaceBetween: 16,
 
 	breakpoints: {

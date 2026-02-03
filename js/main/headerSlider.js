@@ -11,6 +11,8 @@ const states = [
 		btnText: 'Our Story',
 		btnLink: '#',
 		bg: '#F2CECA',
+		titleClass: 'header__title_1',
+		textClass: 'header__text_1',
 	},
 	{
 		title: 'Where shared success is our common goal',
@@ -18,6 +20,8 @@ const states = [
 		btnText: 'Our Value',
 		btnLink: '#',
 		bg: '#EEEBE7',
+		titleClass: 'header__title_2',
+		textClass: 'header__text_2',
 	},
 	{
 		title: 'Where global perspective meets local strategy',
@@ -25,6 +29,8 @@ const states = [
 		btnText: 'Case Studies',
 		btnLink: '#',
 		bg: '#E8EBF2',
+		titleClass: 'header__title_3',
+		textClass: 'header__text_3',
 	},
 ];
 
@@ -34,6 +40,14 @@ function applyState(index) {
 	const state = states[index];
 
 	title.textContent = state.title;
+	title.classList.remove(
+		'header__title_1',
+		'header__title_2',
+		'header__title_3',
+	);
+	title.classList.add(state.titleClass);
+	text.classList.remove('header__text_1', 'header__text_2', 'header__text_3');
+	text.classList.add(state.textClass);
 	text.textContent = state.text;
 	btn.textContent = state.btnText;
 	btn.href = state.btnLink;
@@ -54,7 +68,7 @@ headerTabs.forEach(tab => {
 	});
 });
 
-let interval = setInterval(nextState, 15000);
+let interval = setInterval(nextState, 3000);
 
 function nextState() {
 	const next = (current + 1) % states.length;
@@ -63,7 +77,43 @@ function nextState() {
 
 function resetAutoSwitch() {
 	clearInterval(interval);
-	interval = setInterval(nextState, 15000);
+	interval = setInterval(nextState, 3000);
 }
 
 applyState(0);
+
+let touchStartX = 0;
+let touchEndX = 0;
+const SWIPE_THRESHOLD = 50;
+
+header.addEventListener(
+	'touchstart',
+	e => {
+		touchStartX = e.changedTouches[0].clientX;
+	},
+	{ passive: true },
+);
+
+header.addEventListener('touchend', e => {
+	touchEndX = e.changedTouches[0].clientX;
+	handleSwipe();
+});
+
+function handleSwipe() {
+	const diff = touchStartX - touchEndX;
+
+	if (Math.abs(diff) < SWIPE_THRESHOLD) return;
+
+	if (diff > 0) {
+		nextState();
+	} else {
+		prevState();
+	}
+
+	resetAutoSwitch();
+}
+
+function prevState() {
+	const prev = (current - 1 + states.length) % states.length;
+	applyState(prev);
+}
