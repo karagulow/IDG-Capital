@@ -1,13 +1,24 @@
 .not-found {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	background-color: #f7f5f2;
+	overflow: hidden;
+}
 
-	background-image: url(../images/not-found-bg-desktop.svg);
+.not-found__bg {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	width: 100vw;
+	height: 40vh;
+
+	background-image: url('../images/not-found-bg-desktop.svg');
+	background-size: cover;
+	background-position: center top;
 	background-repeat: no-repeat;
-	background-size: auto 80vh;
-	background-position: 70% 170%;
 }
 
 .not-found__content {
@@ -44,17 +55,16 @@
 	opacity: 0.4;
 }
 
-@media (min-width: 2000px) {
-	.not-found {
-		background-size: auto 90vh;
-		background-position: 60% 300%;
+@media (max-width: 1024px) {
+	.not-found__bg {
+		height: 50vh;
+
+		background-image: url('../images/not-found-bg-mobile.svg');
 	}
 }
 
-@media (max-width: 1024px) {
-	.not-found {
-		background-image: url(../images/not-found-bg-mobile.svg);
-		background-size: auto 60vh;
-		background-position: 60% 110%;
+@media (max-width: 400px) {
+	.not-found__bg {
+		height: 40vh;
 	}
 }
