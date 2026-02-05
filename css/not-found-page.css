@@ -6,8 +6,8 @@
 
 	background-image: url(../images/not-found-bg-desktop.svg);
 	background-repeat: no-repeat;
-	background-size: auto 60vh;
-	background-position: 70% 110%;
+	background-size: auto 80vh;
+	background-position: 70% 170%;
 }
 
 .not-found__content {
@@ -44,9 +44,17 @@
 	opacity: 0.4;
 }
 
+@media (min-width: 2000px) {
+	.not-found {
+		background-size: auto 90vh;
+		background-position: 60% 300%;
+	}
+}
+
 @media (max-width: 1024px) {
 	.not-found {
 		background-image: url(../images/not-found-bg-mobile.svg);
+		background-size: auto 60vh;
 		background-position: 60% 110%;
 	}
 }
