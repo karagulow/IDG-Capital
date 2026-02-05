@@ -57,9 +57,16 @@
 
 @media (max-width: 1024px) {
 	.not-found__bg {
+		left: -100px;
+		width: calc(100vw + 100px);
 		height: 50vh;
 
 		background-image: url('../images/not-found-bg-mobile.svg');
+	}
+}
+
+@media (max-width: 640px) {
+	.not-found__bg {
 	}
 }
 
