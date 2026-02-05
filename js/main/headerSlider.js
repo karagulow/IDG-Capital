@@ -39,26 +39,31 @@ let current = 0;
 function applyState(index) {
 	const state = states[index];
 
-	title.textContent = state.title;
-	title.classList.remove(
-		'header__title_1',
-		'header__title_2',
-		'header__title_3',
-	);
-	title.classList.add(state.titleClass);
-	text.classList.remove('header__text_1', 'header__text_2', 'header__text_3');
-	text.classList.add(state.textClass);
-	text.textContent = state.text;
-	btn.textContent = state.btnText;
-	btn.href = state.btnLink;
+	title.classList.add('is-changing');
+	text.classList.add('is-changing');
+	btn.classList.add('is-changing');
 
-	header.style.backgroundColor = state.bg;
+	setTimeout(() => {
+		title.textContent = state.title;
+		text.textContent = state.text;
+		btn.textContent = state.btnText;
+		btn.href = state.btnLink;
 
-	headerTabs.forEach((tab, i) => {
-		tab.classList.toggle('is-active', i === index);
-	});
+		title.className = `accent header__title ${state.titleClass}`;
+		text.className = `body-m header__text ${state.textClass}`;
 
-	current = index;
+		header.style.backgroundColor = state.bg;
+
+		headerTabs.forEach((tab, i) => {
+			tab.classList.toggle('is-active', i === index);
+		});
+
+		title.classList.remove('is-changing');
+		text.classList.remove('is-changing');
+		btn.classList.remove('is-changing');
+
+		current = index;
+	}, 200);
 }
 
 headerTabs.forEach(tab => {
@@ -68,7 +73,7 @@ headerTabs.forEach(tab => {
 	});
 });
 
-let interval = setInterval(nextState, 3000);
+let interval = setInterval(nextState, 6000);
 
 function nextState() {
 	const next = (current + 1) % states.length;
@@ -77,7 +82,7 @@ function nextState() {
 
 function resetAutoSwitch() {
 	clearInterval(interval);
-	interval = setInterval(nextState, 3000);
+	interval = setInterval(nextState, 6000);
 }
 
 applyState(0);

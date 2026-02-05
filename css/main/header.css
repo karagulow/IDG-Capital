@@ -146,6 +146,16 @@
 	opacity: 0.4;
 }
 
+.header__title,
+.header__text,
+.header__btn {
+	transition: opacity 0.35s ease;
+}
+
+.is-changing {
+	opacity: 0;
+}
+
 @media (max-width: 1024px) {
 	.header {
 		padding-bottom: 36px;

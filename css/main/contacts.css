@@ -39,6 +39,15 @@
 	border-radius: 34px;
 	color: #26292f;
 	z-index: 1;
+	transition: all 0.2s ease-in-out;
+}
+
+.contacts__btn:hover {
+	background-color: #d0eaffcc;
+}
+
+.contacts__btn:visited {
+	opacity: 0.4;
 }
 
 @media (min-width: 1400px) {

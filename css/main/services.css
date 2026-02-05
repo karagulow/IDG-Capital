@@ -38,6 +38,15 @@
 	border-radius: 34px;
 
 	color: #d0eaff;
+	transition: all 0.2s ease-in-out;
+}
+
+.services__btn:hover {
+	background-color: #26292fcc;
+}
+
+.services__btn:visited {
+	opacity: 0.4;
 }
 
 .services__list {
