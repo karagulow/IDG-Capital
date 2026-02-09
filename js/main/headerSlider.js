@@ -11,7 +11,6 @@ const states = [
 		btn: {
 			text: 'Our Story',
 			href: '#',
-			// class: '',
 		},
 		bg: '#F2CECA',
 		titleClass: 'header__title_1',
@@ -23,7 +22,6 @@ const states = [
 		btn: {
 			text: 'Our Value',
 			href: '#',
-			// class: 'header__btn--dark',
 		},
 		bg: '#EEEBE7',
 		titleClass: 'header__title_2',
@@ -35,7 +33,6 @@ const states = [
 		btn: {
 			text: 'Case Studies',
 			href: '#',
-			// class: 'header__btn--accent',
 		},
 		bg: '#E8EBF2',
 		titleClass: 'header__title_3',
@@ -44,6 +41,20 @@ const states = [
 ];
 
 let current = 0;
+
+function createHeaderTitle({ title, titleClass }) {
+	const h1 = document.createElement('h1');
+	h1.className = `accent header__title ${titleClass}`;
+	h1.textContent = title;
+	return h1;
+}
+
+function createHeaderText({ text, textClass }) {
+	const p = document.createElement('p');
+	p.className = `body-m header__text ${textClass}`;
+	p.textContent = text;
+	return p;
+}
 
 function createHeaderBtn({ text, href, class: extraClass }) {
 	const a = document.createElement('a');
@@ -56,20 +67,22 @@ function createHeaderBtn({ text, href, class: extraClass }) {
 function applyState(index) {
 	const state = states[index];
 
-	title.classList.add('is-changing');
-	text.classList.add('is-changing');
-
+	const oldTitle = document.querySelector('.header__title');
+	const oldText = document.querySelector('.header__text');
 	const oldBtn = document.querySelector('.header__btn');
+
+	oldTitle.classList.add('is-changing');
+	oldText.classList.add('is-changing');
 	oldBtn.classList.add('is-changing');
 
 	setTimeout(() => {
 		// title
-		title.textContent = state.title;
-		title.className = `accent header__title ${state.titleClass}`;
+		const newTitle = createHeaderTitle(state);
+		oldTitle.replaceWith(newTitle);
 
 		// text
-		text.textContent = state.text;
-		text.className = `body-m header__text ${state.textClass}`;
+		const newText = createHeaderText(state);
+		oldText.replaceWith(newText);
 
 		// button
 		const newBtn = createHeaderBtn(state.btn);
