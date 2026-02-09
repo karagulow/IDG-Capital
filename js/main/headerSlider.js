@@ -8,8 +8,11 @@ const states = [
 	{
 		title: 'Where businesses build for the ages',
 		text: 'For over 30 years, IDG Capital has stood alongside the founders and teams who dare to build lasting companies — journeying with them each step of the way',
-		btnText: 'Our Story',
-		btnLink: '#',
+		btn: {
+			text: 'Our Story',
+			href: '#',
+			// class: '',
+		},
 		bg: '#F2CECA',
 		titleClass: 'header__title_1',
 		textClass: 'header__text_1',
@@ -17,8 +20,11 @@ const states = [
 	{
 		title: 'Where shared success is our common goal',
 		text: 'We work with like-minded businesses – because a shared purpose is the secret to successful partnerships',
-		btnText: 'Our Value',
-		btnLink: '#',
+		btn: {
+			text: 'Our Value',
+			href: '#',
+			// class: 'header__btn--dark',
+		},
 		bg: '#EEEBE7',
 		titleClass: 'header__title_2',
 		textClass: 'header__text_2',
@@ -26,8 +32,11 @@ const states = [
 	{
 		title: 'Where global perspective meets local strategy',
 		text: 'We put our international track record at the service of your ambitions – wherever they may take you',
-		btnText: 'Case Studies',
-		btnLink: '#',
+		btn: {
+			text: 'Case Studies',
+			href: '#',
+			// class: 'header__btn--accent',
+		},
 		bg: '#E8EBF2',
 		titleClass: 'header__title_3',
 		textClass: 'header__text_3',
@@ -36,31 +45,46 @@ const states = [
 
 let current = 0;
 
+function createHeaderBtn({ text, href, class: extraClass }) {
+	const a = document.createElement('a');
+	a.href = href;
+	a.textContent = text;
+	a.className = `button header__btn ${extraClass || ''}`;
+	return a;
+}
+
 function applyState(index) {
 	const state = states[index];
 
 	title.classList.add('is-changing');
 	text.classList.add('is-changing');
-	btn.classList.add('is-changing');
+
+	const oldBtn = document.querySelector('.header__btn');
+	oldBtn.classList.add('is-changing');
 
 	setTimeout(() => {
+		// title
 		title.textContent = state.title;
-		text.textContent = state.text;
-		btn.textContent = state.btnText;
-		btn.href = state.btnLink;
-
 		title.className = `accent header__title ${state.titleClass}`;
+
+		// text
+		text.textContent = state.text;
 		text.className = `body-m header__text ${state.textClass}`;
 
+		// button
+		const newBtn = createHeaderBtn(state.btn);
+		oldBtn.replaceWith(newBtn);
+
+		// bg
 		header.style.backgroundColor = state.bg;
 
+		// tabs
 		headerTabs.forEach((tab, i) => {
 			tab.classList.toggle('is-active', i === index);
 		});
 
 		title.classList.remove('is-changing');
 		text.classList.remove('is-changing');
-		btn.classList.remove('is-changing');
 
 		current = index;
 	}, 200);
