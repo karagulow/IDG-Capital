@@ -21,7 +21,7 @@ const locations = [
 		id: 'cayman',
 		region: 'americas',
 		title: 'Cayman',
-		text: 'Boston University Innovate@BU<br />730 Commonwealth Ave.<br />Brookline, MA 02446',
+		text: 'Suite 15, The Grand Pavilion Commercial Centre, 802 West Bay Road, Cayman Islands KY1-1206',
 	},
 	{
 		id: 'barcelona',
@@ -60,6 +60,12 @@ const locations = [
 		text: 'Unit 025E, 4th Floor, Centec Tower<br />72-74 Nguyen Thi Minh Khai Street, Ward 6, District 3<br />Ho Chi Minh city, Vietnam<br />Tel: (84-8) 3827-8888<br />Fax: (84-8) 3827-8899',
 	},
 	{
+		id: 'muscat',
+		region: 'asia',
+		title: 'Muscat',
+		text: 'HCXF+RG4, Muscat, Oman',
+	},
+	{
 		id: 'seoul',
 		region: 'asia',
 		title: 'Seoul',
@@ -83,12 +89,6 @@ const locations = [
 		region: 'asia',
 		title: 'Singapore',
 		text: '83 Amoy Street, #01-01<br />Singapore 069902<br />Tel: +65 – 6974 1320',
-	},
-	{
-		id: 'muscat',
-		region: 'asia',
-		title: 'Muscat',
-		text: '1345 Avenue of Americas 33rd Floor, New York, NY 10105<br />Tel:212-337-5200',
 	},
 ];
 
