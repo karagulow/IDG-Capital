@@ -12,7 +12,7 @@
 	overflow: hidden;
 }
 
-.contacts__bg-mobile {
+/* .contacts__bg-mobile {
 	display: none;
 	position: absolute;
 	bottom: 0;
@@ -26,7 +26,7 @@
 	background-size: cover;
 	background-position: center top;
 	background-repeat: no-repeat;
-}
+} */
 
 .contacts__bg-desktop {
 	position: absolute;
@@ -104,7 +104,8 @@
 	}
 
 	.contacts__bg-desktop {
-		display: none;
+		/* display: none; */
+		pointer-events: none;
 		bottom: -10%;
 	}
 }
