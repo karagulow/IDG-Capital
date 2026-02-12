@@ -1,6 +1,8 @@
 const header = document.querySelector('.header');
+let titleEl = document.querySelector('.header__title');
+let textEl = document.querySelector('.header__text');
+let btnEl = document.querySelector('.header__btn');
 const headerTabs = document.querySelectorAll('.header__tabs--btn');
-const TRANSITION_DURATION = 400;
 
 const states = [
 	{
@@ -39,72 +41,55 @@ const states = [
 ];
 
 let current = 0;
+let pendingTimeout = null;
+const TRANSITION_MS = 350;
 
-function createHeaderTitle({ title, titleClass }) {
-	const h1 = document.createElement('h1');
-	h1.className = `accent header__title ${titleClass}`;
-	h1.textContent = title;
-	return h1;
+function updateContent(state) {
+	titleEl.className = `accent header__title ${state.titleClass}`;
+	titleEl.textContent = state.title;
+
+	textEl.className = `body-l header__text ${state.textClass}`;
+	textEl.textContent = state.text;
+
+	btnEl.textContent = state.btn.text;
+	btnEl.href = state.btn.href;
 }
 
-function createHeaderText({ text, textClass }) {
-	const p = document.createElement('p');
-	p.className = `body-l header__text ${textClass}`;
-	p.textContent = text;
-	return p;
-}
-
-function createHeaderBtn({ text, href, class: extraClass }) {
-	const a = document.createElement('a');
-	a.href = href;
-	a.textContent = text;
-	a.className = `button header__btn ${extraClass || ''}`;
-	return a;
-}
-
-function applyState(index) {
+function applyState(index, { immediate = false } = {}) {
 	const state = states[index];
 
-	const oldTitle = document.querySelector('.header__title');
-	const oldText = document.querySelector('.header__text');
-	const oldBtn = document.querySelector('.header__btn');
+	if (pendingTimeout) clearTimeout(pendingTimeout);
 
-	oldTitle.classList.add('is-changing');
-	oldText.classList.add('is-changing');
-	oldBtn.classList.add('is-changing');
-
-	setTimeout(() => {
-		// title
-		const newTitle = createHeaderTitle(state);
-		newTitle.classList.add('is-changing');
-		oldTitle.replaceWith(newTitle);
-
-		// text
-		const newText = createHeaderText(state);
-		newText.classList.add('is-changing');
-		oldText.replaceWith(newText);
-
-		// button
-		const newBtn = createHeaderBtn(state.btn);
-		newBtn.classList.add('is-changing');
-		oldBtn.replaceWith(newBtn);
-
-		// bg
+	const applyShared = () => {
 		header.style.backgroundColor = state.bg;
 
-		// tabs
 		headerTabs.forEach((tab, i) => {
 			tab.classList.toggle('is-active', i === index);
 		});
 
-		requestAnimationFrame(() => {
-			newTitle.classList.remove('is-changing');
-			newText.classList.remove('is-changing');
-			newBtn.classList.remove('is-changing');
-		});
-
 		current = index;
-	}, TRANSITION_DURATION);
+	};
+
+	if (immediate) {
+		updateContent(state);
+		applyShared();
+		return;
+	}
+
+	if (index === current) return;
+
+	[titleEl, textEl, btnEl].forEach(el => el && el.classList.add('is-changing'));
+
+	pendingTimeout = setTimeout(() => {
+		updateContent(state);
+		applyShared();
+
+		requestAnimationFrame(() => {
+			[titleEl, textEl, btnEl].forEach(
+				el => el && el.classList.remove('is-changing'),
+			);
+		});
+	}, TRANSITION_MS);
 }
 
 headerTabs.forEach(tab => {
@@ -126,7 +111,7 @@ function resetAutoSwitch() {
 	interval = setInterval(nextState, 6000);
 }
 
-applyState(0);
+applyState(0, { immediate: true });
 
 let touchStartX = 0;
 let touchEndX = 0;

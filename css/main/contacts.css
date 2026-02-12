@@ -12,7 +12,8 @@
 	overflow: hidden;
 }
 
-.contacts__bg {
+.contacts__bg-mobile {
+	display: none;
 	position: absolute;
 	bottom: 0;
 	left: 50%;
@@ -27,7 +28,7 @@
 	background-repeat: no-repeat;
 }
 
-/* .contacts__bg {
+.contacts__bg-desktop {
 	position: absolute;
 	width: max(1460px, 100%);
 	height: max(600px, 50vw);
@@ -35,7 +36,7 @@
 	bottom: -20%;
 	left: 50%;
 	transform: translateX(-50%);
-} */
+}
 
 .contacts__title {
 	color: #f7f5f2;
@@ -65,29 +66,29 @@
 	opacity: 0.4;
 }
 
-/* @media (min-width: 1400px) {
-	.contacts__bg {
+@media (min-width: 1400px) {
+	.contacts__bg-desktop {
 		bottom: -30%;
 	}
 }
 
 @media (min-width: 1600px) {
-	.contacts__bg {
+	.contacts__bg-desktop {
 		bottom: -40%;
 	}
 }
 
 @media (min-width: 1800px) {
-	.contacts__bg {
+	.contacts__bg-desktop {
 		bottom: -50%;
 	}
 }
 
 @media (min-width: 2000px) {
-	.contacts__bg {
+	.contacts__bg-desktop {
 		bottom: -60%;
 	}
-} */
+}
 
 @media (max-width: 1024px) {
 	.contacts {
@@ -96,14 +97,16 @@
 		margin: 20px;
 	}
 
-	.contacts__bg {
+	.contacts__bg-mobile {
+		display: block;
 		width: 140vw;
 		height: 46%;
 	}
 
-	/* .contacts__bg {
+	.contacts__bg-desktop {
+		display: none;
 		bottom: -10%;
-	} */
+	}
 }
 
 @media (max-width: 640px) {
@@ -115,7 +118,7 @@
 		margin: 12px;
 	}
 
-	.contacts__bg {
+	.contacts__bg-mobile {
 		width: 200vw;
 		height: 50%;
 	}
