@@ -1,6 +1,6 @@
 const header = document.querySelector('.header');
 const headerTabs = document.querySelectorAll('.header__tabs--btn');
-const TRANSITION_DURATION = 400;
+const TRANSITION_DURATION = 200;
 
 const states = [
 	{
