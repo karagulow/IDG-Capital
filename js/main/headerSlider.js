@@ -89,6 +89,10 @@ function applyState(index) {
 		newBtn.classList.add('is-changing');
 		oldBtn.replaceWith(newBtn);
 
+		newTitle.offsetHeight;
+		newText.offsetHeight;
+		newBtn.offsetHeight;
+
 		// bg
 		header.style.backgroundColor = state.bg;
 
