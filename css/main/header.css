@@ -238,6 +238,13 @@
 		height: 659px;
 	}
 
+	.header__bg {
+		bottom: -40%;
+		width: 200vw;
+		height: 100vh;
+		pointer-events: none;
+	}
+
 	.header__title {
 		margin-inline: 20px;
 	}
@@ -253,10 +260,6 @@
 		padding-bottom: 30px;
 		margin: 12px;
 	}
-
-	/* .header__bg {
-		width: 200vw;
-	} */
 
 	.header__tabs {
 		column-gap: 6px;
