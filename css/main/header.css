@@ -21,11 +21,11 @@
 .header__bg {
 	position: absolute;
 	z-index: 0;
-	bottom: -40%;
+	bottom: -25%;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 100vw;
-	height: 130vh;
+	width: 100%;
+	height: 100%;
 }
 
 .header__bg-blur {
@@ -254,10 +254,9 @@
 		margin: 12px;
 	}
 
-	.header__bg {
+	/* .header__bg {
 		width: 200vw;
-		height: 100vh;
-	}
+	} */
 
 	.header__tabs {
 		column-gap: 6px;

@@ -560,18 +560,25 @@ let fboA = null,
 	fboB = null;
 
 function resize() {
+	const rect = document.querySelector('.header').getBoundingClientRect();
+
 	dpr = window.devicePixelRatio || 1;
-	w = innerWidth;
-	h = innerHeight;
+
+	w = rect.width;
+	h = rect.height;
+
 	canvas.width = w * dpr;
 	canvas.height = h * dpr;
-	gl.viewport(0, 0, w * dpr, h * dpr);
+
+	gl.viewport(0, 0, canvas.width, canvas.height);
 
 	const bw = Math.max(1, Math.floor(w * dpr * SETTINGS.blurScale));
 	const bh = Math.max(1, Math.floor(h * dpr * SETTINGS.blurScale));
+
 	fboA = createFBO(bw, bh);
 	fboB = createFBO(bw, bh);
 }
+
 window.addEventListener('resize', resize);
 
 /* =========================
@@ -766,11 +773,15 @@ function draw() {
    INPUT
    ========================= */
 window.addEventListener('mousemove', e => {
-	mouseX = e.clientX;
-	mouseY = e.clientY;
+	const rect = canvas.getBoundingClientRect();
+
+	mouseX = e.clientX - rect.left;
+	mouseY = e.clientY - rect.top;
+
 	lastMoveTime = performance.now();
 	hoverLevel = Math.min(1, hoverLevel + HOVER_IMPULSE);
 });
+
 window.addEventListener(
 	'touchmove',
 	e => {
