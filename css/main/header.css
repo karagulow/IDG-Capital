@@ -20,12 +20,12 @@
 
 .header__bg {
 	position: absolute;
-	height: 110vh;
 	z-index: 0;
 	bottom: -40%;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 100vw;
+	height: 130vh;
 }
 
 .header__bg-blur {
@@ -256,6 +256,7 @@
 
 	.header__bg {
 		width: 200vw;
+		height: 100vh;
 	}
 
 	.header__tabs {
