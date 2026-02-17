@@ -1,0 +1,130 @@
+.history {
+	padding: 140px 0 130px;
+	background-color: #f7f5f2;
+}
+
+.history__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 80px;
+}
+
+.history__title {
+	color: #26292f;
+	text-align: center;
+}
+
+.history__list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 120px;
+}
+
+.history__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 24px;
+
+	position: relative;
+	opacity: 0.2;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.history__item.active {
+	opacity: 1;
+}
+
+.history__item::after {
+	content: '';
+	position: absolute;
+	width: 1px;
+	background-color: #22273433;
+	left: 50%;
+	top: calc(100% + 20px);
+	bottom: -100px;
+	transform: translateX(-50%);
+}
+
+.history__item:last-child::after {
+	display: none;
+}
+
+.history__item--title {
+	color: #dd1600;
+	text-align: center;
+}
+
+.history__item--year {
+	letter-spacing: -2px;
+	color: #26292f;
+}
+
+.history__item--content {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 16px;
+}
+
+.history__item--text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: #eeebe7;
+	padding: 20px;
+	width: 264px;
+	height: -webkit-fill-available;
+
+	text-align: center;
+	color: #22273499;
+	letter-spacing: 0.1px;
+}
+
+@media (max-width: 1024px) {
+	.history {
+		padding: 80px 0;
+	}
+
+	.history__wrapper {
+		row-gap: 60px;
+	}
+
+	.history__item {
+		row-gap: 20px;
+	}
+}
+
+@media (max-width: 640px) {
+	.history__wrapper {
+		row-gap: 42px;
+	}
+
+	.history__list {
+		row-gap: 92px;
+	}
+
+	.history__item {
+		row-gap: 24px;
+		width: 100%;
+	}
+
+	.history__item::after {
+		top: calc(100% + 16px);
+		bottom: -76px;
+	}
+
+	.history__item--content {
+		flex-direction: column;
+		row-gap: 8px;
+		width: 100%;
+	}
+
+	.history__item--text {
+		width: 100%;
+		height: fit-content;
+	}
+}

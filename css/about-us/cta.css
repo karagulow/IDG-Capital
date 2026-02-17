@@ -1,0 +1,90 @@
+.cta {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 556px;
+	margin: 20px;
+	background-color: #d0eaff;
+}
+
+.cta__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 40px;
+}
+
+.cta__title {
+	color: #26292f;
+	max-width: 496px;
+	text-align: center;
+}
+
+.cta__btns {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 12px;
+}
+
+.cta__btn {
+	padding: 16px 24px;
+	border-radius: 34px;
+}
+
+.btn-portfolio {
+	background-color: #f7f5f2;
+	color: #26292f;
+}
+
+.btn-contact {
+	background-color: #26292f;
+	color: #d0eaff;
+
+	transition: all 0.2s ease-in-out;
+}
+
+.btn-contact:hover {
+	background-color: #26292fcc;
+}
+
+.btn-contact:visited {
+	opacity: 0.4;
+}
+
+@media (max-width: 1024px) {
+	.cta {
+		align-items: start;
+		height: 589px;
+	}
+
+	.cta__wrapper {
+		margin-top: 56px;
+		row-gap: 32px;
+	}
+
+	.cta__title {
+		max-width: 457px;
+	}
+}
+
+@media (max-width: 640px) {
+	.cta {
+		height: 543px;
+		margin: 12px;
+	}
+
+	.cta__wrapper {
+		margin-top: 60px;
+		padding-inline: 20px;
+	}
+
+	.cta__title {
+		width: 100%;
+	}
+
+	.cta__btn {
+		padding: 15px 24px;
+	}
+}
