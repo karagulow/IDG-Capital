@@ -285,29 +285,50 @@ const businesses = [
 
 const listEl = document.querySelector('.businesses__list');
 
+function getPageSize() {
+	const width = window.innerWidth;
+
+	if (width < 640) return 4;
+	if (width < 1100) return 6;
+	return 8;
+}
+
+let visibleCount = getPageSize();
+let currentItems = [...businesses];
+
+const moreBtn = document.querySelector('.businesses__more-btn');
+
 function renderList(items) {
 	listEl.innerHTML = '';
 
 	if (!items.length) {
 		listEl.innerHTML = '<li class="caption">No results</li>';
+		moreBtn.style.display = 'none';
 		return;
 	}
 
-	items.forEach(({ name, logo, sector, region }) => {
+	items.slice(0, visibleCount).forEach(({ name, logo, sector, region }) => {
 		const li = document.createElement('li');
 		li.className = 'businesses__item';
 
 		li.innerHTML = `
-      <img class="businesses__item--logo" src="${logo}" alt="${name}" />
-      <div class="businesses__item--tags">
-        <p class="caption businesses__item--tag">${region.toUpperCase()}</p>
-        <p class="caption businesses__item--tag">${sector.toUpperCase()}</p>
-      </div>
-    `;
+			<img class="businesses__item--logo" src="${logo}" alt="${name}" />
+			<div class="businesses__item--tags">
+				<p class="caption businesses__item--tag">${region}</p>
+				<p class="caption businesses__item--tag">${sector}</p>
+			</div>
+		`;
 
 		listEl.appendChild(li);
 	});
+
+	moreBtn.style.display = visibleCount < items.length ? 'block' : 'none';
 }
+
+moreBtn.addEventListener('click', () => {
+	visibleCount += getPageSize();
+	renderList(currentItems);
+});
 
 const filters = {
 	search: '',
@@ -320,18 +341,26 @@ function applyFilters() {
 		const matchSearch = item.name.toLowerCase().includes(filters.search);
 
 		const matchSector =
-			filters.sector === 'all' ||
-			item.sector.trim().toLowerCase() === filters.sector;
+			filters.sector === 'all' || item.sector.toLowerCase() === filters.sector;
 
 		const matchRegion =
-			filters.region === 'all' ||
-			item.region.trim().toLowerCase() === filters.region;
+			filters.region === 'all' || item.region.toLowerCase() === filters.region;
 
 		return matchSearch && matchSector && matchRegion;
 	});
 
-	renderList(filtered);
+	currentItems = filtered;
+	visibleCount = getPageSize();
+	renderList(currentItems);
 }
+
+window.addEventListener('resize', () => {
+	const newSize = getPageSize();
+	if (visibleCount < newSize) {
+		visibleCount = newSize;
+		renderList(currentItems);
+	}
+});
 
 const searchInput = document.querySelector('.businesses__search');
 
