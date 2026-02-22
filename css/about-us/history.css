@@ -65,7 +65,7 @@
 .history__item--content {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	align-items: stretch;
 	column-gap: 16px;
 }
 
@@ -77,7 +77,6 @@
 	background-color: #eeebe7;
 	padding: 20px;
 	width: 264px;
-	height: -webkit-fill-available;
 
 	text-align: center;
 	color: #22273499;

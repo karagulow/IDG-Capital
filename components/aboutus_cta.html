@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Lines</title>
+  <style>body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+#c {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background: transparent;
+  z-index: 0;
+}</style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <script>
+(function() {
+  'use strict';
+
+  function initAnimation() {
+    try {
+      
+      let SETTINGS = {
+        "lineSpacing": 38,
+        "lineCount": 24,
+        "verticalMode": false,
+        "maxThickness": 15,
+        "minThickness": 0,
+        "breakThreshold": 0.1,
+        "edgeFeather": 6,
+        "bumpCount": 4,
+        "bumpWidth": 0.24,
+        "xJitter": 0,
+        "yEnvelope": 0.7,
+        "panelWidth": 1.12,
+        "trapezoidSkew": -0.15,
+        "centerX": 0.5,
+        "bumpSpread": 0.8,
+        "bumpSharpness": 1,
+        "bumpAmp": 1,
+        "shapeSoftness": 0.16,
+        "yOffset": 0,
+        "isAnimating": true,
+        "waveSpeed": 2.2,
+        "waveAmp": 0.65,
+        "waveFreqX": 2,
+        "waveFreqY": 0,
+        "hoverRadius": 100,
+        "hoverNeighborRadius": 300,
+        "hoverYSpread": 70,
+        "hoverStrength": 0.4,
+        "hoverFreq": 2,
+        "color": "#476296",
+        "alphaMin": 0.2,
+        "alphaMax": 1,
+        "blurRadius": 2,
+        "blurScale": 0.5,
+        "ditherStrength": 0.1,
+        "ditherScale": 6,
+        "ditherOnly": 0
+      };
+      
+      /* =========================
+         HOVER INERTIA
+         ========================= */
+      let hoverLevel = 0;
+      let hoverTarget = 0;
+      let lastMoveTime = 0;
+      const HOVER_ATTACK = 124.0;
+      const HOVER_RELEASE = 12.0;
+      const HOVER_IMPULSE = 0.35;
+      const HOVER_IDLE_MS = 240;
+      
+      /* =========================
+         WEBGL
+         ========================= */
+      const canvas = document.getElementById('c');
+      const gl = canvas.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: true });
+      if (!gl) throw new Error('WebGL not supported');
+      
+      let w = 0, h = 0, dpr = 1;
+      let mouseX = 0, mouseY = 0;
+      
+      const quadVtx = new Float32Array([
+        -1, -1, 0, 0,
+         1, -1, 1, 0,
+        -1,  1, 0, 1,
+         1,  1, 1, 1
+      ]);
+      
+      function createShader(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+        return s;
+      }
+      function createProgram(vs, fs) {
+        const p = gl.createProgram();
+        gl.attachShader(p, createShader(gl.VERTEX_SHADER, vs));
+        gl.attachShader(p, createShader(gl.FRAGMENT_SHADER, fs));
+        gl.linkProgram(p);
+        if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+        return p;
+      }
+      
+      const VERT = `
+      attribute vec2 aPos;
+      attribute vec2 aUV;
+      varying vec2 vUV;
+      void main() {
+        vUV = aUV;
+        gl_Position = vec4(aPos, 0.0, 1.0);
+      }
+      `;
+      
+      const FRAG_LINES = `
+      precision mediump float;
+      varying vec2 vUV;
+      uniform vec2 uRes;
+      uniform float uTime;
+      uniform vec2 uMouse;
+      
+      uniform float lineSpacing;
+      uniform float lineCount;
+      uniform float verticalMode;
+      uniform float maxThickness;
+      uniform float minThickness;
+      uniform float breakThreshold;
+      uniform float edgeFeather;
+      
+      uniform float bumpCount;
+      uniform float bumpWidth;
+      uniform float xJitter;
+      uniform float yEnvelope;
+      
+      uniform float panelWidth;
+      uniform float trapezoidSkew;
+      uniform float centerX;
+      uniform float bumpSpread;
+      uniform float bumpSharpness;
+      uniform float bumpAmp;
+      uniform float shapeSoftness;
+      uniform float yOffset;
+      
+      uniform float waveSpeed;
+      uniform float waveAmp;
+      uniform float isAnimating;
+      uniform float waveFreqX;
+      uniform float waveFreqY;
+      
+      uniform float hoverRadius;
+      uniform float hoverNeighborRadius;
+      uniform float hoverYSpread;
+      uniform float hoverStrength;
+      uniform float hoverFreq;
+      uniform float hoverLevel;
+      
+      uniform vec3 baseColor;
+      uniform float alphaMin;
+      uniform float alphaMax;
+      float hash(float n){ return fract(sin(n)*43758.5453); }
+      
+      float bumps(float x, float rowId){
+        float t = 0.0;
+        float sharp = max(0.2, bumpSharpness);
+        float spread = max(0.01, bumpSpread);
+        for (int i=0; i<5; i++){
+          if (float(i) >= bumpCount) break;
+          float seed = rowId*100.0 + float(i)*37.7;
+          float cx = centerX + (hash(seed) - 0.5) * spread;
+          float amp = bumpAmp * (0.5 + 0.5*hash(seed+11.1));
+          float w = bumpWidth*(0.6 + 0.8*hash(seed+22.2));
+          float dx = (x - cx)/w;
+          t += amp * exp(-pow(abs(dx), 2.0 * sharp));
+        }
+        return t;
+      }
+      
+      void main(){
+        vec2 uv = vUV;
+        float isVertical = step(0.5, verticalMode);
+        float alongUV = mix(uv.x, uv.y, isVertical);
+        float alongPx = mix(uv.x * uRes.x, uv.y * uRes.y, isVertical);
+        float acrossPx = mix(uv.y * uRes.y, uv.x * uRes.x, isVertical);
+        float acrossRes = mix(uRes.y, uRes.x, isVertical);
+        float alongMouse = mix(uMouse.x, uMouse.y, isVertical);
+        float acrossMouse = mix(uMouse.y, uMouse.x, isVertical);
+      
+        float count = max(1.0, lineCount);
+        float span = count * lineSpacing;
+        float bandStart = 0.5 * (acrossRes - span);
+        float row = floor((acrossPx - bandStart) / lineSpacing);
+        if (row < 0.0 || row >= count) discard;
+        float rowCenter = bandStart + (row + 0.5) * lineSpacing;
+      
+        float ny = ((row + 0.5) / count) * 2.0 - 1.0;
+        float nyShifted = ny - yOffset;
+        float env = exp(-nyShifted*nyShifted * (2.5 / yEnvelope));
+      
+        float xDist = abs(alongUV - centerX);
+        float trapezoidWidth = max(0.01, panelWidth * (1.0 + trapezoidSkew * nyShifted));
+        float edgeStart = trapezoidWidth * 0.5;
+        float edgeEnd = max(0.0, edgeStart - max(0.01, shapeSoftness));
+        float xEnv = smoothstep(edgeStart, edgeEnd, xDist);
+      
+        float t = bumps(alongUV, row);
+        float jitter = (hash(row*999.0 + alongUV*17.3) - 0.5) * xJitter;
+        t = max(0.0, t + jitter);
+      
+        float thickness = minThickness + t * maxThickness * env * xEnv;
+        float thicknessNorm = thickness / (maxThickness + minThickness + 0.0001);
+      
+        if (thicknessNorm < breakThreshold) discard;
+      
+        float wave = 1.0;
+        if (isAnimating > 0.5) {
+          float phaseX = alongUV * 6.28318 * waveFreqX;
+          float phaseY = ny * 3.14159 * waveFreqY;
+          float phase = phaseX + phaseY;
+          float wv = 0.5 + 0.5 * sin(phase - uTime*waveSpeed);
+          wave = mix(1.0 - waveAmp, 1.0, wv);
+        }
+      
+        thickness *= wave;
+      
+        float dx = abs(alongPx - alongMouse);
+        float dy = abs(rowCenter - acrossMouse);
+      
+        float core = smoothstep(hoverYSpread, 0.0, dy);
+        float localRadius = mix(hoverNeighborRadius, hoverRadius, core);
+      
+        float falloffX = smoothstep(localRadius, 0.0, dx);
+        float falloffY = smoothstep(hoverYSpread, 0.0, dy);
+        float falloff = falloffX * falloffY * hoverLevel;
+      
+        float ripple = sin((alongPx - alongMouse) * hoverFreq * 0.02 - uTime * 6.0)
+                     * hoverStrength * falloff;
+      
+        thickness *= (1.0 + ripple);
+      
+        float dist = abs(acrossPx - rowCenter);
+        float edge = smoothstep(thickness*0.5, thickness*0.5 - edgeFeather, dist);
+      
+        float alpha = mix(alphaMin, alphaMax, thicknessNorm) * edge;
+        gl_FragColor = vec4(baseColor * alpha, alpha);
+      }
+      `;
+      
+      const FRAG_BLUR = `
+      precision mediump float;
+      varying vec2 vUV;
+      uniform sampler2D uTex;
+      uniform vec2 uRes;
+      uniform vec2 uDir;
+      uniform float blurRadius;
+      
+      void main(){
+        vec2 px = uDir / uRes;
+        float r = blurRadius;
+      
+        vec4 sum = vec4(0.0);
+        sum += texture2D(uTex, vUV) * 0.227027;
+        sum += texture2D(uTex, vUV + px * r * 1.384615) * 0.316216;
+        sum += texture2D(uTex, vUV - px * r * 1.384615) * 0.316216;
+        sum += texture2D(uTex, vUV + px * r * 3.230769) * 0.070270;
+        sum += texture2D(uTex, vUV - px * r * 3.230769) * 0.070270;
+      
+        gl_FragColor = sum;
+      }
+      `;
+      
+      const FRAG_DITHER = `
+      precision mediump float;
+      varying vec2 vUV;
+      uniform sampler2D uTex;
+      uniform float ditherStrength;
+      uniform float ditherScale;
+      uniform float ditherOnly;
+      
+      float rand(vec2 co){
+        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+      }
+      
+      void main(){
+        vec4 c = texture2D(uTex, vUV);
+        float n = rand(vUV * ditherScale);
+      
+        float mask = smoothstep(0.0, 0.15, c.a);
+        float a = c.a;
+      
+        float d = step(n, a);
+        if (ditherOnly > 0.5) {
+          a = d * a;
+        } else {
+          a = mix(a, d * a, ditherStrength);
+        }
+      
+        gl_FragColor = vec4(c.rgb, a);
+      }
+      `;
+      
+      const progLines = createProgram(VERT, FRAG_LINES);
+      const progBlur = createProgram(VERT, FRAG_BLUR);
+      const progDither = createProgram(VERT, FRAG_DITHER);
+      
+      const vbo = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+      gl.bufferData(gl.ARRAY_BUFFER, quadVtx, gl.STATIC_DRAW);
+      
+      function setupAttribs(prog){
+        gl.useProgram(prog);
+        const aPos = gl.getAttribLocation(prog, 'aPos');
+        const aUV = gl.getAttribLocation(prog, 'aUV');
+        gl.enableVertexAttribArray(aPos);
+        gl.enableVertexAttribArray(aUV);
+        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 16, 0);
+        gl.vertexAttribPointer(aUV, 2, gl.FLOAT, false, 16, 8);
+      }
+      
+      /* =========================
+         FBO
+         ========================= */
+      function createFBO(w, h){
+        const tex = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, tex);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+      
+        const fbo = gl.createFramebuffer();
+        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
+        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+      
+        return { fbo, tex, w, h };
+      }
+      
+      let fboA = null, fboB = null;
+      
+      function resize(){
+        dpr = window.devicePixelRatio || 1;
+        w = innerWidth; h = innerHeight;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        gl.viewport(0, 0, w * dpr, h * dpr);
+      
+        const bw = Math.max(1, Math.floor(w * dpr * SETTINGS.blurScale));
+        const bh = Math.max(1, Math.floor(h * dpr * SETTINGS.blurScale));
+        fboA = createFBO(bw, bh);
+        fboB = createFBO(bw, bh);
+      }
+      window.addEventListener('resize', resize);
+      
+      /* =========================
+         DRAW
+         ========================= */
+      function hexToRGB(hex){
+        const c = hex.replace('#','');
+        const bigint = parseInt(c, 16);
+        return [
+          ((bigint >> 16) & 255) / 255,
+          ((bigint >> 8) & 255) / 255,
+          (bigint & 255) / 255
+        ];
+      }
+      
+      function updateHover(){
+        const now = performance.now();
+        hoverTarget = (now - lastMoveTime < HOVER_IDLE_MS) ? 1 : 0;
+        const dt = 1 / 60;
+        if (hoverTarget > hoverLevel) hoverLevel += (hoverTarget - hoverLevel) * HOVER_ATTACK * dt;
+        else hoverLevel += (hoverTarget - hoverLevel) * HOVER_RELEASE * dt;
+      }
+      
+      function renderLines(){
+        gl.bindFramebuffer(gl.FRAMEBUFFER, fboA.fbo);
+        gl.viewport(0, 0, fboA.w, fboA.h);
+        gl.clearColor(0,0,0,0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+      
+        setupAttribs(progLines);
+        gl.useProgram(progLines);
+      
+        const color = hexToRGB(SETTINGS.color);
+        gl.uniform2f(gl.getUniformLocation(progLines, 'uRes'), fboA.w, fboA.h);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'uTime'), performance.now()*0.001);
+        gl.uniform2f(gl.getUniformLocation(progLines, 'uMouse'), mouseX*dpr*SETTINGS.blurScale, (h - mouseY)*dpr*SETTINGS.blurScale);
+      
+        const lineSpacingPx = SETTINGS.lineSpacing * dpr * SETTINGS.blurScale;
+        gl.uniform1f(gl.getUniformLocation(progLines, 'lineSpacing'), lineSpacingPx);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'lineCount'), SETTINGS.lineCount);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'verticalMode'), SETTINGS.verticalMode ? 1 : 0);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'maxThickness'), SETTINGS.maxThickness * dpr * SETTINGS.blurScale);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'minThickness'), SETTINGS.minThickness * dpr * SETTINGS.blurScale);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'breakThreshold'), SETTINGS.breakThreshold);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'edgeFeather'), SETTINGS.edgeFeather * dpr * SETTINGS.blurScale);
+      
+        gl.uniform1f(gl.getUniformLocation(progLines, 'bumpCount'), SETTINGS.bumpCount);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'bumpWidth'), SETTINGS.bumpWidth);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'xJitter'), SETTINGS.xJitter);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'yEnvelope'), SETTINGS.yEnvelope);
+      
+        gl.uniform1f(gl.getUniformLocation(progLines, 'panelWidth'), SETTINGS.panelWidth);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'trapezoidSkew'), SETTINGS.trapezoidSkew);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'centerX'), SETTINGS.centerX);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'bumpSpread'), SETTINGS.bumpSpread);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'bumpSharpness'), SETTINGS.bumpSharpness);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'bumpAmp'), SETTINGS.bumpAmp);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'shapeSoftness'), SETTINGS.shapeSoftness);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'yOffset'), SETTINGS.yOffset);
+      
+        gl.uniform1f(gl.getUniformLocation(progLines, 'waveSpeed'), SETTINGS.waveSpeed);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'waveAmp'), SETTINGS.waveAmp);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'isAnimating'), SETTINGS.isAnimating ? 1 : 0);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'waveFreqX'), SETTINGS.waveFreqX);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'waveFreqY'), SETTINGS.waveFreqY);
+      
+        gl.uniform1f(gl.getUniformLocation(progLines, 'hoverRadius'), SETTINGS.hoverRadius * dpr * SETTINGS.blurScale);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'hoverNeighborRadius'), SETTINGS.hoverNeighborRadius * dpr * SETTINGS.blurScale);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'hoverYSpread'), SETTINGS.hoverYSpread * dpr * SETTINGS.blurScale);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'hoverStrength'), SETTINGS.hoverStrength);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'hoverFreq'), SETTINGS.hoverFreq);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'hoverLevel'), hoverLevel);
+      
+        gl.uniform3f(gl.getUniformLocation(progLines, 'baseColor'), color[0], color[1], color[2]);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'alphaMin'), SETTINGS.alphaMin);
+        gl.uniform1f(gl.getUniformLocation(progLines, 'alphaMax'), SETTINGS.alphaMax);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+      
+      function blurPass(inputTex, outputFBO, dir){
+        gl.bindFramebuffer(gl.FRAMEBUFFER, outputFBO ? outputFBO.fbo : null);
+        gl.viewport(0, 0, outputFBO ? outputFBO.w : w*dpr, outputFBO ? outputFBO.h : h*dpr);
+      
+        setupAttribs(progBlur);
+        gl.useProgram(progBlur);
+      
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, inputTex);
+        gl.uniform1i(gl.getUniformLocation(progBlur, 'uTex'), 0);
+        gl.uniform2f(gl.getUniformLocation(progBlur, 'uRes'), fboA.w, fboA.h);
+        gl.uniform2f(gl.getUniformLocation(progBlur, 'uDir'), dir[0], dir[1]);
+        gl.uniform1f(gl.getUniformLocation(progBlur, 'blurRadius'), SETTINGS.blurRadius);
+      
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+      
+      function ditherPass(inputTex){
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+        gl.viewport(0, 0, w*dpr, h*dpr);
+      
+        setupAttribs(progDither);
+        gl.useProgram(progDither);
+      
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, inputTex);
+        gl.uniform1i(gl.getUniformLocation(progDither, 'uTex'), 0);
+        gl.uniform1f(gl.getUniformLocation(progDither, 'ditherStrength'), SETTINGS.ditherStrength);
+        gl.uniform1f(gl.getUniformLocation(progDither, 'ditherScale'), SETTINGS.ditherScale);
+        gl.uniform1f(gl.getUniformLocation(progDither, 'ditherOnly'), SETTINGS.ditherOnly ? 1 : 0);
+      
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+      
+      function draw(){
+        updateHover();
+        renderLines();
+      
+        if (SETTINGS.blurRadius > 0.01) {
+          blurPass(fboA.tex, fboB, [1,0]);
+          blurPass(fboB.tex, fboA, [0,1]);
+          ditherPass(fboA.tex);
+        } else {
+          ditherPass(fboA.tex);
+        }
+      
+        requestAnimationFrame(draw);
+      }
+      
+      /* =========================
+         INPUT
+         ========================= */
+      window.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        lastMoveTime = performance.now();
+        hoverLevel = Math.min(1, hoverLevel + HOVER_IMPULSE);
+      });
+      window.addEventListener('touchmove', e => {
+        const t = e.touches[0];
+        mouseX = t.clientX;
+        mouseY = t.clientY;
+        lastMoveTime = performance.now();
+        hoverLevel = Math.min(1, hoverLevel + HOVER_IMPULSE);
+      }, { passive: true });
+      
+      /* =========================
+         INIT
+         ========================= */
+      resize();
+      draw();
+      
+    } catch (error) {
+      console.error('Animation initialization failed:', error);
+      const canvas = document.getElementById('c');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#DD1600';
+        ctx.font = '16px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Error loading animation: ' + error.message, canvas.width/2, canvas.height/2);
+        ctx.fillText('Please check browser console for details', canvas.width/2, canvas.height/2 + 25);
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnimation);
+  } else {
+    initAnimation();
+  }
+})();
+  </script>
+</body>
+</html>

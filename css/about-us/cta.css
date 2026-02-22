@@ -1,4 +1,5 @@
 .cta {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -6,6 +7,35 @@
 	height: 556px;
 	margin: 20px;
 	background-color: #d0eaff;
+
+	overflow: hidden;
+}
+
+.cta__bg {
+	position: absolute;
+	z-index: 0;
+}
+
+.cta__bg.left {
+	left: -30%;
+	top: 0%;
+	transform: rotate(90deg);
+
+	height: 100%;
+	width: 70%;
+}
+
+.cta__bg.right {
+	right: -30%;
+	top: 0%;
+	transform: rotate(90deg);
+
+	height: 100%;
+	width: 70%;
+}
+
+.cta__bg.mobile {
+	display: none;
 }
 
 .cta__wrapper {
@@ -31,11 +61,21 @@
 .cta__btn {
 	padding: 16px 24px;
 	border-radius: 34px;
+	z-index: 1;
 }
 
 .btn-portfolio {
 	background-color: #f7f5f2;
 	color: #26292f;
+	transition: all 0.2s ease-in-out;
+}
+
+.btn-portfolio:hover {
+	background-color: #edebe8;
+}
+
+.btn-portfolio:visited {
+	opacity: 0.4;
 }
 
 .btn-contact {
@@ -59,6 +99,24 @@
 		height: 589px;
 	}
 
+	.cta__bg.left {
+		display: none;
+	}
+
+	.cta__bg.right {
+		display: none;
+	}
+
+	.cta__bg.mobile {
+		display: block;
+		left: 50%;
+		bottom: -10%;
+		transform: translateX(-50%);
+
+		height: 50%;
+		width: 130%;
+	}
+
 	.cta__wrapper {
 		margin-top: 56px;
 		row-gap: 32px;
@@ -73,6 +131,12 @@
 	.cta {
 		height: 543px;
 		margin: 12px;
+	}
+
+	.cta__bg.mobile {
+		bottom: -40%;
+		height: 100%;
+		width: 170%;
 	}
 
 	.cta__wrapper {

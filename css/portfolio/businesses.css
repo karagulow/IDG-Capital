@@ -201,7 +201,6 @@
 	}
 
 	.businesses__list {
-		grid-template-columns: 1fr;
 		gap: 12px;
 	}
 
@@ -214,5 +213,11 @@
 		flex-direction: row;
 		column-gap: 6px;
 		flex-wrap: wrap;
+	}
+}
+
+@media (max-width: 540px) {
+	.businesses__list {
+		grid-template-columns: 1fr;
 	}
 }

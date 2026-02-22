@@ -6,6 +6,7 @@
 	display: flex;
 	flex-direction: column;
 	row-gap: 60px;
+	overflow: visible;
 }
 
 .cases__top {
