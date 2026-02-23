@@ -5,6 +5,320 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Contact Us | IDG Capital</title>
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/contact-us-page.css" />
 	</head>
-	<body></body>
+	<body>
+		<nav class="nav contact">
+			<a href="./" class="nav__logo">
+				<img src="images/logo.svg" alt="Logo" />
+			</a>
+
+			<button type="button" class="nav__burger"><span></span></button>
+			<ul class="nav__list">
+				<li class="nav__item">
+					<a class="body-m nav__link" href="./about-us.html">About Us</a>
+				</li>
+				<li class="nav__item">
+					<a class="body-m nav__link" href="./portfolio.html">Portfolio</a>
+				</li>
+				<li class="nav__item">
+					<a class="body-m nav__link" href="./contact-us.html">Contact Us</a>
+				</li>
+				<li class="nav__item nav__item-lang">
+					<button class="tags nav__item--btn" type="button">EN</button>
+					<span class="nav__item--separator">|</span>
+					<button class="tags nav__item--btn" type="button">CN</button>
+					<span class="nav__item--separator">|</span>
+					<button class="tags nav__item--btn" type="button">KR</button>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="contact-us">
+			<div class="container">
+				<div class="contact-us__wrapper">
+					<h1 class="accent contact-us__title">Contact Us</h1>
+
+					<div class="contact-us__content">
+						<div class="contact-us__contacts">
+							<p class="tags contact-us__contact--title">BUSINESS</p>
+							<a
+								class="h3 contact-us__contact--text"
+								href="mailto:COOPERATION@IDGCAPITAL.COM"
+								>COOPERATION@IDGCAPITAL.COM</a
+							>
+							<p class="tags contact-us__contact--title">CAREERS</p>
+							<a
+								class="h3 contact-us__contact--text"
+								href="mailto:HR@IDGCAPITAL.COM"
+								>HR@IDGCAPITAL.COM</a
+							>
+							<p class="tags contact-us__contact--title">MEDIA</p>
+							<a
+								class="h3 contact-us__contact--text"
+								href="mailto:PR@IDGCAPITAL.COM"
+								>PR@IDGCAPITAL.COM</a
+							>
+							<div class="contact-us__contacts--links">
+								<a
+									class="body-l"
+									href="https://www.linkedin.com/company/idgvc/"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Linkedin</a
+								>
+								<a
+									class="body-l"
+									href="https://twitter.com/IDGCapital"
+									target="_blank"
+									rel="noopener noreferrer"
+									>X</a
+								>
+							</div>
+						</div>
+
+						<form class="contact-us__form">
+							<label class="contact-us__form--label">
+								<input
+									class="body-m contact-us__form--input"
+									type="text"
+									name="first-name"
+									placeholder="First Name"
+								/>
+							</label>
+							<label class="contact-us__form--label">
+								<input
+									class="body-m contact-us__form--input"
+									type="text"
+									name="last-name"
+									placeholder="Last Name"
+								/>
+							</label>
+							<label class="contact-us__form--label">
+								<input
+									class="body-m contact-us__form--input"
+									type="email"
+									name="email"
+									placeholder="Email"
+								/>
+							</label>
+							<label class="contact-us__form--label">
+								<input
+									class="body-m contact-us__form--input"
+									type="tel"
+									name="phone"
+									placeholder="Phone"
+								/>
+							</label>
+							<label class="contact-us__form--label">
+								<input
+									class="body-m contact-us__form--input"
+									type="text"
+									name="message"
+									placeholder="Message"
+								/>
+							</label>
+							<label class="contact-us__approval">
+								<input type="checkbox" name="approval" />
+								<svg
+									class="contact-us__approval--unchecked"
+									width="20"
+									height="20"
+									viewBox="0 0 20 20"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<rect
+										x="0.75"
+										y="0.75"
+										width="18.5"
+										height="18.5"
+										stroke="#222734"
+										stroke-opacity="0.6"
+										stroke-width="1.5"
+									/>
+								</svg>
+								<svg
+									class="contact-us__approval--checked"
+									width="20"
+									height="20"
+									viewBox="0 0 20 20"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<g clip-path="url(#clip0_2397_18275)">
+										<rect width="20" height="20" fill="#26292F" />
+										<path
+											d="M7.95996 15.0001L3.20996 10.2501L4.39746 9.06258L7.95996 12.6251L15.6058 4.97925L16.7933 6.16675L7.95996 15.0001Z"
+											fill="#F7F5F2"
+										/>
+									</g>
+									<defs>
+										<clipPath id="clip0_2397_18275">
+											<rect width="20" height="20" fill="white" />
+										</clipPath>
+									</defs>
+								</svg>
+								<div class="body-s contact-us__approval--text">
+									I agree with
+									<a href="./privacy-policy.html">Privacy Policy</a> and
+									<a href="./terms-of-use.html">Terms of Use</a>
+								</div>
+							</label>
+							<button class="button contact-us__form--btn" type="submit">
+								Send request
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="addresses">
+			<div class="container">
+				<div class="addresses__wrapper">
+					<ul class="addresses__list">
+						<li class="h3 addresses__item active" data-city="hongkong">
+							Hong Kong
+						</li>
+						<li class="h3 addresses__item" data-city="barcelona">Barcelona</li>
+						<li class="h3 addresses__item" data-city="beijing">Beijing</li>
+						<li class="h3 addresses__item" data-city="boston">Boston</li>
+						<li class="h3 addresses__item" data-city="cayman">Cayman</li>
+						<li class="h3 addresses__item" data-city="guangzhou">Guangzhou</li>
+						<li class="h3 addresses__item" data-city="muscat">Muscat</li>
+						<li class="h3 addresses__item" data-city="newyork">New York</li>
+						<li class="h3 addresses__item" data-city="seoul">Seoul</li>
+						<li class="h3 addresses__item" data-city="shanghai">Shanghai</li>
+						<li class="h3 addresses__item" data-city="shenzhen">Shenzhen</li>
+						<li class="h3 addresses__item" data-city="singapore">Singapore</li>
+					</ul>
+
+					<div class="addresses__card">
+						<div class="addresses__card--content">
+							<h1 class="h1 addresses__card--city">Hong Kong</h1>
+							<p class="body-m addresses__card--address">
+								Room 5505, 55 Floor, The Center<br />99 Queen's Road Central,
+								Hong Kong<br />
+								Tel: 852-3903 1333<br />
+								Fax: 852-3905 5000
+							</p>
+						</div>
+						<img
+							class="addresses__card--img"
+							src="images/offices/hong-kong.jpg"
+							alt="Office"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__wrapper">
+					<img class="footer__logo" src="images/footer-logo.svg" alt="Logo" />
+
+					<div class="footer__col-wrapper">
+						<ul class="footer__col body-m">
+							<li class="footer__col-item">
+								<p class="footer__col-title">IDG CAPITAL</p>
+							</li>
+							<li class="footer__col-item">
+								<a href="./">Home</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./portfolio.html">Portfolio</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./about-us.html">About Us</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html">Contact Us</a>
+							</li>
+						</ul>
+
+						<ul class="footer__col body-m">
+							<li class="footer__col-item">
+								<p class="footer__col-title">OFFICES</p>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#hongkong"
+									>Hong Kong <span>(HQ)</span></a
+								>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#barcelona">Barcelona</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#beijing">Beijing</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#boston">Boston</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#cayman">Cayman</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#guangzhou">Guangzhou</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#muscat">Muscat</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#newyork">New York</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#seoul">Seoul</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#shanghai">Shanghai</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#shenzhen">Shenzhen</a>
+							</li>
+							<li class="footer__col-item">
+								<a href="./contact-us.html#singapore">Singapore</a>
+							</li>
+						</ul>
+
+						<ul class="footer__col body-m">
+							<li class="footer__col-item">
+								<p class="footer__col-title">SOCIAL</p>
+							</li>
+							<li class="footer__col-item">
+								<a
+									href="https://www.linkedin.com/company/idgvc/"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Linkedin</a
+								>
+							</li>
+							<li class="footer__col-item">
+								<a
+									href="https://twitter.com/IDGCapital"
+									target="_blank"
+									rel="noopener noreferrer"
+									>X</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<div class="cookie" id="cookie-banner">
+			<p class="body-m cookie__text">
+				We use cookies to ensure the proper functioning of our website. By
+				continuing to browse, you agree to our Cookie Policy.
+			</p>
+			<button class="button cookie__btn" type="button" id="cookie-accept">
+				Accept
+			</button>
+		</div>
+
+		<script src="js/burger-menu.js"></script>
+		<script src="js/contact-us/addresses.js"></script>
+	</body>
 </html>

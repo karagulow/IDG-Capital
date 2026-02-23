@@ -1,0 +1,135 @@
+.addresses {
+	padding: 120px 0;
+	background-color: #eeebe7;
+}
+
+.addresses__wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: start;
+	column-gap: 20px;
+}
+
+.addresses__list {
+	column-count: 2;
+	column-gap: 16px;
+}
+
+.addresses__item {
+	color: #22273499;
+	width: 172px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	margin-bottom: 8px;
+}
+
+.addresses__item.active {
+	color: #dd1600;
+}
+
+.addresses__card {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	max-width: 647px;
+	height: 387px;
+}
+
+.addresses__card--content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: start;
+	width: 100%;
+	padding: 32px;
+	background-color: #f7f5f2;
+}
+
+.addresses__card--city {
+	color: #26292f;
+}
+
+.addresses__card--address {
+	color: #26292f;
+}
+
+.addresses__card--img {
+	width: 188px;
+	height: 100%;
+	object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+	.addresses {
+		padding: 80px 0;
+	}
+
+	.addresses__wrapper {
+		flex-direction: column;
+		row-gap: 60px;
+	}
+
+	.addresses__list {
+		column-count: 3;
+	}
+
+	.addresses__item {
+		width: 207px;
+	}
+
+	.addresses__card {
+		max-width: none;
+	}
+
+	.addresses__card--img {
+		width: 208px;
+	}
+}
+
+@media (max-width: 768px) {
+	.addresses__item {
+		width: 180px;
+	}
+
+	.addresses__card--img {
+		width: 188px;
+	}
+}
+
+@media (max-width: 640px) {
+	.addresses {
+		padding: 64px 0;
+	}
+
+	.addresses__wrapper {
+		row-gap: 56px;
+	}
+
+	.addresses__list {
+		column-count: 2;
+	}
+
+	.addresses__item {
+		width: 152px;
+	}
+
+	.addresses__card {
+		flex-direction: column;
+		height: 427px;
+	}
+
+	.addresses__card--content {
+		padding: 20px;
+		height: 100%;
+	}
+
+	.addresses__card--address {
+		margin-top: auto;
+	}
+
+	.addresses__card--img {
+		width: 100%;
+		height: 160px;
+	}
+}

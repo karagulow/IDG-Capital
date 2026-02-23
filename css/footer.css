@@ -43,6 +43,10 @@
 	opacity: 0.6;
 }
 
+.footer__col-item a span {
+	opacity: 0.6;
+}
+
 @media (max-width: 1024px) {
 	.footer {
 		padding: 48px 0 64px;

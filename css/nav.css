@@ -8,6 +8,12 @@
 	padding: 30px 60px;
 }
 
+.nav.privacy,
+.nav.terms,
+.nav.contact {
+	margin-bottom: 0;
+}
+
 .nav__logo {
 	width: 124px;
 	height: 23px;
@@ -117,6 +123,12 @@
 		padding: 30px 36px;
 	}
 
+	.nav.privacy,
+	.nav.terms,
+	.nav.contact {
+		padding: 30px 56px;
+	}
+
 	.nav__list {
 		column-gap: 36px;
 	}
@@ -131,6 +143,12 @@
 @media (max-width: 640px) {
 	.nav {
 		padding: 14px 20px;
+	}
+
+	.nav.privacy,
+	.nav.terms,
+	.nav.contact {
+		padding: 22px 32px;
 	}
 
 	.nav__burger {
