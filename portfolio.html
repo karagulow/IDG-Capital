@@ -299,7 +299,7 @@
 								Circle enables the movement of money globally in near real-time
 								using regulated stablecoins
 							</h3>
-							<button class="cases__item--btn" type="button">
+							<button class="cases__item--btn" type="button" data-popup-open>
 								<span class="button">Read more</span>
 								<svg
 									width="16"
@@ -525,6 +525,92 @@
 			</div>
 		</footer>
 
+		<div class="popup" id="popup" aria-hidden="true">
+			<div class="popup__overlay" data-popup-close></div>
+
+			<div class="popup__content" role="dialog" aria-modal="true">
+				<button class="popup__close" data-popup-close>
+					<svg
+						width="11"
+						height="11"
+						viewBox="0 0 11 11"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M0.5 0.5L10.3995 10.3995"
+							stroke="black"
+							stroke-linecap="round"
+						/>
+						<path
+							d="M10.4004 0.5L0.500895 10.3995"
+							stroke="black"
+							stroke-linecap="round"
+						/>
+					</svg>
+				</button>
+
+				<img class="popup__logo" src="images/cases-circle.svg" alt="Circle" />
+
+				<div class="popup__body">
+					<div class="popup__wrapper">
+						<h3 class="h3 popup__title">
+							Circle is a global financial technology firm founded in 2013 by
+							Jeremy Allaire and Sean Neville.
+						</h3>
+
+						<p class="body-m popup__text">
+							It is recognized as the issuer of USDC, a fully regulated digital
+							dollar stablecoin that facilitates fast, secure, and transparent
+							transactions worldwide. <br /><br />
+
+							The company employs over 900 professionals and is headquartered in
+							Boston, Massachusetts, with key offices in New York, London,
+							Dublin, and Singapore. <br /><br />
+
+							Circle provides enterprise-grade digital currency infrastructure,
+							supporting payments, treasury, and settlement services for
+							businesses, financial institutions, and developers globally.
+						</p>
+					</div>
+
+					<div class="popup__note popup__note--desktop">
+						<p class="tags popup__note--title">How IDG Capital helped</p>
+						<h3 class="h3 popup__note--text">
+							“Amazing team, such a pleasure to work together”
+						</h3>
+						<p class="body-s popup__note--author">
+							Lei Jun<br />
+							Founder, Chairman and CEO, Circle
+						</p>
+					</div>
+				</div>
+
+				<div class="popup__footer">
+					<span class="tags popup__tag">Date of investment: 2015</span>
+
+					<div class="popup__tags">
+						<span class="tags popup__tag">AMERICAS</span>
+						<span class="tags popup__separator">|</span>
+						<span class="tags popup__tag">USA</span>
+						<span class="tags popup__separator">|</span>
+						<span class="tags popup__tag">FINTECH/WEB3</span>
+					</div>
+				</div>
+
+				<div class="popup__note popup__note--mobile">
+					<p class="tags popup__note--title">How IDG Capital helped</p>
+					<h3 class="h3 popup__note--text">
+						“Amazing team, such a pleasure to work together”
+					</h3>
+					<p class="body-s popup__note--author">
+						Lei Jun<br />
+						Founder, Chairman and CEO, Circle
+					</p>
+				</div>
+			</div>
+		</div>
+
 		<div class="cookie" id="cookie-banner">
 			<p class="body-m cookie__text">
 				We use cookies to ensure the proper functioning of our website. By
@@ -538,6 +624,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
 		<script src="js/burger-menu.js"></script>
+		<script src="js/popup.js"></script>
 		<script src="js/portfolio/growth-approach-marker.js"></script>
 		<script src="js/portfolio/strategiesSlider.js"></script>
 		<script src="js/portfolio/businessesList.js"></script>
