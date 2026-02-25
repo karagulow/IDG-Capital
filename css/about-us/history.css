@@ -83,6 +83,10 @@
 	letter-spacing: 0.1px;
 }
 
+.history__item--text.short {
+	padding-inline: 40px;
+}
+
 @media (max-width: 1024px) {
 	.history {
 		padding: 80px 0;
@@ -125,5 +129,9 @@
 	.history__item--text {
 		width: 100%;
 		height: fit-content;
+	}
+
+	.history__item--text.short {
+		padding-inline: 20px;
 	}
 }

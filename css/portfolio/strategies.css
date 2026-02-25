@@ -142,6 +142,28 @@
 
 	padding: 32px;
 	background-color: #f7f5f2;
+
+	position: relative;
+	overflow: hidden;
+	transition: all 0.2s ease-in-out;
+}
+
+.strategy__case::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(to right, #f2ceca, #dd1600);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+	z-index: 2;
+}
+
+.strategy__case:hover::before {
+	transform: scaleX(1);
 }
 
 .strategy__case--title {
@@ -157,6 +179,17 @@
 
 .strategy__case--link p {
 	color: #26292f;
+	transition: all 0.2s ease-in-out;
+}
+
+.strategy__case--link svg path {
+	transition: all 0.2s ease-in-out;
+}
+
+.strategy__case:hover .strategy__case--link p,
+.strategy__case:hover .strategy__case--link svg path {
+	color: #dd1600;
+	fill: #dd1600;
 }
 
 .strategy__team {

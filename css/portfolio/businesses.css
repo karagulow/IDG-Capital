@@ -55,6 +55,7 @@
 
 .filter__btn {
 	color: #26292f;
+	letter-spacing: 0px;
 }
 
 .filter__btn.active {
@@ -183,12 +184,6 @@
 	}
 }
 
-@media (max-width: 768px) {
-	.businesses__list {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
 @media (max-width: 640px) {
 	.businesses__header {
 		flex-direction: column;
@@ -201,6 +196,7 @@
 	}
 
 	.businesses__list {
+		grid-template-columns: repeat(2, 1fr);
 		gap: 12px;
 	}
 
@@ -214,9 +210,14 @@
 		column-gap: 6px;
 		flex-wrap: wrap;
 	}
+
+	.filter {
+		column-gap: 8px;
+		row-gap: 8px;
+	}
 }
 
-@media (max-width: 540px) {
+@media (max-width: 500px) {
 	.businesses__list {
 		grid-template-columns: 1fr;
 	}
