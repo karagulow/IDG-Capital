@@ -65,10 +65,28 @@
 	flex-direction: column;
 
 	height: 652px;
-	padding: 40px;
 	background-color: #eeebe7;
 
 	z-index: 1;
+
+	position: relative;
+	overflow: hidden;
+}
+
+.strategy__inner {
+	position: absolute;
+	padding: 40px;
+	inset: 0;
+
+	display: flex;
+	flex-direction: column;
+
+	opacity: 1;
+	transition: opacity 0.25s ease;
+}
+
+.strategy__inner.is-changing {
+	opacity: 0;
 }
 
 .strategy__title {

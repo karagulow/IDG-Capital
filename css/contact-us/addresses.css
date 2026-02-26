@@ -32,11 +32,25 @@
 }
 
 .addresses__card {
-	display: flex;
-	flex-direction: row;
+	position: relative;
 	width: 100%;
 	max-width: 647px;
 	height: 387px;
+	overflow: hidden;
+}
+
+.addresses__card-inner {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: row;
+
+	opacity: 1;
+	transition: opacity 0.2s ease;
+}
+
+.addresses__card-inner.is-changing {
+	opacity: 0;
 }
 
 .addresses__card--content {

@@ -84,12 +84,31 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 	};
 
+	function createCityCard(cityId) {
+		const data = cityData[cityId];
+
+		const card = document.createElement('div');
+		card.className = 'addresses__card-inner';
+		card.dataset.city = cityId;
+
+		card.innerHTML = `
+		<div class="addresses__card--content">
+			<h1 class="h1 addresses__card--city">${data.name}</h1>
+			<p class="body-m addresses__card--address">
+				${data.address}
+			</p>
+		</div>
+		<img
+			class="addresses__card--img"
+			src="${getImagePath(data)}"
+			alt="${data.name} Office"
+		/>
+	`;
+
+		return card;
+	}
+
 	const cityItems = document.querySelectorAll('.addresses__item');
-	const cityNameElement = document.querySelector('.addresses__card--city');
-	const cityAddressElement = document.querySelector(
-		'.addresses__card--address',
-	);
-	const cityImageElement = document.querySelector('.addresses__card--img');
 	const cityCardElement = document.querySelector('.addresses__card');
 
 	function isMobile() {
@@ -102,34 +121,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function updateCityContent(cityId) {
 		const data = cityData[cityId];
+		if (!data) return false;
 
-		if (data) {
-			cityNameElement.textContent = data.name;
-			cityAddressElement.innerHTML = data.address;
-			cityImageElement.src = getImagePath(data);
-			cityImageElement.alt = `${data.name} Office`;
+		const oldCard = cityCardElement.querySelector('.addresses__card-inner');
+		const newCard = createCityCard(cityId);
 
-			updateActiveItem(cityId);
-			updateCardId(cityId);
+		newCard.classList.add('is-changing');
+		cityCardElement.appendChild(newCard);
 
-			console.log('Обновлен город:', data.name, 'Мобильный режим:', isMobile());
-			return true;
-		} else {
-			console.log('Данные для города не найдены:', cityId);
-			return false;
+		newCard.offsetHeight;
+
+		requestAnimationFrame(() => {
+			newCard.classList.remove('is-changing');
+		});
+
+		if (oldCard) {
+			oldCard.classList.add('is-changing');
+
+			oldCard.addEventListener('transitionend', () => oldCard.remove(), {
+				once: true,
+			});
 		}
+
+		updateActiveItem(cityId);
+
+		return true;
 	}
 
 	function handleResize() {
-		const currentCityId = getCityIdFromUrl();
-		const data = cityData[currentCityId];
+		const card = cityCardElement.querySelector('.addresses__card-inner');
+		if (!card) return;
 
-		if (data && cityImageElement) {
-			cityImageElement.src = getImagePath(data);
-			console.log(
-				'Изображение обновлено при ресайзе:',
-				isMobile() ? 'мобильное' : 'десктопное',
-			);
+		const cityId = card.dataset.city;
+		const img = card.querySelector('.addresses__card--img');
+
+		if (img && cityData[cityId]) {
+			img.src = getImagePath(cityData[cityId]);
 		}
 	}
 
@@ -145,8 +172,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				setTimeout(() => {
 					cityCardElement.style.boxShadow = 'none';
 				}, 2000);
-
-				console.log('Прокрутка к карточке выполнена');
 			}, 300);
 		}
 	}
@@ -175,17 +200,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
-	function updateCardId(cityId) {
-		Array.from(cityCardElement.attributes).forEach(attr => {
-			if (attr.name.startsWith('data-city')) {
-				cityCardElement.removeAttribute(attr.name);
-			}
-		});
-
-		cityCardElement.setAttribute('data-city', cityId);
-		console.log('ID на карточке обновлен:', cityId);
-	}
-
 	function loadCityFromUrl() {
 		const cityId = getCityIdFromUrl();
 		const success = updateCityContent(cityId);
@@ -203,7 +217,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	cityItems.forEach(item => {
 		item.addEventListener('click', function (e) {
 			const cityId = this.dataset.city;
-			console.log('Клик по городу:', cityId);
 
 			updateUrl(cityId);
 			updateCityContent(cityId);
