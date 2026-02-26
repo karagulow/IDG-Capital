@@ -69,6 +69,7 @@ const strategiesData = [
 				text: 'Our focus is on long-term value and flexibility, enabling stakeholders to optimise investment durations while ensuring capital is freed up for emerging opportunities.',
 			},
 		],
+		caseText: 'TEXT NEEDED',
 		teamTags: 'Your Secondary Market team',
 		team: '5+ investors',
 	},
@@ -105,99 +106,40 @@ const strategiesData = [
 	},
 ];
 
-function createStrategy(index) {
-	const data = strategiesData[index];
-	if (!data) return null;
-
-	const hasCase = Boolean(data.caseText);
-
-	const wrapper = document.createElement('div');
-	wrapper.className = 'strategy__inner';
-	wrapper.dataset.index = index;
-
-	wrapper.innerHTML = `
-		<h2 class="h2 strategy__title">${data.title}</h2>
-		<p class="body-m strategy__text">${data.text}</p>
-
-		<div class="strategy__content">
-			<ul class="strategy__adv-list">
-				${data.advantages
-					.map(
-						(item, i) => `
-						<li class="strategy__adv-item ${
-							i < data.advantages.length - 1 ? 'has-border' : ''
-						}">
-							<p class="tags strategy__adv-item--title">${item.title}</p>
-							<p class="body-m strategy__adv-item--text">${item.text}</p>
-						</li>
-					`,
-					)
-					.join('')}
-			</ul>
-
-			<div class="strategy__right">
-				${
-					hasCase
-						? `
-					<div class="strategy__case">
-						<p class="h3 strategy__case--text">${data.caseText}</p>
-						<button class="strategy__case--link" type="button" data-popup-open>
-							<p class="button">See case study</p>
-							<svg
-								width="16"
-								height="14"
-								viewBox="0 0 16 14"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
-									fill="#26292F"
-								/>
-							</svg>
-						</button>
-					</div>
-				`
-						: ''
-				}
-
-				<div class="strategy__team">
-					<p class="tags strategy__team--tags">${data.teamTags}</p>
-					<p class="h3 strategy__team--text">${data.team}</p>
-				</div>
-			</div>
-		</div>
-	`;
-
-	return wrapper;
-}
-
-const strategyContainer = document.querySelector('.strategy');
-
 function setStrategy(index) {
-	const newStrategy = createStrategy(index);
-	if (!newStrategy) return;
-
-	const oldStrategy = strategyContainer.querySelector('.strategy__inner');
-
-	newStrategy.classList.add('is-changing');
-	strategyContainer.appendChild(newStrategy);
-
-	newStrategy.offsetHeight;
-
-	requestAnimationFrame(() => {
-		newStrategy.classList.remove('is-changing');
-	});
-
-	if (oldStrategy) {
-		oldStrategy.classList.add('is-changing');
-		oldStrategy.addEventListener('transitionend', () => oldStrategy.remove(), {
-			once: true,
-		});
-	}
+	const data = strategiesData[index];
 
 	buttons.forEach(btn => btn.classList.remove('active'));
 	buttons[index].classList.add('active');
+
+	title.innerHTML = data.title;
+	text.innerHTML = data.text;
+
+	advItems.forEach((item, i) => {
+		const adv = data.advantages[i];
+
+		item.classList.remove('has-border');
+
+		if (adv) {
+			advTitles[i].innerHTML = adv.title;
+			advTexts[i].innerHTML = adv.text;
+			item.style.display = '';
+		} else {
+			item.style.display = 'none';
+		}
+	});
+
+	const visibleItems = [...advItems].filter(
+		item => item.style.display !== 'none',
+	);
+
+	visibleItems.slice(0, -1).forEach(item => {
+		item.classList.add('has-border');
+	});
+
+	caseText.innerHTML = data.caseText;
+	teamTags.innerHTML = data.teamTags;
+	teamText.innerHTML = data.team;
 }
 
 buttons.forEach((btn, index) => {

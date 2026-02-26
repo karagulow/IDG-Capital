@@ -84,31 +84,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 	};
 
-	function createCityCard(cityId) {
-		const data = cityData[cityId];
-
-		const card = document.createElement('div');
-		card.className = 'addresses__card-inner';
-		card.dataset.city = cityId;
-
-		card.innerHTML = `
-		<div class="addresses__card--content">
-			<h1 class="h1 addresses__card--city">${data.name}</h1>
-			<p class="body-m addresses__card--address">
-				${data.address}
-			</p>
-		</div>
-		<img
-			class="addresses__card--img"
-			src="${getImagePath(data)}"
-			alt="${data.name} Office"
-		/>
-	`;
-
-		return card;
-	}
-
 	const cityItems = document.querySelectorAll('.addresses__item');
+	const cityNameElement = document.querySelector('.addresses__card--city');
+	const cityAddressElement = document.querySelector(
+		'.addresses__card--address',
+	);
+	const cityImageElement = document.querySelector('.addresses__card--img');
 	const cityCardElement = document.querySelector('.addresses__card');
 
 	function isMobile() {
@@ -121,42 +102,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function updateCityContent(cityId) {
 		const data = cityData[cityId];
-		if (!data) return false;
 
-		const oldCard = cityCardElement.querySelector('.addresses__card-inner');
-		const newCard = createCityCard(cityId);
+		if (data) {
+			cityNameElement.textContent = data.name;
+			cityAddressElement.innerHTML = data.address;
+			cityImageElement.src = getImagePath(data);
+			cityImageElement.alt = `${data.name} Office`;
 
-		newCard.classList.add('is-changing');
-		cityCardElement.appendChild(newCard);
+			updateActiveItem(cityId);
+			updateCardId(cityId);
 
-		newCard.offsetHeight;
-
-		requestAnimationFrame(() => {
-			newCard.classList.remove('is-changing');
-		});
-
-		if (oldCard) {
-			oldCard.classList.add('is-changing');
-
-			oldCard.addEventListener('transitionend', () => oldCard.remove(), {
-				once: true,
-			});
+			return true;
+		} else {
+			return false;
 		}
-
-		updateActiveItem(cityId);
-
-		return true;
 	}
 
 	function handleResize() {
-		const card = cityCardElement.querySelector('.addresses__card-inner');
-		if (!card) return;
+		const currentCityId = getCityIdFromUrl();
+		const data = cityData[currentCityId];
 
-		const cityId = card.dataset.city;
-		const img = card.querySelector('.addresses__card--img');
-
-		if (img && cityData[cityId]) {
-			img.src = getImagePath(cityData[cityId]);
+		if (data && cityImageElement) {
+			cityImageElement.src = getImagePath(data);
 		}
 	}
 
@@ -198,6 +165,16 @@ document.addEventListener('DOMContentLoaded', function () {
 				item.classList.remove('active');
 			}
 		});
+	}
+
+	function updateCardId(cityId) {
+		Array.from(cityCardElement.attributes).forEach(attr => {
+			if (attr.name.startsWith('data-city')) {
+				cityCardElement.removeAttribute(attr.name);
+			}
+		});
+
+		cityCardElement.setAttribute('data-city', cityId);
 	}
 
 	function loadCityFromUrl() {

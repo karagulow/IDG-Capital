@@ -77,7 +77,7 @@
 							</div>
 						</div>
 
-						<form class="contact-us__form">
+						<form class="contact-us__form" id="contactForm" novalidate>
 							<label class="contact-us__form--label">
 								<input
 									class="body-m contact-us__form--input"
@@ -85,6 +85,7 @@
 									name="first-name"
 									placeholder="First Name"
 								/>
+								<div class="body-s error-message"></div>
 							</label>
 							<label class="contact-us__form--label">
 								<input
@@ -93,6 +94,7 @@
 									name="last-name"
 									placeholder="Last Name"
 								/>
+								<div class="body-s error-message"></div>
 							</label>
 							<label class="contact-us__form--label">
 								<input
@@ -101,6 +103,7 @@
 									name="email"
 									placeholder="Email"
 								/>
+								<div class="body-s error-message"></div>
 							</label>
 							<label class="contact-us__form--label">
 								<input
@@ -109,6 +112,7 @@
 									name="phone"
 									placeholder="Phone"
 								/>
+								<div class="body-s error-message"></div>
 							</label>
 							<label class="contact-us__form--label">
 								<input
@@ -117,6 +121,7 @@
 									name="message"
 									placeholder="Message"
 								/>
+								<div class="body-s error-message"></div>
 							</label>
 							<label class="contact-us__approval">
 								<input type="checkbox" name="approval" />
@@ -165,6 +170,7 @@
 									<a href="./terms-of-use.html">Terms of Use</a>
 								</div>
 							</label>
+							<div class="body-s error-message error-message-approval"></div>
 							<button class="button contact-us__form--btn" type="submit">
 								Send request
 							</button>
@@ -194,7 +200,22 @@
 						<li class="h3 addresses__item" data-city="singapore">Singapore</li>
 					</ul>
 
-					<div class="addresses__card"></div>
+					<div class="addresses__card">
+						<div class="addresses__card--content">
+							<h1 class="h1 addresses__card--city">Hong Kong</h1>
+							<p class="body-m addresses__card--address">
+								Room 5505, 55 Floor, The Center<br />99 Queen's Road Central,
+								Hong Kong<br />
+								Tel: 852-3903 1333<br />
+								Fax: 852-3905 5000
+							</p>
+						</div>
+						<img
+							class="addresses__card--img"
+							src="images/offices/hong-kong.jpg"
+							alt="Office"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -293,6 +314,48 @@
 			</div>
 		</footer>
 
+		<div class="toaster">
+			<div class="toaster__icon">
+				<svg
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M2 20V4H22V20H2ZM12 13L4 8V18H20V8L12 13ZM12 11L20 6H4L12 11ZM4 8V6V18V8Z"
+						fill="#F2CECA"
+					/>
+				</svg>
+			</div>
+
+			<p class="body-m toaster__text">
+				We have received your request. We will get back to you soon.
+			</p>
+
+			<button class="toaster__close" type="button">
+				<svg
+					width="20"
+					height="20"
+					viewBox="0 0 20 20"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M5.04883 5.05023L14.9483 14.9497"
+						stroke="black"
+						stroke-linecap="round"
+					/>
+					<path
+						d="M14.9492 5.05023L5.04972 14.9497"
+						stroke="black"
+						stroke-linecap="round"
+					/>
+				</svg>
+			</button>
+		</div>
+
 		<div class="cookie" id="cookie-banner">
 			<p class="body-m cookie__text">
 				We use cookies to ensure the proper functioning of our website. By
@@ -305,5 +368,6 @@
 
 		<script src="js/burger-menu.js"></script>
 		<script src="js/contact-us/addresses.js"></script>
+		<script src="js/contact-us/form.js"></script>
 	</body>
 </html>

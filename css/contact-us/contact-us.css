@@ -103,7 +103,7 @@
 	height: 20px;
 
 	padding-left: 30px;
-	margin: 12px 0 24px;
+	margin: 12px 0 0;
 }
 
 .contact-us__approval input {
@@ -155,6 +155,7 @@
 	background-color: #dd1600;
 	border-radius: 34px;
 
+	margin-top: 24px;
 	color: #f7f5f2;
 	transition: all 0.3s ease-in-out;
 }
@@ -165,6 +166,23 @@
 
 .contact-us__form--btn:visited {
 	opacity: 0.4;
+}
+
+.error-message {
+	color: #dd1600;
+	padding-inline-start: 16px;
+	grid-column: span 2;
+}
+
+.contact-us__form--input.error {
+	border-bottom: 1px solid #dd1600;
+	color: #dd1600;
+}
+
+.error-message.error-message-approval {
+	color: #dd1600;
+	padding-inline-start: 0px;
+	grid-column: span 2;
 }
 
 @media (max-width: 1024px) {
@@ -192,6 +210,10 @@
 	.contact-us__form--input {
 		padding: 16px 20px;
 	}
+
+	.error-message {
+		padding-inline-start: 20px;
+	}
 }
 
 @media (max-width: 640px) {
@@ -215,11 +237,17 @@
 		grid-template-columns: 1fr;
 	}
 
-	.contact-us__form--label:nth-child(5) {
-		grid-column: span 1;
+	.contact-us__form--input {
+		padding: 16px 12px;
 	}
 
-	.contact-us__approval {
-		grid-column: span 1;
+	.error-message {
+		padding-inline-start: 12px;
+	}
+
+	.contact-us__form--label,
+	.contact-us__approval,
+	.error-message {
+		grid-column: span 1 !important;
 	}
 }
