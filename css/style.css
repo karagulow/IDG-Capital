@@ -16,10 +16,7 @@ body {
 
 	background-color: #f7f5f2;
 	overflow-x: hidden;
-	padding: 0;
-	margin: 0;
 	height: 100dvh;
-	overscroll-behavior: none;
 }
 
 .container {
