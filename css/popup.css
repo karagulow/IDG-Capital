@@ -31,6 +31,8 @@
 	right: 0;
 	bottom: 0;
 	background-color: #e2e1de;
+	height: 100vh;
+	height: 100dvh;
 }
 
 .popup__content {
