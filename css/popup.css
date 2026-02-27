@@ -26,7 +26,10 @@
 
 .popup__overlay {
 	position: fixed;
-	inset: 0;
+	top: env(safe-area-inset-top, 0);
+	left: env(safe-area-inset-left, 0);
+	right: env(safe-area-inset-right, 0);
+	bottom: env(safe-area-inset-bottom, 0);
 	background-color: #e2e1de;
 }
 
