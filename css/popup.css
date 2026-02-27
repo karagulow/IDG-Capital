@@ -24,7 +24,7 @@
 .popup__overlay {
 	position: absolute;
 	inset: 0;
-	background-color: #26292f1a;
+	background-color: #e2e1de;
 }
 
 .popup__content {
