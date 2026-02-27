@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll('.strategies__btn');
 
+const strategyElement = document.querySelector('.strategy');
 const title = document.querySelector('.strategy__title');
 const text = document.querySelector('.strategy__text');
 
@@ -11,6 +12,7 @@ const caseBlock = document.querySelector('.strategy__case');
 const caseText = document.querySelector('.strategy__case--text');
 const teamTags = document.querySelector('.strategy__team--tags');
 const teamText = document.querySelector('.strategy__team--text');
+let isAnimating = false;
 
 const strategiesData = [
 	{
@@ -107,8 +109,10 @@ const strategiesData = [
 	},
 ];
 
-function setStrategy(index) {
+function applyStrategyContent(index) {
 	const data = strategiesData[index];
+
+	if (!data) return;
 
 	buttons.forEach(btn => btn.classList.remove('active'));
 	buttons[index].classList.add('active');
@@ -149,8 +153,54 @@ function setStrategy(index) {
 	teamText.innerHTML = data.team;
 }
 
+function setStrategy(index, { animate } = { animate: true }) {
+	if (!strategyElement || !title || !text) {
+		applyStrategyContent(index);
+		return;
+	}
+
+	if (!animate) {
+		applyStrategyContent(index);
+		return;
+	}
+
+	if (isAnimating) {
+		return;
+	}
+
+	isAnimating = true;
+
+	const handleFadeOutEnd = event => {
+		if (event.target !== strategyElement) return;
+
+		strategyElement.removeEventListener('transitionend', handleFadeOutEnd);
+
+		applyStrategyContent(index);
+
+		void strategyElement.offsetWidth;
+
+		strategyElement.classList.remove('strategy--fade-out');
+		strategyElement.classList.add('strategy--fade-in');
+
+		const handleFadeInEnd = e => {
+			if (e.target !== strategyElement) return;
+
+			strategyElement.removeEventListener('transitionend', handleFadeInEnd);
+			strategyElement.classList.remove('strategy--fade-in');
+			isAnimating = false;
+		};
+
+		strategyElement.addEventListener('transitionend', handleFadeInEnd);
+	};
+
+	requestAnimationFrame(() => {
+		strategyElement.addEventListener('transitionend', handleFadeOutEnd);
+		strategyElement.classList.add('strategy--fade-out');
+	});
+}
+
 buttons.forEach((btn, index) => {
 	btn.addEventListener('click', () => setStrategy(index));
 });
 
-setStrategy(0);
+setStrategy(0, { animate: false });

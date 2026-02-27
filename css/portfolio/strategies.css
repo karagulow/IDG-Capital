@@ -69,6 +69,10 @@
 	background-color: #eeebe7;
 
 	z-index: 1;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+
+	will-change: opacity;
 }
 
 .strategy__title {
@@ -207,6 +211,14 @@
 
 .strategy__team--text {
 	color: #26292f;
+}
+
+.strategy--fade-out {
+	opacity: 0;
+}
+
+.strategy--fade-in {
+	opacity: 1;
 }
 
 @media (max-width: 1200px) {

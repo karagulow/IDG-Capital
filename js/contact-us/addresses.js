@@ -120,7 +120,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function changeCityWithAnimation(cityId, { animate } = { animate: true }) {
-		if (!cityCardElement || !cityNameElement || !cityAddressElement || !cityImageElement) {
+		if (
+			!cityCardElement ||
+			!cityNameElement ||
+			!cityAddressElement ||
+			!cityImageElement
+		) {
 			return;
 		}
 
@@ -158,7 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				updateActiveItem(cityId);
 				updateCardId(cityId);
 
-				// force reflow for Safari to correctly apply the next transition
 				void cityCardElement.offsetWidth;
 
 				cityCardElement.classList.remove('addresses__card--fade-out');
@@ -176,8 +180,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			};
 
 			loader.onerror = () => {
-				// если по какой‑то причине картинка не загрузилась — всё равно обновляем контент,
-				// чтобы не оставлять карточку в скрытом состоянии
 				updateCityContent(cityId);
 
 				void cityCardElement.offsetWidth;
