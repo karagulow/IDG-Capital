@@ -37,6 +37,9 @@
 	width: 100%;
 	max-width: 647px;
 	height: 387px;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+	will-change: opacity;
 }
 
 .addresses__card--content {
@@ -61,6 +64,14 @@
 	width: 188px;
 	height: 100%;
 	object-fit: cover;
+}
+
+.addresses__card--fade-out {
+	opacity: 0;
+}
+
+.addresses__card--fade-in {
+	opacity: 1;
 }
 
 @media (max-width: 1024px) {

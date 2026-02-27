@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	);
 	const cityImageElement = document.querySelector('.addresses__card--img');
 	const cityCardElement = document.querySelector('.addresses__card');
+	let isAnimating = false;
 
 	function isMobile() {
 		return window.innerWidth < 640;
@@ -116,6 +117,92 @@ document.addEventListener('DOMContentLoaded', function () {
 		} else {
 			return false;
 		}
+	}
+
+	function changeCityWithAnimation(cityId, { animate } = { animate: true }) {
+		if (!cityCardElement || !cityNameElement || !cityAddressElement || !cityImageElement) {
+			return;
+		}
+
+		if (!animate) {
+			updateCityContent(cityId);
+			return;
+		}
+
+		if (isAnimating) {
+			return;
+		}
+
+		isAnimating = true;
+
+		const handleFadeOutEnd = event => {
+			if (event.target !== cityCardElement) return;
+
+			cityCardElement.removeEventListener('transitionend', handleFadeOutEnd);
+
+			const data = cityData[cityId];
+			if (!data) {
+				isAnimating = false;
+				return;
+			}
+
+			const newImagePath = getImagePath(data);
+			const loader = new Image();
+
+			loader.onload = () => {
+				cityNameElement.textContent = data.name;
+				cityAddressElement.innerHTML = data.address;
+				cityImageElement.src = newImagePath;
+				cityImageElement.alt = `${data.name} Office`;
+
+				updateActiveItem(cityId);
+				updateCardId(cityId);
+
+				// force reflow for Safari to correctly apply the next transition
+				void cityCardElement.offsetWidth;
+
+				cityCardElement.classList.remove('addresses__card--fade-out');
+				cityCardElement.classList.add('addresses__card--fade-in');
+
+				const handleFadeInEnd = e => {
+					if (e.target !== cityCardElement) return;
+
+					cityCardElement.removeEventListener('transitionend', handleFadeInEnd);
+					cityCardElement.classList.remove('addresses__card--fade-in');
+					isAnimating = false;
+				};
+
+				cityCardElement.addEventListener('transitionend', handleFadeInEnd);
+			};
+
+			loader.onerror = () => {
+				// если по какой‑то причине картинка не загрузилась — всё равно обновляем контент,
+				// чтобы не оставлять карточку в скрытом состоянии
+				updateCityContent(cityId);
+
+				void cityCardElement.offsetWidth;
+
+				cityCardElement.classList.remove('addresses__card--fade-out');
+				cityCardElement.classList.add('addresses__card--fade-in');
+
+				const handleFadeInEnd = e => {
+					if (e.target !== cityCardElement) return;
+
+					cityCardElement.removeEventListener('transitionend', handleFadeInEnd);
+					cityCardElement.classList.remove('addresses__card--fade-in');
+					isAnimating = false;
+				};
+
+				cityCardElement.addEventListener('transitionend', handleFadeInEnd);
+			};
+
+			loader.src = newImagePath;
+		};
+
+		requestAnimationFrame(() => {
+			cityCardElement.addEventListener('transitionend', handleFadeOutEnd);
+			cityCardElement.classList.add('addresses__card--fade-out');
+		});
 	}
 
 	function handleResize() {
@@ -196,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			const cityId = this.dataset.city;
 
 			updateUrl(cityId);
-			updateCityContent(cityId);
+			changeCityWithAnimation(cityId);
 
 			scrollToCard();
 		});
@@ -204,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	window.addEventListener('popstate', function (event) {
 		const cityId = getCityIdFromUrl();
-		updateCityContent(cityId);
+		changeCityWithAnimation(cityId);
 
 		if (hasCityIdInUrl()) {
 			scrollToCard();
