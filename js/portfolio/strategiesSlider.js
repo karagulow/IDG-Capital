@@ -7,6 +7,7 @@ const advItems = document.querySelectorAll('.strategy__adv-item');
 const advTitles = document.querySelectorAll('.strategy__adv-item--title');
 const advTexts = document.querySelectorAll('.strategy__adv-item--text');
 
+const caseBlock = document.querySelector('.strategy__case');
 const caseText = document.querySelector('.strategy__case--text');
 const teamTags = document.querySelector('.strategy__team--tags');
 const teamText = document.querySelector('.strategy__team--text');
@@ -69,7 +70,7 @@ const strategiesData = [
 				text: 'Our focus is on long-term value and flexibility, enabling stakeholders to optimise investment durations while ensuring capital is freed up for emerging opportunities.',
 			},
 		],
-		caseText: 'TEXT NEEDED',
+		// caseText: 'TEXT NEEDED',
 		teamTags: 'Your Secondary Market team',
 		team: '5+ investors',
 	},
@@ -100,7 +101,7 @@ const strategiesData = [
 				text: 'We take a holistic approach to these investments, ensuring they integrate seamlessly with our venture and private equity strategies to provide comprehensive lifecycle support.',
 			},
 		],
-		caseText: '[quote from 吴挺&信华&羿焜 ]TEXT NEEDED',
+		// caseText: '[quote from 吴挺&信华&羿焜 ]TEXT NEEDED',
 		teamTags: 'Your public markets team',
 		team: '8+ Investors<br>$15 Billion under management',
 	},
@@ -137,7 +138,13 @@ function setStrategy(index) {
 		item.classList.add('has-border');
 	});
 
-	caseText.innerHTML = data.caseText;
+	if (data.caseText) {
+		caseBlock.style.display = '';
+		caseText.innerHTML = data.caseText;
+	} else {
+		caseBlock.style.display = 'none';
+	}
+
 	teamTags.innerHTML = data.teamTags;
 	teamText.innerHTML = data.team;
 }
