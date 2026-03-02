@@ -15,7 +15,6 @@ body {
   line-height: 140%;
 
   background-color: #f7f5f2;
-  height: 100dvh;
 }
 
 .container {
@@ -120,8 +119,8 @@ body {
   word-break: break-word;
 }
 
-.md__text br + span,
-.md__text br + * {
+.md__text br+span,
+.md__text br+* {
   padding-left: 22px;
   display: inline-block;
   text-indent: -22px;
