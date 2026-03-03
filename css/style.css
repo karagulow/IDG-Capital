@@ -243,7 +243,7 @@ body .ul-standart {
 }
 
 .popup__content {
-  height: 640px;
+  min-height: 640px;
 }
 
 .popup__footer {
