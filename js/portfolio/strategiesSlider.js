@@ -12,6 +12,7 @@ const caseBlock = document.querySelector('.strategy__case');
 const caseText = document.querySelector('.strategy__case--text');
 const teamTags = document.querySelector('.strategy__team--tags');
 const teamText = document.querySelector('.strategy__team--text');
+const caseLink = document.querySelector('.strategy__case--link');
 let isAnimating = false;
 
 const strategiesData = [
@@ -34,6 +35,7 @@ const strategiesData = [
 		],
 		caseText:
 			'See how we established the Shanghai drug-innovation incubator from 2024, with 10+ pharmaceutical candidates in the current pipeline',
+		popupId: 'popup-incubator',
 		teamTags: 'Your venture capital team',
 		team: '9+ investors<br>15+ funds',
 	},
@@ -47,7 +49,7 @@ const strategiesData = [
 			},
 			{
 				title: 'Value Creation',
-				text: 'Our approach goes beyond capital - we embed ourselves deeply into companies’ growth journeys, providing strategic support in global market expansion, operations, branding, finance, legal, and talent development.',
+				text: 'Our approach goes beyond capital - we embed ourselves deeply into companies\u2019 growth journeys, providing strategic support in global market expansion, operations, branding, finance, legal, and talent development.',
 			},
 			{
 				title: 'Investment Stages',
@@ -56,6 +58,7 @@ const strategiesData = [
 		],
 		caseText:
 			'See how we helped Moncler expand from 0 to 100 stores in Mainland China',
+		popupId: 'popup-Moncler',
 		teamTags: 'Your private equity team',
 		team: '13+ investors<br>20+ funds',
 	},
@@ -145,6 +148,9 @@ function applyStrategyContent(index) {
 	if (data.caseText) {
 		caseBlock.style.display = '';
 		caseText.innerHTML = data.caseText;
+		if (data.popupId) {
+			caseLink.setAttribute('data-popup-open', data.popupId);
+		}
 	} else {
 		caseBlock.style.display = 'none';
 	}

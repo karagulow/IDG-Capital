@@ -1,606 +1,1118 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Portfolio | IDG Capital</title>
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-		/>
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/portfolio-page.css" />
-	</head>
-	<body>
-		<header class="header">
-			<nav class="nav">
-				<a href="./" class="nav__logo">
-					<img src="images/logo.svg" alt="Logo" />
-				</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | IDG Capital</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/portfolio-page.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="./" class="nav__logo">
+          <img src="images/logo.svg" alt="Logo" />
+        </a>
 
-				<button type="button" class="nav__burger"><span></span></button>
-				<ul class="nav__list">
-					<li class="nav__item">
-						<a class="body-m nav__link" href="./about-us.html">About Us</a>
-					</li>
-					<li class="nav__item">
-						<a class="body-m nav__link" href="./portfolio.html">Portfolio</a>
-					</li>
-					<li class="nav__item">
-						<a class="body-m nav__link" href="./contact-us.html">Contact Us</a>
-					</li>
-					<li class="nav__item nav__item-lang">
-						<button class="tags nav__item--btn" type="button">EN</button>
-						<span class="nav__item--separator">|</span>
-						<button class="tags nav__item--btn" type="button">CN</button>
-						<span class="nav__item--separator">|</span>
-						<button class="tags nav__item--btn" type="button">KR</button>
-					</li>
-				</ul>
-			</nav>
+        <button type="button" class="nav__burger"><span></span></button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="body-m nav__link" href="./about-us.html">About Us</a>
+          </li>
+          <li class="nav__item">
+            <a class="body-m nav__link" href="./portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav__item">
+            <a class="body-m nav__link" href="./contact-us.html">Contact Us</a>
+          </li>
+          <li class="nav__item nav__item-lang">
+            <button class="tags nav__item--btn" type="button">EN</button>
+            <span class="nav__item--separator">|</span>
+            <button class="tags nav__item--btn" type="button">CN</button>
+            <span class="nav__item--separator">|</span>
+            <button class="tags nav__item--btn" type="button">KR</button>
+          </li>
+        </ul>
+      </nav>
 
-			<div class="header__wrapper">
-				<p class="tags header__tags">portfolio</p>
-				<h1 class="accent header__title">
-					Build your business with confidence
-				</h1>
-				<p class="body-m header__text">
-					We’ve designed our platform to meet you where you are now and empower
-					you to grow to where you want to be
-				</p>
-			</div>
+      <div class="header__wrapper">
+        <p class="tags header__tags">portfolio</p>
+        <h1 class="accent header__title">
+          Build your business with confidence
+        </h1>
+        <p class="body-m header__text">
+          We’ve designed our platform to meet you where you are now and empower
+          you to grow to where you want to be
+        </p>
+      </div>
 
-			<iframe
-				src="components/portfolio_hero.html"
-				class="header__bg"
-				loading="lazy"
-			></iframe>
-		</header>
+      <iframe
+        src="components/portfolio_hero.html"
+        class="header__bg"
+        loading="lazy"
+      ></iframe>
+    </header>
 
-		<section class="growth-approach">
-			<div class="container">
-				<p class="h2 growth-approach__text">
-					Our five-pronged approach covers every
-					<span class="growth-approach__text--marker"
-						>stage&nbsp;of&nbsp;growth</span
-					>, from initial fundraising through to your exit plan.<br /><br />
-					We’ve carefully integrated each practice to ensure you have the
-					<span class="growth-approach__text--marker">right&nbsp;support</span>
-					at the right time.
-				</p>
-			</div>
-		</section>
+    <section class="growth-approach">
+      <div class="container">
+        <p class="h2 growth-approach__text">
+          Our five-pronged approach covers every
+          <span class="growth-approach__text--marker"
+            >stage&nbsp;of&nbsp;growth</span
+          >, from initial fundraising through to your exit plan.<br /><br />
+          We’ve carefully integrated each practice to ensure you have the
+          <span class="growth-approach__text--marker">right&nbsp;support</span>
+          at the right time.
+        </p>
+      </div>
+    </section>
 
-		<section class="strategies">
-			<div class="container">
-				<div class="strategies__wrapper">
-					<div class="strategies__controls">
-						<button class="h3 strategies__btn active" type="button">
-							Venture Capital
-						</button>
-						<button class="h3 strategies__btn" type="button">
-							Growth Capital
-						</button>
-						<button class="h3 strategies__btn" type="button">
-							Secondary Market
-						</button>
-						<button class="h3 strategies__btn" type="button">Buyout</button>
-						<button class="h3 strategies__btn" type="button">
-							Public Markets
-						</button>
-					</div>
+    <section class="strategies">
+      <div class="container">
+        <div class="strategies__wrapper">
+          <div class="strategies__controls">
+            <button class="h3 strategies__btn active" type="button">
+              Venture Capital
+            </button>
+            <button class="h3 strategies__btn" type="button">
+              Growth Capital
+            </button>
+            <button class="h3 strategies__btn" type="button">
+              Secondary Market
+            </button>
+            <button class="h3 strategies__btn" type="button">Buyout</button>
+            <button class="h3 strategies__btn" type="button">
+              Public Markets
+            </button>
+          </div>
 
-					<div class="strategy">
-						<h2 class="h2 strategy__title">
-							We back innovation from the ground up
-						</h2>
-						<p class="body-m strategy__text">
-							We meet you where you are to co-create solid, scalable businesses
-						</p>
-						<div class="strategy__content">
-							<ul class="strategy__adv-list">
-								<li class="strategy__adv-item strategy__adv-item--first">
-									<p class="tags strategy__adv-item--title">Innovation</p>
-									<p class="body-m strategy__adv-item--text">
-										Our venture capital practice supports innovation across the
-										company building lifecycle
-									</p>
-								</li>
-								<li class="strategy__adv-item strategy__adv-item--second">
-									<p class="tags strategy__adv-item--title">
-										find their strategic opening
-									</p>
-									<p class="body-m strategy__adv-item--text">
-										We help entrepreneurs with find their strategic opening and
-										then scale to their ambition – all rooted in long-term
-										alignment of values
-									</p>
-								</li>
-								<li class="strategy__adv-item strategy__adv-item--third">
-									<p class="tags strategy__adv-item--title">
-										global perspective
-									</p>
-									<p class="body-m strategy__adv-item--text">
-										Our global perspective and local expertise helps founders
-										navigate markets, accelerate growth, and build exceptional
-										companies ahead of their exit plans
-									</p>
-								</li>
-							</ul>
+          <div class="strategy">
+            <h2 class="h2 strategy__title">
+              We back innovation from the ground up
+            </h2>
+            <p class="body-m strategy__text">
+              We meet you where you are to co-create solid, scalable businesses
+            </p>
+            <div class="strategy__content">
+              <ul class="strategy__adv-list">
+                <li class="strategy__adv-item strategy__adv-item--first">
+                  <p class="tags strategy__adv-item--title">Innovation</p>
+                  <p class="body-m strategy__adv-item--text">
+                    Our venture capital practice supports innovation across the
+                    company building lifecycle
+                  </p>
+                </li>
+                <li class="strategy__adv-item strategy__adv-item--second">
+                  <p class="tags strategy__adv-item--title">
+                    find their strategic opening
+                  </p>
+                  <p class="body-m strategy__adv-item--text">
+                    We help entrepreneurs with find their strategic opening and
+                    then scale to their ambition – all rooted in long-term
+                    alignment of values
+                  </p>
+                </li>
+                <li class="strategy__adv-item strategy__adv-item--third">
+                  <p class="tags strategy__adv-item--title">
+                    global perspective
+                  </p>
+                  <p class="body-m strategy__adv-item--text">
+                    Our global perspective and local expertise helps founders
+                    navigate markets, accelerate growth, and build exceptional
+                    companies ahead of their exit plans
+                  </p>
+                </li>
+              </ul>
 
-							<div class="strategy__right">
-								<div class="strategy__case">
-									<p class="h3 strategy__case--text">
-										See how we established the Shanghai drug-innovation
-										incubator from 2024, with 10+ pharmaceutical candidates in
-										the current pipeline
-									</p>
-									<button
-										class="strategy__case--link"
-										type="button"
-										data-popup-open
-									>
-										<p class="button">See case study</p>
-										<svg
-											width="16"
-											height="14"
-											viewBox="0 0 16 14"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
-												fill="#26292F"
-											/>
-										</svg>
-									</button>
-								</div>
-								<div class="strategy__team">
-									<p class="tags strategy__team--tags">
-										Your venture capital team
-									</p>
-									<p class="h3 strategy__team--text">
-										9+ investors<br />15+ funds
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+              <div class="strategy__right">
+                <div class="strategy__case">
+                  <p class="h3 strategy__case--text">
+                    See how we established the Shanghai drug-innovation
+                    incubator from 2024, with 10+ pharmaceutical candidates in
+                    the current pipeline
+                  </p>
+                  <button
+                    class="strategy__case--link"
+                    type="button"
+                    data-popup-open="popup-incubator"
+                  >
+                    <p class="button">See case study</p>
+                    <svg
+                      width="16"
+                      height="14"
+                      viewBox="0 0 16 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
+                        fill="#26292F"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="strategy__team">
+                  <p class="tags strategy__team--tags">
+                    Your venture capital team
+                  </p>
+                  <p class="h3 strategy__team--text">
+                    9+ investors<br />15+ funds
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-			<iframe
-				src="components/portfolio_3block.html"
-				class="strategies__bg"
-				loading="lazy"
-			></iframe>
-		</section>
+      <iframe
+        src="components/portfolio_3block.html"
+        class="strategies__bg"
+        loading="lazy"
+      ></iframe>
+    </section>
 
-		<section class="businesses">
-			<div class="container">
-				<div class="businesses__wrapper">
-					<div class="businesses__header">
-						<h2 class="h2 businesses__title">Businesses</h2>
-						<input
-							class="body-m businesses__search"
-							placeholder="Search"
-							type="text"
-						/>
-					</div>
+    <section class="businesses">
+      <div class="container">
+        <div class="businesses__wrapper">
+          <div class="businesses__header">
+            <h2 class="h2 businesses__title">Businesses</h2>
+            <input
+              class="body-m businesses__search"
+              placeholder="Search"
+              type="text"
+            />
+          </div>
 
-					<div class="businesses__filter">
-						<div class="filter">
-							<span class="body-m filter__title">Sector</span>
-							<button
-								class="tags filter__btn active"
-								type="button"
-								data-value="all"
-							>
-								all
-							</button>
-							<span class="tags filter__separator">|</span>
-							<button
-								class="tags filter__btn"
-								type="button"
-								data-value="consumer technology"
-							>
-								Consumer Technology
-							</button>
-							<span class="tags filter__separator">|</span>
-							<button
-								class="tags filter__btn"
-								type="button"
-								data-value="healthcare"
-							>
-								healthcare
-							</button>
-							<span class="tags filter__separator">|</span>
-							<button
-								class="tags filter__btn"
-								type="button"
-								data-value="consumer"
-							>
-								consumer
-							</button>
-							<span class="tags filter__separator">|</span>
-							<button
-								class="tags filter__btn"
-								type="button"
-								data-value="fintech/web3"
-							>
-								fintech/web3
-							</button>
-						</div>
-						<div class="filter">
-							<span class="body-m filter__title">Region</span>
-							<button
-								class="tags filter__btn active"
-								type="button"
-								data-value="all"
-							>
-								all
-							</button>
-							<span class="tags filter__separator">|</span>
-							<button
-								class="tags filter__btn"
-								type="button"
-								data-value="asia pacific"
-							>
-								asia pacific
-							</button>
-							<span class="tags filter__separator">|</span>
-							<button
-								class="tags filter__btn"
-								type="button"
-								data-value="americas"
-							>
-								Americas
-							</button>
-							<span class="tags filter__separator">|</span>
-							<button
-								class="tags filter__btn"
-								type="button"
-								data-value="europe"
-							>
-								europe
-							</button>
-						</div>
-					</div>
+          <div class="businesses__filter">
+            <div class="filter">
+              <span class="body-m filter__title">Sector</span>
+              <button
+                class="tags filter__btn active"
+                type="button"
+                data-value="all"
+              >
+                all
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="consumer technology"
+              >
+                Consumer Technology
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="healthcare"
+              >
+                healthcare
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="consumer"
+              >
+                consumer
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="fintech/web3"
+              >
+                fintech/web3
+              </button>
+            </div>
+            <div class="filter">
+              <span class="body-m filter__title">Region</span>
+              <button
+                class="tags filter__btn active"
+                type="button"
+                data-value="all"
+              >
+                all
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="asia pacific"
+              >
+                asia pacific
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="americas"
+              >
+                Americas
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="europe"
+              >
+                europe
+              </button>
+            </div>
+          </div>
 
-					<ul class="businesses__list"></ul>
+          <ul class="businesses__list"></ul>
 
-					<button class="businesses__more-btn" type="button">Show more</button>
-				</div>
-			</div>
-		</section>
+          <button class="businesses__more-btn" type="button">Show more</button>
+        </div>
+      </div>
+    </section>
 
-		<section class="cases">
-			<div class="container">
-				<div class="cases__wrapper swiper">
-					<div class="cases__top">
-						<h2 class="h2 cases__title">
-							What you can expect as we work together
-						</h2>
-						<p class="body-m cases__text">
-							We've helped businesses across sectors and around the world with
-							the funding and advisory they needed to succeed
-						</p>
-					</div>
+    <section class="cases">
+      <div class="container">
+        <div class="cases__wrapper swiper">
+          <div class="cases__top">
+            <h2 class="h2 cases__title">
+              What you can expect as we work together
+            </h2>
+            <p class="body-m cases__text">
+              We've helped businesses across sectors and around the world with
+              the funding and advisory they needed to succeed
+            </p>
+          </div>
 
-					<ul class="cases__list swiper-wrapper">
-						<li class="cases__item swiper-slide">
-							<img
-								class="cases__item--img"
-								src="images/case-1.jpg"
-								alt="case"
-							/>
-							<div class="cases__item--tags">
-								<span class="caption cases__item--tag">NORTH AMERICA</span>
-								<span class="caption cases__item--tag"
-									>CONSUMER TECHNOLOGY</span
-								>
-							</div>
-							<h3 class="h3 cases__iten--title">
-								Circle enables the movement of money globally in near real-time
-								using regulated stablecoins
-							</h3>
-							<button class="cases__item--btn" type="button" data-popup-open>
-								<span class="button">Read more</span>
-								<svg
-									width="16"
-									height="14"
-									viewBox="0 0 16 14"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
-										fill="#26292F"
-									/>
-								</svg>
-							</button>
-						</li>
+          <ul class="cases__list swiper-wrapper">
+            <li class="cases__item swiper-slide">
+              <img
+                class="cases__item--img"
+                src="images/case-1.jpg"
+                alt="case"
+              />
+              <div class="cases__item--tags">
+                <span class="caption cases__item--tag">NORTH AMERICA</span>
+                <span class="caption cases__item--tag"
+                  >CONSUMER TECHNOLOGY</span
+                >
+              </div>
+              <h3 class="h3 cases__iten--title">
+                Circle enables the movement of money globally in near real-time
+                using regulated stablecoins
+              </h3>
+              <button
+                class="cases__item--btn"
+                type="button"
+                data-popup-open="popup-cases-circle"
+              >
+                <span class="button">Read more</span>
+                <svg
+                  width="16"
+                  height="14"
+                  viewBox="0 0 16 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
+                    fill="#26292F"
+                  />
+                </svg>
+              </button>
+            </li>
 
-						<li class="cases__item swiper-slide">
-							<img
-								class="cases__item--img"
-								src="images/case-2.jpg"
-								alt="case"
-							/>
-							<div class="cases__item--tags">
-								<span class="caption cases__item--tag">NORTH AMERICA</span>
-								<span class="caption cases__item--tag"
-									>CONSUMER TECHNOLOGY</span
-								>
-							</div>
-							<h3 class="h3 cases__iten--title">
-								Meituan is a one-stop platform for F&B and retail services
-							</h3>
-							<button class="cases__item--btn" type="button" data-popup-open>
-								<span class="button">Read more</span>
-								<svg
-									width="16"
-									height="14"
-									viewBox="0 0 16 14"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
-										fill="#26292F"
-									/>
-								</svg>
-							</button>
-						</li>
+            <li class="cases__item swiper-slide">
+              <img
+                class="cases__item--img"
+                src="images/case-2.jpg"
+                alt="case"
+              />
+              <div class="cases__item--tags">
+                <span class="caption cases__item--tag">NORTH AMERICA</span>
+                <span class="caption cases__item--tag"
+                  >CONSUMER TECHNOLOGY</span
+                >
+              </div>
+              <h3 class="h3 cases__iten--title">
+                Meituan is a one-stop platform for F&B and retail services
+              </h3>
+              <button
+                class="cases__item--btn"
+                type="button"
+                data-popup-open="popup-cases-meituan"
+              >
+                <span class="button">Read more</span>
+                <svg
+                  width="16"
+                  height="14"
+                  viewBox="0 0 16 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
+                    fill="#26292F"
+                  />
+                </svg>
+              </button>
+            </li>
 
-						<li class="cases__item swiper-slide">
-							<img
-								class="cases__item--img"
-								src="images/case-3.jpg"
-								alt="case"
-							/>
-							<div class="cases__item--tags">
-								<span class="caption cases__item--tag">NORTH AMERICA</span>
-								<span class="caption cases__item--tag"
-									>CONSUMER TECHNOLOGY</span
-								>
-							</div>
-							<h3 class="h3 cases__iten--title">
-								Moncler makes luxurious and high-performance activewear
-							</h3>
-							<button class="cases__item--btn" type="button" data-popup-open>
-								<span class="button">Read more</span>
-								<svg
-									width="16"
-									height="14"
-									viewBox="0 0 16 14"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
-										fill="#26292F"
-									/>
-								</svg>
-							</button>
-						</li>
-					</ul>
+            <li class="cases__item swiper-slide">
+              <img
+                class="cases__item--img"
+                src="images/case-3.jpg"
+                alt="case"
+              />
+              <div class="cases__item--tags">
+                <span class="caption cases__item--tag">NORTH AMERICA</span>
+                <span class="caption cases__item--tag"
+                  >CONSUMER TECHNOLOGY</span
+                >
+              </div>
+              <h3 class="h3 cases__iten--title">
+                Moncler makes luxurious and high-performance activewear
+              </h3>
+              <button
+                class="cases__item--btn"
+                type="button"
+                data-popup-open="popup-cases-moncler"
+              >
+                <span class="button">Read more</span>
+                <svg
+                  width="16"
+                  height="14"
+                  viewBox="0 0 16 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
+                    fill="#26292F"
+                  />
+                </svg>
+              </button>
+            </li>
+          </ul>
 
-					<div class="cases__arrows">
-						<button
-							class="cases__arrow-btn cases__arrow-btn_prev"
-							type="button"
-						>
-							<img src="images/arrow.svg" alt="Arrow" />
-						</button>
-						<button
-							class="cases__arrow-btn cases__arrow-btn_next"
-							type="button"
-						>
-							<img src="images/arrow.svg" alt="Arrow" />
-						</button>
-					</div>
-				</div>
-			</div>
-		</section>
+          <div class="cases__arrows">
+            <button
+              class="cases__arrow-btn cases__arrow-btn_prev"
+              type="button"
+            >
+              <img src="images/arrow.svg" alt="Arrow" />
+            </button>
+            <button
+              class="cases__arrow-btn cases__arrow-btn_next"
+              type="button"
+            >
+              <img src="images/arrow.svg" alt="Arrow" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-		<footer class="footer">
-			<div class="container">
-				<div class="footer__wrapper">
-					<img class="footer__logo" src="images/footer-logo.svg" alt="Logo" />
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__wrapper">
+          <img class="footer__logo" src="images/footer-logo.svg" alt="Logo" />
 
-					<div class="footer__col-wrapper">
-						<ul class="footer__col body-m">
-							<li class="footer__col-item">
-								<p class="footer__col-title">IDG CAPITAL</p>
-							</li>
-							<li class="footer__col-item">
-								<a href="./">Home</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./portfolio.html">Portfolio</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./about-us.html">About Us</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html">Contact Us</a>
-							</li>
-						</ul>
+          <div class="footer__col-wrapper">
+            <ul class="footer__col body-m">
+              <li class="footer__col-item">
+                <p class="footer__col-title">IDG CAPITAL</p>
+              </li>
+              <li class="footer__col-item">
+                <a href="./">Home</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./portfolio.html">Portfolio</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./about-us.html">About Us</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html">Contact Us</a>
+              </li>
+            </ul>
 
-						<ul class="footer__col body-m">
-							<li class="footer__col-item">
-								<p class="footer__col-title">OFFICES</p>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#hongkong"
-									>Hong Kong <span>(HQ)</span></a
-								>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#barcelona">Barcelona</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#beijing">Beijing</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#boston">Boston</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#cayman">Cayman</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#guangzhou">Guangzhou</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#muscat">Muscat</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#newyork">New York</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#seoul">Seoul</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#shanghai">Shanghai</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#shenzhen">Shenzhen</a>
-							</li>
-							<li class="footer__col-item">
-								<a href="./contact-us.html#singapore">Singapore</a>
-							</li>
-						</ul>
+            <ul class="footer__col body-m">
+              <li class="footer__col-item">
+                <p class="footer__col-title">OFFICES</p>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#hongkong"
+                  >Hong Kong <span>(HQ)</span></a
+                >
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#barcelona">Barcelona</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#beijing">Beijing</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#boston">Boston</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#cayman">Cayman</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#guangzhou">Guangzhou</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#muscat">Muscat</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#newyork">New York</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#seoul">Seoul</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#shanghai">Shanghai</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#shenzhen">Shenzhen</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#singapore">Singapore</a>
+              </li>
+            </ul>
 
-						<ul class="footer__col body-m">
-							<li class="footer__col-item">
-								<p class="footer__col-title">SOCIAL</p>
-							</li>
-							<li class="footer__col-item">
-								<a
-									href="https://www.linkedin.com/company/idgvc/"
-									target="_blank"
-									rel="noopener noreferrer"
-									>Linkedin</a
-								>
-							</li>
-							<li class="footer__col-item">
-								<a
-									href="https://twitter.com/IDGCapital"
-									target="_blank"
-									rel="noopener noreferrer"
-									>X</a
-								>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</footer>
+            <ul class="footer__col body-m">
+              <li class="footer__col-item">
+                <p class="footer__col-title">SOCIAL</p>
+              </li>
+              <li class="footer__col-item">
+                <a
+                  href="https://www.linkedin.com/company/idgvc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Linkedin</a
+                >
+              </li>
+              <li class="footer__col-item">
+                <a
+                  href="https://twitter.com/IDGCapital"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >X</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-		<div class="popup" id="popup" aria-hidden="true">
-			<div class="popup__overlay" data-popup-close></div>
+    <div class="popup" id="popup-incubator" aria-hidden="true">
+      <div class="popup__overlay" data-popup-close></div>
 
-			<div class="popup__content" role="dialog" aria-modal="true">
-				<button class="popup__close" data-popup-close>
-					<svg
-						width="11"
-						height="11"
-						viewBox="0 0 11 11"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							d="M0.5 0.5L10.3995 10.3995"
-							stroke="black"
-							stroke-linecap="round"
-						/>
-						<path
-							d="M10.4004 0.5L0.500895 10.3995"
-							stroke="black"
-							stroke-linecap="round"
-						/>
-					</svg>
-				</button>
+      <div class="popup__content" role="dialog" aria-modal="true">
+        <button class="popup__close" data-popup-close>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.5 0.5L10.3995 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.4004 0.5L0.500895 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
 
-				<img class="popup__logo" src="images/cases-circle.svg" alt="Circle" />
+        <img
+          class="popup__logo"
+          src="images/incubator-heathcare.svg"
+          alt="incubator-heathcare"
+        />
 
-				<div class="popup__body">
-					<div class="popup__wrapper">
-						<h3 class="h3 popup__title">
-							Circle is a global financial technology firm founded in 2013 by
-							Jeremy Allaire and Sean Neville.
-						</h3>
+        <div class="popup__body">
+          <div class="popup__wrapper">
+            <h3 class="h3 popup__title">
+              i-Incubator Healthcare , established by IDG Capital, officially
+              launched in Xuhui District, Shanghai in 2024, and holds the title
+              of "Shanghai Xuhui High-Quality Incubator“.
+            </h3>
 
-						<p class="body-m popup__text">
-							It is recognized as the issuer of USDC, a fully regulated digital
-							dollar stablecoin that facilitates fast, secure, and transparent
-							transactions worldwide. <br /><br />
+            <p class="body-m popup__text">
+              “Incubation + Empowerment” model, focuses on innovative drugs.
+            </p>
 
-							The company employs over 900 professionals and is headquartered in
-							Boston, Massachusetts, with key offices in New York, London,
-							Dublin, and Singapore. <br /><br />
+            <div>
+              <p class="popup__text">Incubating Competitive Drug Products:</p>
+              <ul class="ul-standart popup__text">
+                <li>
+                  Catching global innovation with China efficiency at high
+                  Quality and reasonable Cost
+                </li>
+                <li>Meeting global quality with China Efficiency</li>
+                <li>
+                  Targeting different disease areas with Various Drug Modalities
+                </li>
+              </ul>
+            </div>
+          </div>
 
-							Circle provides enterprise-grade digital currency infrastructure,
-							supporting payments, treasury, and settlement services for
-							businesses, financial institutions, and developers globally.
-						</p>
-					</div>
+          <div class="popup__note popup__note--desktop">
+            <p class="tags popup__note--title text-red">
+              How IDG Capital helped
+            </p>
+            <ul class="ul-standart popup__note--text">
+              <li>
+                Assemble an experienced team to launch and
+                <br class="d-none-mobile" />
+                manage 10+ new drug projects annually.
+              </li>
+              <li>
+                Leveraged IDG CRO/CDMO portfolio to accelerate
+                <br class="d-none-mobile" />
+                the drug development
+              </li>
+              <li>
+                Identify and advance undervalued early-stage drug assets from
+                the IDG portfolio and network to <br class="d-none-mobile" />
+                accelerate development and enhance value.
+              </li>
+              <li>
+                Dedicated incubation fund to support the i-incubator projects
+                through investing into each individual asset company.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-					<div class="popup__note popup__note--desktop">
-						<p class="tags popup__note--title">How IDG Capital helped</p>
-						<h3 class="h3 popup__note--text">
-							“Amazing team, such a pleasure to work together”
-						</h3>
-						<p class="body-s popup__note--author">
-							Lei Jun<br />
-							Founder, Chairman and CEO, Circle
-						</p>
-					</div>
-				</div>
+        <div class="popup__footer">
+          <span class="tags popup__tag">Date of investment: 2024</span>
 
-				<div class="popup__footer">
-					<span class="tags popup__tag">Date of investment: 2015</span>
+          <div class="popup__tags">
+            <span class="tags popup__tag">ASIA </span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">CHINA</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">HEALTHCARE</span>
+          </div>
+        </div>
 
-					<div class="popup__tags">
-						<span class="tags popup__tag">AMERICAS</span>
-						<span class="tags popup__separator">|</span>
-						<span class="tags popup__tag">USA</span>
-						<span class="tags popup__separator">|</span>
-						<span class="tags popup__tag">FINTECH/WEB3</span>
-					</div>
-				</div>
+        <div class="popup__note popup__note--mobile">
+          <p class="tags popup__note--title text-red">How IDG Capital helped</p>
+          <ul class="ul-standart popup__note--text">
+            <li>
+              Assemble an experienced team to launch and
+              <br class="d-none-mobile" />
+              manage 10+ new drug projects annually.
+            </li>
+            <li>
+              Leveraged IDG CRO/CDMO portfolio to accelerate
+              <br class="d-none-mobile" />
+              the drug development
+            </li>
+            <li>
+              Identify and advance undervalued early-stage drug assets from the
+              IDG portfolio and network to <br class="d-none-mobile" />
+              accelerate development and enhance value.
+            </li>
+            <li>
+              Dedicated incubation fund to support the i-incubator projects
+              through investing into each individual asset company.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-				<div class="popup__note popup__note--mobile">
-					<p class="tags popup__note--title">How IDG Capital helped</p>
-					<h3 class="h3 popup__note--text">
-						“Amazing team, such a pleasure to work together”
-					</h3>
-					<p class="body-s popup__note--author">
-						Lei Jun<br />
-						Founder, Chairman and CEO, Circle
-					</p>
-				</div>
-			</div>
-		</div>
+    <div class="popup" id="popup-Moncler" aria-hidden="true">
+      <div class="popup__overlay" data-popup-close></div>
 
-		<div class="cookie" id="cookie-banner">
-			<p class="body-m cookie__text">
-				We use cookies to ensure the proper functioning of our website. By
-				continuing to browse, you agree to our Cookie Policy.
-			</p>
-			<button class="button cookie__btn" type="button" id="cookie-accept">
-				Accept
-			</button>
-		</div>
+      <div class="popup__content" role="dialog" aria-modal="true">
+        <button class="popup__close" data-popup-close>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.5 0.5L10.3995 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.4004 0.5L0.500895 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
 
-		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <img class="popup__logo" src="images/moncler.svg" alt="moncler" />
 
-		<script src="js/burger-menu.js"></script>
-		<script src="js/popup.js"></script>
-		<script src="js/portfolio/growth-approach-marker.js"></script>
-		<script src="js/portfolio/strategiesSlider.js"></script>
-		<script src="js/portfolio/businessesList.js"></script>
-		<script src="js/portfolio/casesSlider.js"></script>
-	</body>
+        <div class="popup__body">
+          <div class="popup__wrapper">
+            <h3 class="h3 popup__title">
+              Moncler, founded in 1952 in Italy, excels in high-performance
+              outerwear for mountaineering and cold weather.
+            </h3>
+
+            <p class="body-m popup__text">
+              Its iconic down jackets and winter apparel blend technical
+              innovation with stylish design, spanning ready-to-wear and
+              accessories for a global, fashion-forward audience.
+
+              <br /><br />
+              A robust retail network and exclusive perception keep Moncler
+              dominant in luxury markets worldwide.
+            </p>
+          </div>
+
+          <div class="popup__note popup__note--desktop">
+            <p class="tags popup__note--title text-red">
+              How IDG Capital helped
+            </p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                Brought in media resources like ad agencies, KOLs, mall
+                partners, and distributors
+              </li>
+              <li>
+                Built a strong local management team in China, making Moncler
+                one of the market's fastest-growing luxury apparel brands
+              </li>
+              <li>Established a comprehensive distribution network</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="popup__footer">
+          <span class="tags popup__tag">Date of investment: 2024</span>
+
+          <div class="popup__tags">
+            <span class="tags popup__tag">europe </span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">italy</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">Consumer</span>
+          </div>
+        </div>
+
+        <div class="popup__note popup__note--mobile">
+          <p class="tags popup__note--title text-red">How IDG Capital helped</p>
+          <ul class="ul-standart popup__note--text">
+            <li>
+              Assemble an experienced team to launch and
+              <br class="d-none-mobile" />
+              manage 10+ new drug projects annually.
+            </li>
+            <li>
+              Leveraged IDG CRO/CDMO portfolio to accelerate
+              <br class="d-none-mobile" />
+              the drug development
+            </li>
+            <li>
+              Identify and advance undervalued early-stage drug assets from the
+              IDG portfolio and network to <br class="d-none-mobile" />
+              accelerate development and enhance value.
+            </li>
+            <li>
+              Dedicated incubation fund to support the i-incubator projects
+              through investing into each individual asset company.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-cases-circle" aria-hidden="true">
+      <div class="popup__overlay" data-popup-close></div>
+
+      <div class="popup__content" role="dialog" aria-modal="true">
+        <button class="popup__close" data-popup-close>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.5 0.5L10.3995 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.4004 0.5L0.500895 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <img class="popup__logo" src="images/bambulab.svg" alt="moncler" />
+
+        <div class="popup__body">
+          <div class="popup__wrapper">
+            <h3 class="h3 popup__title">
+              Bambu Lab, founded in 2020 in Shenzhen, leads in high-performance
+              desktop 3D printers for creators, designers, and engineers.
+            </h3>
+
+            <p class="body-m popup__text">
+              Its printers deliver high-speed printing, multi-color options, and
+              smart auto-calibration via a seamless plug-and-play system with
+              custom OS and cloud tools.
+              <br /><br />
+              Rapid growth has built strong recognition in North America,
+              Europe, and beyond, making it a top name in consumer 3D printing.
+            </p>
+          </div>
+
+          <div class="popup__note popup__note--desktop">
+            <p class="tags popup__note--title text-red">
+              How IDG Capital helped
+            </p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                Focused the company on the global high-end
+                <br class="d-none-mobile" />
+                consumer market
+              </li>
+              <li>
+                Recruited senior executives with international operational
+                experience
+              </li>
+              <li>
+                Built offline sales channels in China and provided
+                <br class="d-none-mobile" />
+
+                local marketing and retail resources
+              </li>
+              <li>
+                Guided financing strategy and business
+                <br class="d-none-mobile" />
+                development as an early institutional investor,
+                <br class="d-none-mobile" />
+                helping it become a top unicorn in the sector
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="popup__footer">
+          <span class="tags popup__tag">Date of investment: 2021</span>
+
+          <div class="popup__tags">
+            <span class="tags popup__tag">asia </span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">china</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">Consumer Technology</span>
+          </div>
+
+          <div class="popup__note popup__note--mobile">
+            <p class="tags popup__note--title text-red">
+              How IDG Capital helped
+            </p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                Focused the company on the global high-end
+                <br class="d-none-mobile" />
+                consumer market
+              </li>
+              <li>
+                Recruited senior executives with international operational
+                experience
+              </li>
+              <li>
+                Built offline sales channels in China and provided
+                <br class="d-none-mobile" />
+
+                local marketing and retail resources
+              </li>
+              <li>
+                Guided financing strategy and business
+                <br class="d-none-mobile" />
+                development as an early institutional investor,
+                <br class="d-none-mobile" />
+                helping it become a top unicorn in the sector
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-cases-meituan" aria-hidden="true">
+      <div class="popup__overlay" data-popup-close></div>
+
+      <div class="popup__content" role="dialog" aria-modal="true">
+        <button class="popup__close" data-popup-close>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.5 0.5L10.3995 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.4004 0.5L0.500895 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <img class="popup__logo" src="images/insta360.svg" alt="moncler" />
+
+        <div class="popup__body">
+          <div class="popup__wrapper">
+            <h3 class="h3 popup__title">
+              Insta360, founded in 2015 in Shenzhen, leads the world in
+              360-degree cameras and immersive imaging solutions.
+            </h3>
+
+            <p class="body-m popup__text">
+              Its lineup—which includes action cameras, pro VR gear, and mobile
+              accessories—excels with FlowState stabilization, AI-powered
+              editing, and real-time stitching, letting creators, professionals,
+              and everyday users capture stunning VR and 360° content.
+
+              <br /><br />
+              With global offices, partners, and a booming app ecosystem,
+              Insta360 powers both consumer adventures and enterprise
+              applications while pushing immersive tech forward.
+            </p>
+          </div>
+
+          <div class="popup__note popup__note--desktop">
+            <p class="tags popup__note--title text-red">
+              How IDG Capital helped
+            </p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                Recommended talent with global expertise in
+                <br class="d-none-mobile" />
+                product, supply chain, and marketing to refine
+                <br class="d-none-mobile" />
+                organizational systems
+              </li>
+              <li>
+                Supported global supply chain integration and
+                <br class="d-none-mobile" />
+                executed major mergers and acquisitions
+              </li>
+              <li>
+                As the largest institutional shareholder, guided key
+                <br class="d-none-mobile" />
+                capital decisions like financing and IPO timing,
+                <br class="d-none-mobile" />
+                driving a successful STAR Market listing
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="popup__footer">
+          <span class="tags popup__tag">Date of investment: 2021</span>
+
+          <div class="popup__tags">
+            <span class="tags popup__tag">asia </span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">china</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">Consumer Technology</span>
+          </div>
+
+          <div class="popup__note popup__note--mobile">
+            <p class="tags popup__note--title text-red">
+              How IDG Capital helped
+            </p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                Recommended talent with global expertise in
+                <br class="d-none-mobile" />
+                product, supply chain, and marketing to refine
+                <br class="d-none-mobile" />
+                organizational systems
+              </li>
+              <li>
+                Supported global supply chain integration and
+                <br class="d-none-mobile" />
+                executed major mergers and acquisitions
+              </li>
+              <li>
+                As the largest institutional shareholder, guided key
+                <br class="d-none-mobile" />
+                capital decisions like financing and IPO timing,
+                <br class="d-none-mobile" />
+                driving a successful STAR Market listing
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-cases-moncler" aria-hidden="true">
+      <div class="popup__overlay" data-popup-close></div>
+
+      <div class="popup__content" role="dialog" aria-modal="true">
+        <button class="popup__close" data-popup-close>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.5 0.5L10.3995 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.4004 0.5L0.500895 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <img class="popup__logo" src="images/xpeng.svg" alt="xpeng" />
+
+        <div class="popup__body">
+          <div class="popup__wrapper">
+            <h3 class="h3 popup__title">
+              XPeng, founded in 2014 and headquartered in Guangzhou, is a leader
+              in China's smart EV market with in-house design, development, and
+              manufacturing of intelligent vehicles.
+            </h3>
+
+            <p class="body-m popup__text">
+              The company excels in advanced driver-assistance systems (ADAS),
+              full-stack software, OTA updates, and autonomous driving, powering
+              its premium sedans and SUVs for tech-forward consumers.
+              <br /><br />
+
+              With expanding reach in China and international markets such as
+              Europe and Southeast Asia, XPeng invests heavily in
+              electrification, smart cockpits, and self-driving tech to shape
+              global EV mobility.
+            </p>
+          </div>
+
+          <div class="popup__note popup__note--desktop">
+            <p class="tags popup__note--title text-red">
+              How IDG Capital helped
+            </p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                Backed the company during market skepticism
+                <br class="d-none-mobile" />
+                toward EV startups by building its core team
+              </li>
+              <li>
+                Guided the company through critical production
+                <br class="d-none-mobile" />
+                ramp-up amid industry downturns
+              </li>
+              <li>
+                Introduced Volkswagen Group as a strategic
+                <br class="d-none-mobile" />
+                investor
+              </li>
+              <li>
+                Drove collaboration on capital, technology, global
+                <br class="d-none-mobile" />
+                expansion, and joint marketing
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="popup__footer">
+          <span class="tags popup__tag">Date of investment: 2021</span>
+
+          <div class="popup__tags">
+            <span class="tags popup__tag">asia </span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">china</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">Consumer Technology</span>
+          </div>
+
+          <div class="popup__note popup__note--mobile">
+            <p class="tags popup__note--title text-red">
+              How IDG Capital helped
+            </p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                Recommended talent with global expertise in
+                <br class="d-none-mobile" />
+                product, supply chain, and marketing to refine
+                <br class="d-none-mobile" />
+                organizational systems
+              </li>
+              <li>
+                Supported global supply chain integration and
+                <br class="d-none-mobile" />
+                executed major mergers and acquisitions
+              </li>
+              <li>
+                As the largest institutional shareholder, guided key
+                <br class="d-none-mobile" />
+                capital decisions like financing and IPO timing,
+                <br class="d-none-mobile" />
+                driving a successful STAR Market listing
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cookie" id="cookie-banner">
+      <p class="body-m cookie__text">
+        We use cookies to ensure the proper functioning of our website. By
+        continuing to browse, you agree to our Cookie Policy.
+      </p>
+      <button class="button cookie__btn" type="button" id="cookie-accept">
+        Accept
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <script src="js/burger-menu.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/portfolio/growth-approach-marker.js"></script>
+    <script src="js/portfolio/strategiesSlider.js"></script>
+    <script src="js/portfolio/businessesList.js"></script>
+    <script src="js/portfolio/casesSlider.js"></script>
+  </body>
 </html>

@@ -228,3 +228,16 @@ section {
     display: none;
   }
 }
+
+body .ul-standart,
+body .ul-standart li {
+  list-style: disc;
+}
+
+body .ul-standart {
+  padding-left: 20px;
+}
+
+.text-red {
+  color: #dd1600;
+}
