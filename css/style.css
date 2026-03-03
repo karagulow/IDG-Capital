@@ -241,3 +241,11 @@ body .ul-standart {
 .text-red {
   color: #dd1600;
 }
+
+.popup__content {
+  height: 640px;
+}
+
+.popup__footer {
+  margin-top: auto;
+}
