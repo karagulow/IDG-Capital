@@ -119,8 +119,8 @@ body {
   word-break: break-word;
 }
 
-.md__text br+span,
-.md__text br+* {
+.md__text br + span,
+.md__text br + * {
   padding-left: 22px;
   display: inline-block;
   text-indent: -22px;
@@ -216,5 +216,11 @@ body {
 
   .md__content {
     row-gap: 32px;
+  }
+}
+
+.d-none-mobile {
+  @media (max-width: 767px) {
+    display: none;
   }
 }
