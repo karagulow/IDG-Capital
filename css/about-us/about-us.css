@@ -65,4 +65,8 @@
 .about-us__title {
   text-transform: uppercase;
   font-weight: 500;
+
+  @media (max-width: 640px) {
+    font-size: 14px;
+  }
 }
