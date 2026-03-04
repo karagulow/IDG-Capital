@@ -326,8 +326,9 @@ function renderList(items) {
 }
 
 moreBtn.addEventListener('click', () => {
-	visibleCount += getPageSize();
+	visibleCount = currentItems.length;
 	renderList(currentItems);
+	moreBtn.style.display = 'none';
 });
 
 const filters = {

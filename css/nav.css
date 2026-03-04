@@ -118,6 +118,11 @@
 	color: #22273499;
 }
 
+/* Hide language selector */
+.nav__item-lang {
+	display: none !important;
+}
+
 @media (max-width: 1024px) {
 	.nav {
 		padding: 30px 36px;

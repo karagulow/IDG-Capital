@@ -1,95 +1,101 @@
 .header {
-	position: relative;
-	display: flex;
-	flex-direction: column;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
-	margin: 20px;
-	height: 720px;
+  margin: 20px;
+  height: 720px;
 
-	background-color: #f2ceca;
-	overflow: hidden;
+  background-color: #f2ceca;
+  overflow: hidden;
 
-	transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
 }
 
 .header__bg {
-	position: absolute;
-	z-index: 0;
-	bottom: -15%;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 200%;
-	height: 100%;
+  position: absolute;
+  z-index: 0;
+  bottom: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 100%;
 }
 
 .header__wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-top: 97px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 97px;
 }
 
 .header__tags {
-	color: #22273499;
-	margin-bottom: 18px;
+  color: #22273499;
+  margin-bottom: 18px;
 }
 
 .header__title {
-	max-width: 692px;
-	text-align: center;
-	letter-spacing: -1px;
-	margin-bottom: 40px;
-	color: #26292f;
+  max-width: 692px;
+  text-align: center;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+  color: #26292f;
 }
 
 .header__text {
-	text-align: center;
-	max-width: 383px;
-	color: #26292f;
+  text-align: center;
+  max-width: 383px;
+  color: #26292f;
 }
 
 @media (max-width: 1024px) {
-	.header {
-		height: 660px;
-	}
+  .header {
+    height: 660px;
+  }
 
-	.header__wrapper {
-		padding-top: 71px;
-	}
+  .header__wrapper {
+    padding-top: 71px;
+  }
 
-	.header__tags {
-		margin-bottom: 16px;
-	}
+  .header__tags {
+    margin-bottom: 16px;
+  }
 
-	.header__title {
-		max-width: 520px;
-		margin-bottom: 24px;
-	}
+  .header__title {
+    max-width: 520px;
+    margin-bottom: 24px;
+  }
 }
 
 @media (max-width: 640px) {
-	.header {
-		height: 603px;
-	}
+  .header {
+    height: 603px;
+  }
 
-	.header__bg {
-		width: 300%;
-	}
+  .header__bg {
+    width: 300%;
+  }
 
-	.header__wrapper {
-		padding-top: 30px;
-	}
+  .header__wrapper {
+    padding-top: 30px;
+  }
 
-	.header__tags {
-		margin-bottom: 24px;
-	}
+  .header__tags {
+    margin-bottom: 24px;
+  }
 
-	.header__title {
-		max-width: 300px;
-		margin-bottom: 16px;
-	}
+  .header__title {
+    max-width: 300px;
+    margin-bottom: 16px;
+  }
 
-	.header__text {
-		max-width: 300px;
-	}
+  .header__text {
+    max-width: 300px;
+  }
+}
+
+.header__wrapper {
+  .header__text {
+    font-size: 17px;
+  }
 }

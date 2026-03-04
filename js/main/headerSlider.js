@@ -8,7 +8,7 @@ const states = [
 		text: 'For over 30 years, IDG Capital has stood alongside the founders and teams who dare to build lasting companies — journeying with them each step of the way',
 		btn: {
 			text: 'Our Story',
-			href: './about-us.html',
+			href: './about-us.html#story',
 		},
 		bg: '#F2CECA',
 		titleClass: 'header__title_1',
@@ -19,7 +19,7 @@ const states = [
 		text: 'We work with like-minded businesses – because a shared purpose is the secret to successful partnerships',
 		btn: {
 			text: 'Our Value',
-			href: './about-us.html',
+			href: './about-us.html#values',
 		},
 		bg: '#EEEBE7',
 		titleClass: 'header__title_2',
