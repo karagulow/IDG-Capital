@@ -63,6 +63,20 @@ const strategiesData = [
     team: "13+ investors<br>20+ funds",
   },
   {
+    title: "We create strategic outcomes",
+    text: "We execute on complex buyouts and corporate mergers rooted in a strategic alignment of interests",
+    advantages: [
+      {
+        title: "M&A Advisory",
+        text: "Our M&A advisory manages end-to-end deal processes including valuation, due diligence, negotiation, and execution - aligning stakeholder interests while enabling firms to scale via acquisitions or transition ownership smoothly.",
+      },
+    ],
+    caseText:
+      "Recent transactions, including LAKRIDS BY BÜLOW and Yoplait China, demonstrate out capability to execute buyout transactions both internationally and in China.",
+    teamTags: "Your M&A team",
+    team: "10+ investors<br>5+ industries",
+  },
+  {
     title: "We connect the secondary markets",
     text: "We facilitate the buying and selling of private equity stakes to unlock liquidity and new investment opportunities",
     advantages: [
@@ -78,20 +92,6 @@ const strategiesData = [
     // caseText: 'TEXT NEEDED',
     teamTags: "Your Secondary Market team",
     team: "5+ investors",
-  },
-  {
-    title: "We create strategic outcomes",
-    text: "We execute on complex buyouts and corporate mergers rooted in a strategic alignment of interests",
-    advantages: [
-      {
-        title: "M&A Advisory",
-        text: "Our M&A advisory manages end-to-end deal processes including valuation, due diligence, negotiation, and execution - aligning stakeholder interests while enabling firms to scale via acquisitions or transition ownership smoothly.",
-      },
-    ],
-    caseText:
-      "Recent transactions, including LAKRIDS BY BÜLOW and Yoplait China, demonstrate out capability to execute buyout transactions both internationally and in China.",
-    teamTags: "Your M&A team",
-    team: "10+ investors<br>5+ industries",
   },
   {
     title: "We bridge private and public markets",
