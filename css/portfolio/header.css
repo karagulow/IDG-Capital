@@ -10,6 +10,10 @@
   overflow: hidden;
 
   transition: background-color 0.4s ease;
+
+  @media (max-width: 1024px) {
+    margin: 12px;
+  }
 }
 
 .header__bg {
@@ -69,7 +73,7 @@
 
 @media (max-width: 640px) {
   .header {
-    height: 603px;
+    height: 580px;
   }
 
   .header__bg {
@@ -97,5 +101,9 @@
 .header__wrapper {
   .header__text {
     font-size: 17px;
+
+    @media (max-width: 767px) {
+      font-size: 15px;
+    }
   }
 }
