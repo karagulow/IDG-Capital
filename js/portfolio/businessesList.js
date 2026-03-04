@@ -217,7 +217,7 @@ const businesses = [
   },
   {
     name: "Rossignol",
-    logo: "images/businesses/37.svg",
+    logo: "images/businesses/37.png",
     sector: "CONSUMER",
     region: "EUROPE",
   },
@@ -312,7 +312,7 @@ function renderList(items) {
     li.className = "businesses__item";
 
     li.innerHTML = `
-			<img class="businesses__item--logo" src="${logo}" alt="${name}" />
+			<img class="businesses__item--logo ${name}" src="${logo}" alt="${name}" />
 			<div class="businesses__item--tags">
 				<p class="caption businesses__item--tag">${region}</p>
 				<p class="caption businesses__item--tag">${sector}</p>

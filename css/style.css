@@ -249,3 +249,8 @@ body .ul-standart {
 .popup__footer {
   margin-top: auto;
 }
+
+.businesses__item--logo.Rossignol {
+  max-width: 160px;
+  object-fit: contain;
+}
