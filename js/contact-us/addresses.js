@@ -167,9 +167,9 @@ document.addEventListener("DOMContentLoaded", function () {
         cityImageElement.src = "";
         cityImageElement.src = newImagePath;
 
-        setTimeout(finishAnimation, 200);
+        setTimeout(finishAnimation, 130);
       });
-    }, 200);
+    }, 128);
 
     cityCardElement.classList.add("addresses__card--fade-out");
   }
