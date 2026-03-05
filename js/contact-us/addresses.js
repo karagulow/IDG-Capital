@@ -147,41 +147,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const newImagePath = getImagePath(data);
-    const loader = new Image();
 
     const finishAnimation = () => {
       cityCardElement.classList.remove("addresses__card--fade-out");
       isAnimating = false;
     };
 
-    loader.onload = () => {
-      setTimeout(() => {
-        requestAnimationFrame(() => {
-          cityNameElement.textContent = data.name;
-          cityAddressElement.innerHTML = data.address;
-          cityImageElement.src = newImagePath;
-          cityImageElement.alt = `${data.name} Office`;
+    // Update text content immediately without waiting for image
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        cityNameElement.textContent = data.name;
+        cityAddressElement.innerHTML = data.address;
+        cityImageElement.alt = `${data.name} Office`;
 
-          updateActiveItem(cityId);
-          updateCardId(cityId);
+        updateActiveItem(cityId);
+        updateCardId(cityId);
 
-          setTimeout(finishAnimation, 200);
-        });
-      }, 200);
-    };
+        // Clear old image and load new one in background
+        cityImageElement.src = "";
+        cityImageElement.src = newImagePath;
 
-    loader.onerror = () => {
-      setTimeout(() => {
-        requestAnimationFrame(() => {
-          updateCityContent(cityId);
-          setTimeout(finishAnimation, 200);
-        });
-      }, 200);
-    };
+        setTimeout(finishAnimation, 200);
+      });
+    }, 200);
 
     cityCardElement.classList.add("addresses__card--fade-out");
-
-    loader.src = newImagePath;
   }
 
   function handleResize() {
