@@ -38,7 +38,8 @@
   top: 0;
   background-color: #f7f5f2;
   backdrop-filter: blur(0px);
-  padding-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .nav.privacy,
@@ -163,7 +164,7 @@
   }
 
   .nav.header-scroll {
-    padding: 30px 56px;
+    padding: 10px 56px;
   }
 
   .nav__list {
@@ -184,13 +185,19 @@
   }
 
   .nav.header-scroll {
-    padding: 24px 32px;
+    padding: 10px 32px;
   }
 
   .nav.privacy,
   .nav.terms,
   .nav.contact {
     padding: 22px 32px;
+  }
+
+  .nav.header-scroll.privacy,
+  .nav.header-scroll.terms,
+  .nav.header-scroll.contact {
+    padding: 10px 32px;
   }
 
   .nav__burger {
