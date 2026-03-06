@@ -1,5 +1,5 @@
 .contact-us {
-  padding: 160px 0 154px;
+  padding: 50px 0 154px;
   background-color: #f7f5f2;
 }
 
@@ -218,7 +218,7 @@
 
 @media (max-width: 640px) {
   .contact-us {
-    padding: 40px 0 64px;
+    padding: 20px 0 64px;
   }
 
   .contact-us__wrapper {
