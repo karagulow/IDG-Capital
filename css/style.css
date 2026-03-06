@@ -13,19 +13,8 @@ body {
   font-family: "Switzer", sans-serif;
   font-weight: 400;
   line-height: 140%;
-
   background-color: #f7f5f2;
-  /* TODO: Fix header - uncomment padding-top when needed */
-  /* padding-top: 90px; */
 }
-
-/* TODO: Fix header - uncomment when needed
-@media (max-width: 640px) {
-  body {
-    padding-top: 60px;
-  }
-}
-*/
 
 .container {
   max-width: 1232px;

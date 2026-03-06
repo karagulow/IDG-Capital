@@ -4,6 +4,22 @@
   inherits: false;
 }
 
+.nav-padding {
+  height: 100px;
+
+  @media (max-width: 767px) {
+    height: 80px;
+  }
+}
+
+.nav {
+  padding-top: 50px;
+
+  @media (max-width: 767px) {
+    padding-top: 28px;
+  }
+}
+
 .header {
   position: relative;
   display: flex;
