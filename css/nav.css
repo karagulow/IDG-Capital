@@ -153,9 +153,9 @@
 }
 
 /* Hide language selector */
-.nav__item-lang {
-  display: none !important;
-}
+/* .nav__item-lang { */
+/*   display: none !important; */
+/* } */
 
 @media (max-width: 1024px) {
   .nav {

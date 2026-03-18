@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="zh" class="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>投资组合 | IDG资本</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css?v=6" />
+    <link rel="stylesheet" href="css/portfolio-page.css?v=5" />
+    <link rel="stylesheet" href="css/chinese.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav-padding"></div>
+      <nav class="nav">
+        <a href="./index-cn.html" class="nav__logo">
+          <img src="images/logo.svg" alt="Logo" />
+        </a>
+
+        <button type="button" class="nav__burger"><span></span></button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="body-m nav__link" href="./about-us-cn.html">关于我们</a>
+          </li>
+          <li class="nav__item">
+            <a class="body-m nav__link" href="./portfolio-cn.html">投资组合</a>
+          </li>
+          <li class="nav__item">
+            <a class="body-m nav__link" href="./contact-us-cn.html">联系我们</a>
+          </li>
+          <li class="nav__item nav__item-lang">
+            <button
+              class="tags nav__item--btn"
+              type="button"
+              onclick="location.href = './portfolio.html'"
+            >
+              英文
+            </button>
+            <span class="nav__item--separator">|</span>
+            <button class="tags nav__item--btn active" type="button">
+              中文
+            </button>
+            <span class="nav__item--separator">|</span>
+            <button class="tags nav__item--btn" type="button" onclick="location.href = './portfolio-kr.html'">韩文</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__wrapper">
+        <p class="tags header__tags">投资组合</p>
+        <h1 class="accent header__title">自信地发展您的业务</h1>
+        <p class="body-m header__text">
+          我们设计的平台旨在满足您当前的需求，并赋予您成长到理想状态的能力
+        </p>
+      </div>
+
+      <iframe
+        src="components/portfolio_hero.html"
+        class="header__bg"
+        loading="lazy"
+      ></iframe>
+    </header>
+
+    <section class="growth-approach">
+      <div class="container">
+        <p class="h2 growth-approach__text">
+          我们的五个方面的方法涵盖了每个
+          <span class="growth-approach__text--marker">成长阶段</span>
+          ，从初始融资到退出计划。<br /><br />
+          我们精心整合每个实践，以确保您在 正确的时间 获得
+          <span class="growth-approach__text--marker">正确的支持</span>。
+        </p>
+      </div>
+    </section>
+
+    <section class="strategies">
+      <div class="container">
+        <div class="strategies__wrapper">
+          <div class="strategies__controls">
+            <button class="h3 strategies__btn active" type="button">
+              风险投资
+            </button>
+            <button class="h3 strategies__btn" type="button">成长资本</button>
+            <button class="h3 strategies__btn" type="button">二级市场</button>
+            <button class="h3 strategies__btn" type="button">收购</button>
+            <button class="h3 strategies__btn" type="button">公开市场</button>
+          </div>
+
+          <div class="strategy">
+            <h2 class="h2 strategy__title">我们从根本上支持创新</h2>
+            <p class="body-m strategy__text">
+              我们在您所在的位置与您共同创造稳固、可扩展的企业
+            </p>
+            <div class="strategy__content">
+              <ul class="strategy__adv-list">
+                <li class="strategy__adv-item strategy__adv-item--first">
+                  <p class="tags strategy__adv-item--title">创新</p>
+                  <p class="body-m strategy__adv-item--text">
+                    我们的风险投资业务支持整个公司建设生命周期的创新
+                  </p>
+                </li>
+                <li class="strategy__adv-item strategy__adv-item--second">
+                  <p class="tags strategy__adv-item--title">找到战略机会</p>
+                  <p class="body-m strategy__adv-item--text">
+                    我们帮助企业家找到战略机会，然后扩展到他们的雄心——所有这些都植根于长期价值观的一致性
+                  </p>
+                </li>
+                <li class="strategy__adv-item strategy__adv-item--third">
+                  <p class="tags strategy__adv-item--title">全球视角</p>
+                  <p class="body-m strategy__adv-item--text">
+                    我们的全球视角和本土专业知识帮助创始人驾驭市场、加速增长，并在退出计划之前建立卓越的公司
+                  </p>
+                </li>
+              </ul>
+
+              <div class="strategy__right">
+                <div class="strategy__case">
+                  <p class="h3 strategy__case--text">
+                    查看我们如何在2024年建立上海药物创新孵化器，目前管道中有10多个制药候选项目
+                  </p>
+                  <button
+                    class="strategy__case--link"
+                    type="button"
+                    data-popup-open="popup-incubator"
+                  >
+                    <p class="button">查看案例研究</p>
+                    <svg
+                      width="16"
+                      height="14"
+                      viewBox="0 0 16 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
+                        fill="#26292F"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="strategy__team">
+                  <p class="tags strategy__team--tags">您的风险投资团队</p>
+                  <p class="h3 strategy__team--text">9+ 投资者<br />15+ 基金</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <iframe
+        src="components/portfolio_3block.html"
+        class="strategies__bg"
+        loading="lazy"
+      ></iframe>
+    </section>
+
+    <section class="businesses">
+      <div class="container">
+        <div class="businesses__wrapper">
+          <div class="businesses__header">
+            <h2 class="h2 businesses__title">企业</h2>
+            <input
+              class="body-m businesses__search"
+              placeholder="搜索"
+              type="text"
+            />
+          </div>
+
+          <div class="businesses__filter">
+            <div class="filter" data-filter-type="sector">
+              <span class="body-m filter__title">行业</span>
+              <button
+                class="tags filter__btn active"
+                type="button"
+                data-value="all"
+              >
+                全部
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="consumer technology"
+              >
+                消费科技
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="healthcare"
+              >
+                医疗保健
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="consumer"
+              >
+                消费者
+              </button>
+            </div>
+            <div class="filter" data-filter-type="region">
+              <span class="body-m filter__title">地区</span>
+              <button
+                class="tags filter__btn active"
+                type="button"
+                data-value="all"
+              >
+                全部
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="asia pacific"
+              >
+                亚太地区
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="americas"
+              >
+                美洲
+              </button>
+              <span class="tags filter__separator">|</span>
+              <button
+                class="tags filter__btn"
+                type="button"
+                data-value="europe"
+              >
+                欧洲
+              </button>
+            </div>
+          </div>
+
+          <ul class="businesses__list"></ul>
+
+          <button class="businesses__more-btn" type="button">显示更多</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases">
+      <div class="container">
+        <div class="cases__wrapper swiper">
+          <div class="cases__top">
+            <h2 class="h2 cases__title">与我们合作，您可以期待什么</h2>
+            <p class="body-m cases__text">
+              我们已帮助各行业和全球的企业获得所需的资金和咨询，以实现<br />
+              成功
+            </p>
+          </div>
+
+          <ul class="cases__list swiper-wrapper">
+            <li class="cases__item swiper-slide">
+              <img
+                class="cases__item--img"
+                src="images/case-1.jpg"
+                alt="case"
+              />
+              <div class="cases__item--tags">
+                <span class="caption cases__item--tag">北美</span>
+                <span class="caption cases__item--tag">消费科技</span>
+              </div>
+              <h3 class="h3 cases__iten--title">
+                Circle使全球资金的移动几乎实<br />
+                时，使用受监管的稳定币
+              </h3>
+              <button
+                class="cases__item--btn"
+                type="button"
+                data-popup-open="popup-cases-circle"
+              >
+                <span class="button">阅读更多</span>
+                <svg
+                  width="16"
+                  height="14"
+                  viewBox="0 0 16 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
+                    fill="#26292F"
+                  />
+                </svg>
+              </button>
+            </li>
+
+            <li class="cases__item swiper-slide">
+              <img
+                class="cases__item--img"
+                src="images/case-2.jpg"
+                alt="case"
+              />
+              <div class="cases__item--tags">
+                <span class="caption cases__item--tag">北美</span>
+                <span class="caption cases__item--tag">消费科技</span>
+              </div>
+              <h3 class="h3 cases__iten--title">
+                美团是一个一站式的餐饮和零售服<br />务平台
+              </h3>
+              <button
+                class="cases__item--btn"
+                type="button"
+                data-popup-open="popup-cases-meituan"
+              >
+                <span class="button">阅读更多</span>
+                <svg
+                  width="16"
+                  height="14"
+                  viewBox="0 0 16 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
+                    fill="#26292F"
+                  />
+                </svg>
+              </button>
+            </li>
+
+            <li class="cases__item swiper-slide">
+              <img
+                class="cases__item--img"
+                src="images/case-3.jpg"
+                alt="case"
+              />
+              <div class="cases__item--tags">
+                <span class="caption cases__item--tag">北美</span>
+                <span class="caption cases__item--tag">消费科技</span>
+              </div>
+              <h3 class="h3 cases__iten--title">
+                Moncler制造奢华且高性能的运动<br />
+                服
+              </h3>
+              <button
+                class="cases__item--btn"
+                type="button"
+                data-popup-open="popup-cases-moncler"
+              >
+                <span class="button">阅读更多</span>
+                <svg
+                  width="16"
+                  height="14"
+                  viewBox="0 0 16 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 6.5C0.723858 6.5 0.5 6.72386 0.5 7C0.5 7.27614 0.723858 7.5 1 7.5V7V6.5ZM15.3536 7.35355C15.5488 7.15829 15.5488 6.84171 15.3536 6.64645L12.1716 3.46447C11.9763 3.2692 11.6597 3.2692 11.4645 3.46447C11.2692 3.65973 11.2692 3.97631 11.4645 4.17157L14.2929 7L11.4645 9.82843C11.2692 10.0237 11.2692 10.3403 11.4645 10.5355C11.6597 10.7308 11.9763 10.7308 12.1716 10.5355L15.3536 7.35355ZM1 7V7.5H15V7V6.5H1V7Z"
+                    fill="#26292F"
+                  />
+                </svg>
+              </button>
+            </li>
+          </ul>
+
+          <div class="cases__arrows">
+            <button
+              class="cases__arrow-btn cases__arrow-btn_prev"
+              type="button"
+            >
+              <img src="images/arrow.svg" alt="Arrow" />
+            </button>
+            <button
+              class="cases__arrow-btn cases__arrow-btn_next"
+              type="button"
+            >
+              <img src="images/arrow.svg" alt="Arrow" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__wrapper">
+          <img class="footer__logo" src="images/footer-logo.svg" alt="Logo" />
+
+          <div class="footer__col-wrapper">
+            <ul class="footer__col body-m">
+              <li class="footer__col-item">
+                <p class="footer__col-title">IDG资本</p>
+              </li>
+              <li class="footer__col-item">
+                <a href="./index-cn.html">首页</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./portfolio-cn.html">投资组合</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./about-us-cn.html">关于我们</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html">联系我们</a>
+              </li>
+            </ul>
+
+            <ul class="footer__col body-m footer__col-offices">
+              <li class="footer__col-item">
+                <p class="footer__col-title">办公室</p>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#hongkong"
+                  >香港 <span>(总部)</span></a
+                >
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#barcelona">巴塞罗那</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#beijing">北京</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#boston">波士顿</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#cayman">开曼</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#guangzhou">广州</a>
+              </li>
+              <li class="footer__col-item mt-25">
+                <a href="./contact-us.html#muscat">马斯喀特</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#newyork">纽约</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#seoul">首尔</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#shanghai">上海</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#shenzhen">深圳</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us.html#singapore">新加坡</a>
+              </li>
+            </ul>
+
+            <ul class="footer__col body-m">
+              <li class="footer__col-item">
+                <p class="footer__col-title">SOCIAL</p>
+              </li>
+              <li class="footer__col-item">
+                <a
+                  href="https://www.linkedin.com/company/idgvc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Linkedin</a
+                >
+              </li>
+              <li class="footer__col-item">
+                <a
+                  href="https://twitter.com/IDGCapital"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >X</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="popup" id="popup-incubator" aria-hidden="true">
+      <div class="popup__overlay" data-popup-close></div>
+
+      <div class="popup__content" role="dialog" aria-modal="true">
+        <button class="popup__close" data-popup-close>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.5 0.5L10.3995 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.4004 0.5L0.500895 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <img
+          class="popup__logo"
+          src="images/incubator-heathcare.svg"
+          alt="incubator-heathcare"
+        />
+
+        <div class="popup__body">
+          <div class="popup__wrapper">
+            <h3 class="h3 popup__title">
+              由IDG资本创立的i-Incubator医疗保健孵化器于2024年在上海徐汇区正式启动，荣获"上海徐汇高质量孵化器"称号。
+            </h3>
+
+            <p class="body-m popup__text">
+              采用"孵化+赋能"模式，专注于创新药物。
+            </p>
+
+            <div>
+              <p class="popup__text">孵化具有竞争力的药品：</p>
+              <ul class="ul-standart popup__text">
+                <li>以中国效率捕捉全球创新，兼顾高质量和合理成本</li>
+                <li>以中国效率达到全球质量标准</li>
+                <li>针对不同疾病领域，采用多种药物模式</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="popup__note popup__note--desktop">
+            <p class="tags popup__note--title text-red">IDG资本的帮助</p>
+            <ul class="ul-standart popup__note--text">
+              <li>组建经验丰富的团队，每年启动和管理10个以上新药项目</li>
+              <li>利用IDG CRO/CDMO投资组合加速药物研发</li>
+              <li>
+                从IDG投资组合和网络中识别并推进被低估的早期药物资产，以加速开发并提升价值
+              </li>
+              <li>
+                设立专项孵化基金，通过投资每个独立资产公司来支持i-孵化器项目
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="popup__footer">
+          <span class="tags popup__tag">投资日期：2024</span>
+
+          <div class="popup__tags">
+            <span class="tags popup__tag">亚洲</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">中国</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">医疗保健</span>
+          </div>
+        </div>
+
+        <div class="popup__note popup__note--mobile">
+          <p class="tags popup__note--title text-red">IDG资本的帮助</p>
+          <ul class="ul-standart popup__note--text">
+            <li>组建经验丰富的团队，每年启动和管理10个以上新药项目</li>
+            <li>利用IDG CRO/CDMO投资组合加速药物研发</li>
+            <li>
+              从IDG投资组合和网络中识别并推进被低估的早期药物资产，以加速开发并提升价值
+            </li>
+            <li>
+              设立专项孵化基金，通过投资每个独立资产公司来支持i-孵化器项目
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-Moncler" aria-hidden="true">
+      <div class="popup__overlay" data-popup-close></div>
+
+      <div class="popup__content" role="dialog" aria-modal="true">
+        <button class="popup__close" data-popup-close>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.5 0.5L10.3995 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.4004 0.5L0.500895 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <img class="popup__logo" src="images/moncler.svg" alt="moncler" />
+
+        <div class="popup__body">
+          <div class="popup__wrapper">
+            <h3 class="h3 popup__title">
+              Moncler创立于1952年意大利，专注于高性能登山和寒冷天气外套。
+            </h3>
+
+            <p class="body-m popup__text">
+              其标志性羽绒夹克和冬季服装将技术创新与时尚设计融为一体，涵盖成衣和配件，面向全球时尚前沿消费者。
+
+              <br /><br />
+              强大的零售网络和专属定位使Moncler在全球奢侈品市场持续领先。
+            </p>
+          </div>
+
+          <div class="popup__note popup__note--desktop">
+            <p class="tags popup__note--title text-red">IDG资本的帮助</p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>引入广告公司、KOL、商场合作伙伴和经销商等媒体资源</li>
+              <li>
+                在中国建立强大的本土管理团队，使Moncler成为市场上增长最快的奢侈服装品牌之一
+              </li>
+              <li>建立完善的分销网络</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="popup__footer">
+          <span class="tags popup__tag">投资日期：2024</span>
+
+          <div class="popup__tags">
+            <span class="tags popup__tag">欧洲</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">意大利</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">消费者</span>
+          </div>
+        </div>
+
+        <div class="popup__note popup__note--mobile">
+          <p class="tags popup__note--title text-red">IDG资本的帮助</p>
+          <ul class="ul-standart popup__note--text">
+            <li>引入广告公司、KOL、商场合作伙伴和经销商等媒体资源</li>
+            <li>
+              在中国建立强大的本土管理团队，使Moncler成为市场上增长最快的奢侈服装品牌之一
+            </li>
+            <li>建立完善的分销网络</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-cases-circle" aria-hidden="true">
+      <div class="popup__overlay" data-popup-close></div>
+
+      <div class="popup__content" role="dialog" aria-modal="true">
+        <button class="popup__close" data-popup-close>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.5 0.5L10.3995 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.4004 0.5L0.500895 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <img class="popup__logo" src="images/bambulab.svg" alt="bambulab" />
+
+        <div class="popup__body">
+          <div class="popup__wrapper">
+            <h3 class="h3 popup__title">
+              拓竹科技（Bambu
+              Lab）成立于2020年深圳，在面向创作者、设计师和工程师的高性能桌面3D打印机领域处于领先地位。
+            </h3>
+
+            <p class="body-m popup__text">
+              其打印机通过无缝即插即用系统、定制操作系统和云端工具，提供高速打印、多色选择和智能自动校准。
+              <br /><br />
+              快速增长在北美、欧洲及其他地区建立了强大的品牌认知，使其成为消费级3D打印领域的顶级品牌。
+            </p>
+          </div>
+
+          <div class="popup__note popup__note--desktop">
+            <p class="tags popup__note--title text-red">IDG资本的帮助</p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>引导公司聚焦全球高端消费市场</li>
+              <li>招募具有国际运营经验的高管</li>
+              <li>在中国建立线下销售渠道，并提供本地营销和零售资源</li>
+              <li>
+                作为早期机构投资者，指导融资策略和业务发展，助其成为该领域顶级独角兽
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="popup__footer">
+          <span class="tags popup__tag">投资日期：2021</span>
+
+          <div class="popup__tags">
+            <span class="tags popup__tag">亚洲</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">中国</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">消费科技</span>
+          </div>
+
+          <div class="popup__note popup__note--mobile">
+            <p class="tags popup__note--title text-red">IDG资本的帮助</p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>引导公司聚焦全球高端消费市场</li>
+              <li>招募具有国际运营经验的高管</li>
+              <li>在中国建立线下销售渠道，并提供本地营销和零售资源</li>
+              <li>
+                作为早期机构投资者，指导融资策略和业务发展，助其成为该领域顶级独角兽
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-cases-meituan" aria-hidden="true">
+      <div class="popup__overlay" data-popup-close></div>
+
+      <div class="popup__content" role="dialog" aria-modal="true">
+        <button class="popup__close" data-popup-close>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.5 0.5L10.3995 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.4004 0.5L0.500895 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <img class="popup__logo" src="images/insta360.svg" alt="insta360" />
+
+        <div class="popup__body">
+          <div class="popup__wrapper">
+            <h3 class="h3 popup__title">
+              Insta360成立于2015年深圳，在360度相机和沉浸式影像解决方案领域处于全球领先地位。
+            </h3>
+
+            <p class="body-m popup__text">
+              其产品线包括运动相机、专业VR设备和移动配件，凭借FlowState防抖、AI驱动编辑和实时拼接技术，让创作者、专业人士和普通用户轻松拍摄惊艳的VR和360°内容。
+
+              <br /><br />
+              凭借遍布全球的办公室、合作伙伴和蓬勃发展的应用生态，Insta360同时服务消费级探险和企业应用场景，持续推动沉浸式技术发展。
+            </p>
+          </div>
+
+          <div class="popup__note popup__note--desktop">
+            <p class="tags popup__note--title text-red">IDG资本的帮助</p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                推荐具有产品、供应链和营销全球专业知识的人才，完善组织体系
+              </li>
+              <li>支持全球供应链整合，执行重大并购</li>
+              <li>
+                作为最大机构股东，指导融资和IPO时机等关键资本决策，助力科创板成功上市
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="popup__footer">
+          <span class="tags popup__tag">投资日期：2021</span>
+
+          <div class="popup__tags">
+            <span class="tags popup__tag">亚洲</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">中国</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">消费科技</span>
+          </div>
+
+          <div class="popup__note popup__note--mobile">
+            <p class="tags popup__note--title text-red">IDG资本的帮助</p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                推荐具有产品、供应链和营销全球专业知识的人才，完善组织体系
+              </li>
+              <li>支持全球供应链整合，执行重大并购</li>
+              <li>
+                作为最大机构股东，指导融资和IPO时机等关键资本决策，助力科创板成功上市
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-cases-moncler" aria-hidden="true">
+      <div class="popup__overlay" data-popup-close></div>
+
+      <div class="popup__content" role="dialog" aria-modal="true">
+        <button class="popup__close" data-popup-close>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.5 0.5L10.3995 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+            <path
+              d="M10.4004 0.5L0.500895 10.3995"
+              stroke="black"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <img class="popup__logo" src="images/xpeng.svg" alt="xpeng" />
+
+        <div class="popup__body">
+          <div class="popup__wrapper">
+            <h3 class="h3 popup__title">
+              小鹏汽车成立于2014年，总部位于广州，是中国智能电动汽车市场的领军企业，自主设计、研发和制造智能汽车。
+            </h3>
+
+            <p class="body-m popup__text">
+              公司在高级驾驶辅助系统（ADAS）、全栈软件、OTA升级和自动驾驶方面表现卓越，旗下高端轿车和SUV深受科技前沿消费者青睐。
+              <br /><br />
+
+              随着在中国及欧洲、东南亚等国际市场的持续拓展，小鹏汽车在电动化、智能座舱和自动驾驶技术方面大力投入，引领全球电动出行未来。
+            </p>
+          </div>
+
+          <div class="popup__note popup__note--desktop">
+            <p class="tags popup__note--title text-red">IDG资本的帮助</p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                在市场对电动汽车初创企业持怀疑态度时，为公司提供支持并组建核心团队
+              </li>
+              <li>在行业下行期指导公司完成关键产能爬坡</li>
+              <li>引入大众集团作为战略投资者</li>
+              <li>推动资本、技术、全球扩张和联合营销方面的合作</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="popup__footer">
+          <span class="tags popup__tag">投资日期：2021</span>
+
+          <div class="popup__tags">
+            <span class="tags popup__tag">亚洲</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">中国</span>
+            <span class="tags popup__separator">|</span>
+            <span class="tags popup__tag">消费科技</span>
+          </div>
+
+          <div class="popup__note popup__note--mobile">
+            <p class="tags popup__note--title text-red">IDG资本的帮助</p>
+
+            <ul class="ul-standart popup__note--text">
+              <li>
+                在市场对电动汽车初创企业持怀疑态度时，为公司提供支持并组建核心团队
+              </li>
+              <li>在行业下行期指导公司完成关键产能爬坡</li>
+              <li>引入大众集团作为战略投资者</li>
+              <li>推动资本、技术、全球扩张和联合营销方面的合作</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cookie" id="cookie-banner">
+      <p class="body-m cookie__text">
+        我们使用Cookie以确保网站的正常运行。继续浏览即表示您同意我们的Cookie政策。
+      </p>
+      <button class="button cookie__btn" type="button" id="cookie-accept">
+        接受
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <script src="js/burger-menu.js"></script>
+    <script src="js/main/header-scroll.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/portfolio/growth-approach-marker.js"></script>
+    <script src="js/portfolio/strategiesSlider-cn.js"></script>
+    <script src="js/portfolio/businessesList-cn.js"></script>
+    <script src="js/portfolio/casesSlider.js"></script>
+  </body>
+</html>

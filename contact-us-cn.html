@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="zh" class="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>联系我们 | IDG资本</title>
+    <link rel="stylesheet" href="css/style.css?v=6" />
+    <link rel="stylesheet" href="css/contact-us-page.css?v=5" />
+    <link rel="stylesheet" href="css/chinese.css" />
+  </head>
+  <body>
+    <div class="nav-padding"></div>
+    <nav class="nav contact">
+      <a href="./index-cn.html" class="nav__logo">
+        <img src="images/logo.svg" alt="Logo" />
+      </a>
+
+      <button type="button" class="nav__burger"><span></span></button>
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a class="body-m nav__link" href="./about-us-cn.html">关于我们</a>
+        </li>
+        <li class="nav__item">
+          <a class="body-m nav__link" href="./portfolio-cn.html">投资组合</a>
+        </li>
+        <li class="nav__item">
+          <a class="body-m nav__link" href="./contact-us-cn.html">联系我们</a>
+        </li>
+        <li class="nav__item nav__item-lang">
+          <button
+            class="tags nav__item--btn"
+            type="button"
+            onclick="location.href = './contact-us.html'"
+          >
+            英文
+          </button>
+          <span class="nav__item--separator">|</span>
+          <button class="tags nav__item--btn active" type="button">
+            中文
+          </button>
+          <span class="nav__item--separator">|</span>
+          <button class="tags nav__item--btn" type="button" onclick="location.href = './contact-us-kr.html'">韩文</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="contact-us">
+      <div class="container">
+        <div class="contact-us__wrapper">
+          <h1 class="accent contact-us__title">联系我们</h1>
+
+          <div class="contact-us__content">
+            <div class="contact-us__contacts">
+              <p class="tags contact-us__contact--title">商务</p>
+              <a
+                class="h3 contact-us__contact--text"
+                href="mailto:COOPERATION@IDGCAPITAL.COM"
+                >COOPERATION@IDGCAPITAL.COM</a
+              >
+              <p class="tags contact-us__contact--title">职业机会</p>
+              <a
+                class="h3 contact-us__contact--text"
+                href="mailto:HR@IDGCAPITAL.COM"
+                >HR@IDGCAPITAL.COM</a
+              >
+              <p class="tags contact-us__contact--title">媒体</p>
+              <a
+                class="h3 contact-us__contact--text"
+                href="mailto:PR@IDGCAPITAL.COM"
+                >PR@IDGCAPITAL.COM</a
+              >
+              <div class="contact-us__contacts--links">
+                <a
+                  class="body-l"
+                  href="https://www.linkedin.com/company/idgvc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >领英</a
+                >
+                <a
+                  class="body-l"
+                  href="https://twitter.com/IDGCapital"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >X</a
+                >
+              </div>
+            </div>
+
+            <form class="contact-us__form" id="contactForm" novalidate>
+              <label class="contact-us__form--label">
+                <input
+                  class="body-m contact-us__form--input"
+                  type="text"
+                  name="first-name"
+                  placeholder="名字"
+                />
+                <div class="body-s error-message"></div>
+              </label>
+              <label class="contact-us__form--label">
+                <input
+                  class="body-m contact-us__form--input"
+                  type="text"
+                  name="last-name"
+                  placeholder="姓氏"
+                />
+                <div class="body-s error-message"></div>
+              </label>
+              <label class="contact-us__form--label">
+                <input
+                  class="body-m contact-us__form--input"
+                  type="email"
+                  name="email"
+                  placeholder="电子邮件"
+                />
+                <div class="body-s error-message"></div>
+              </label>
+              <label class="contact-us__form--label">
+                <input
+                  class="body-m contact-us__form--input"
+                  type="tel"
+                  name="phone"
+                  placeholder="电话"
+                />
+                <div class="body-s error-message"></div>
+              </label>
+              <label class="contact-us__form--label">
+                <input
+                  class="body-m contact-us__form--input"
+                  type="text"
+                  name="message"
+                  placeholder="留言"
+                />
+                <div class="body-s error-message"></div>
+              </label>
+              <label class="contact-us__approval">
+                <input type="checkbox" name="approval" />
+                <svg
+                  class="contact-us__approval--unchecked"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="0.75"
+                    y="0.75"
+                    width="18.5"
+                    height="18.5"
+                    stroke="#222734"
+                    stroke-opacity="0.6"
+                    stroke-width="1.5"
+                  />
+                </svg>
+                <svg
+                  class="contact-us__approval--checked"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_cn)">
+                    <rect width="20" height="20" fill="#26292F" />
+                    <path
+                      d="M7.95996 15.0001L3.20996 10.2501L4.39746 9.06258L7.95996 12.6251L15.6058 4.97925L16.7933 6.16675L7.95996 15.0001Z"
+                      fill="#F7F5F2"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_cn">
+                      <rect width="20" height="20" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                <div class="body-s contact-us__approval--text">
+                  我同意
+                  <a href="./privacy-policy.html">隐私政策</a>和
+                  <a href="./terms-of-use.html">使用条款</a>
+                </div>
+              </label>
+              <div class="body-s error-message error-message-approval"></div>
+              <button class="button contact-us__form--btn" type="submit">
+                发送请求
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="addresses">
+      <div class="container">
+        <div class="addresses__wrapper">
+          <ul class="addresses__list">
+            <li class="h3 addresses__item active" data-city="hongkong">
+              香港
+            </li>
+            <li class="h3 addresses__item" data-city="barcelona">巴塞罗那</li>
+            <li class="h3 addresses__item" data-city="beijing">北京</li>
+            <li class="h3 addresses__item" data-city="boston">波士顿</li>
+            <li class="h3 addresses__item" data-city="cayman">开曼</li>
+            <li class="h3 addresses__item" data-city="guangzhou">广州</li>
+            <li class="h3 addresses__item" data-city="muscat">马斯喀特</li>
+            <li class="h3 addresses__item" data-city="newyork">纽约</li>
+            <li class="h3 addresses__item" data-city="seoul">首尔</li>
+            <li class="h3 addresses__item" data-city="shanghai">上海</li>
+            <li class="h3 addresses__item" data-city="shenzhen">深圳</li>
+            <li class="h3 addresses__item" data-city="singapore">新加坡</li>
+          </ul>
+
+          <div class="addresses__card">
+            <div class="addresses__card--content">
+              <h1 class="h1 addresses__card--city">香港</h1>
+              <p class="body-m addresses__card--address">
+                香港中环皇后大道中99号<br />中心大厦5505室<br />
+                电话：852-3903 1333<br />
+                传真：852-3905 5000
+              </p>
+            </div>
+            <div class="addresses__card--spinner"></div>
+            <img
+              class="addresses__card--img"
+              src="images/offices/hong-kong.jpg"
+              alt="香港 办公室"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__wrapper">
+          <img class="footer__logo" src="images/footer-logo.svg" alt="Logo" />
+
+          <div class="footer__col-wrapper">
+            <ul class="footer__col body-m">
+              <li class="footer__col-item">
+                <p class="footer__col-title">IDG资本</p>
+              </li>
+              <li class="footer__col-item">
+                <a href="./index-cn.html">首页</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./portfolio-cn.html">投资组合</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./about-us-cn.html">关于我们</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html">联系我们</a>
+              </li>
+            </ul>
+
+            <ul class="footer__col body-m footer__col-offices">
+              <li class="footer__col-item">
+                <p class="footer__col-title">办公室</p>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#hongkong"
+                  >香港 <span>(总部)</span></a
+                >
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#barcelona">巴塞罗那</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#beijing">北京</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#boston">波士顿</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#cayman">开曼</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#guangzhou">广州</a>
+              </li>
+              <li class="footer__col-item mt-25">
+                <a href="./contact-us-cn.html#muscat">马斯喀特</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#newyork">纽约</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#seoul">首尔</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#shanghai">上海</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#shenzhen">深圳</a>
+              </li>
+              <li class="footer__col-item">
+                <a href="./contact-us-cn.html#singapore">新加坡</a>
+              </li>
+            </ul>
+
+            <ul class="footer__col body-m">
+              <li class="footer__col-item">
+                <p class="footer__col-title">SOCIAL</p>
+              </li>
+              <li class="footer__col-item">
+                <a
+                  href="https://www.linkedin.com/company/idgvc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Linkedin</a
+                >
+              </li>
+              <li class="footer__col-item">
+                <a
+                  href="https://twitter.com/IDGCapital"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >X</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="toaster">
+      <div class="toaster__icon">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 20V4H22V20H2ZM12 13L4 8V18H20V8L12 13ZM12 11L20 6H4L12 11ZM4 8V6V18V8Z"
+            fill="#F2CECA"
+          />
+        </svg>
+      </div>
+
+      <p class="body-m toaster__text">
+        我们已收到您的请求。我们将尽快与您联系。
+      </p>
+
+      <button class="toaster__close" type="button">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5.04883 5.05023L14.9483 14.9497"
+            stroke="black"
+            stroke-linecap="round"
+          />
+          <path
+            d="M14.9492 5.05023L5.04972 14.9497"
+            stroke="black"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <div class="cookie" id="cookie-banner">
+      <p class="body-m cookie__text">
+        我们使用Cookie以确保网站的正常运行。继续浏览即表示您同意我们的Cookie政策。
+      </p>
+      <button class="button cookie__btn" type="button" id="cookie-accept">
+        接受
+      </button>
+    </div>
+
+    <script src="js/burger-menu.js"></script>
+    <script src="js/main/header-scroll.js"></script>
+    <script src="js/contact-us/addresses-cn.js"></script>
+    <script src="js/contact-us/form-cn.js"></script>
+    <script src="js/cookie.js"></script>
+  </body>
+</html>

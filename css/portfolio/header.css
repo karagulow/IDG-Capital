@@ -107,3 +107,7 @@
     }
   }
 }
+
+html.kr .header__text {
+  max-width: 433px;
+}
