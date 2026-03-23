@@ -239,7 +239,15 @@
 }
 
 body .nav {
-  padding: 30px 65px;
+  padding: 30px 35px;
+
+  @media (min-width: 767px) {
+    padding: 30px 55px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 30px 65px;
+  }
 }
 
 body .nav .container {
@@ -250,4 +258,8 @@ body .nav .container {
   flex-direction: row;
   width: 100%;
   padding: 0;
+
+  @media (min-width: 1232px) {
+    padding: 0 56px;
+  }
 }
