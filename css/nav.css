@@ -238,6 +238,10 @@
   }
 }
 
+body .nav {
+  padding: 30px 65px;
+}
+
 body .nav .container {
   display: flex;
   flex-direction: row;
@@ -245,4 +249,5 @@ body .nav .container {
   align-items: center;
   flex-direction: row;
   width: 100%;
+  padding: 0;
 }
