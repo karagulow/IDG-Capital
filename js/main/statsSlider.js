@@ -15,6 +15,10 @@ const swiper = new Swiper(".stats__wrapper", {
       slidesPerView: 3,
       allowTouchMove: false,
     },
+    1280: {
+      slidesPerView: 4,
+      allowTouchMove: false,
+    },
   },
 
   navigation: {

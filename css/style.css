@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-  max-width: 1232px;
+  max-width: 1632px;
   margin: 0 auto;
   padding: 0 56px;
 }
@@ -122,8 +122,8 @@ section {
   word-break: break-word;
 }
 
-.md__text br + span,
-.md__text br + * {
+.md__text br+span,
+.md__text br+* {
   padding-left: 22px;
   display: inline-block;
   text-indent: -22px;
