@@ -32,7 +32,9 @@ if (window.innerWidth > 1024) {
   gsap.registerPlugin(ScrollTrigger);
 
   const slidesCount = swiper.slides.length;
-  const scrollLength = slidesCount * window.innerHeight * 0.6;
+  const visibleSlides = window.innerWidth >= 1280 ? 4 : 3;
+  const scrollableSteps = Math.max(slidesCount - visibleSlides, 1);
+  const scrollLength = scrollableSteps * 600;
 
   ScrollTrigger.create({
     trigger: ".stats",

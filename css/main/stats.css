@@ -5,6 +5,10 @@
   height: 100vh;
 }
 
+.stats .container {
+  max-width: 1640px;
+}
+
 .stats__wrapper {
   display: flex;
   flex-direction: column;
