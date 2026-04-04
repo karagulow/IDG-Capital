@@ -1,72 +1,73 @@
 .not-found {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	background-color: #f7f5f2;
-	overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f7f5f2;
+  overflow: hidden;
 }
 
 .not-found__bg {
-	position: absolute;
-	bottom: 0;
-	left: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 
-	width: 100vw;
-	height: 40vh;
+  width: 100vw;
+  height: 40vh;
 
-	background-image: url('../images/not-found-bg-desktop.svg');
-	background-size: cover;
-	background-position: center top;
-	background-repeat: no-repeat;
+  background-image: url("../images/not-found-bg-desktop.svg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
 .not-found__content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  text-align: center;
 }
 
 .not-found__code {
-	color: #22273499;
-	margin-bottom: 8px;
+  color: #22273499;
+  margin-bottom: 8px;
 }
 
 .not-found__title {
-	color: #26292f;
-	margin-bottom: 32px;
+  color: #26292f;
+  margin-bottom: 32px;
 }
 
 .not-found__btn {
-	color: #f7f5f2;
-	padding: 16px 24px;
-	border-radius: 34px;
-	background-color: #dd1600;
+  color: #f7f5f2;
+  padding: 16px 24px;
+  border-radius: 34px;
+  background-color: #dd1600;
 
-	transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .not-found__btn:hover {
-	background-color: #970000;
+  background-color: #970000;
 }
 
 .not-found__btn:visited {
-	opacity: 0.4;
+  opacity: 0.4;
 }
 
 @media (max-width: 1024px) {
-	.not-found__bg {
-		left: -100px;
-		width: calc(100vw + 100px);
-		height: 50vh;
+  .not-found__bg {
+    left: -100px;
+    width: calc(100vw + 100px);
+    height: 50vh;
 
-		background-image: url('../images/not-found-bg-mobile.svg');
-	}
+    background-image: url("../images/not-found-bg-mobile.svg");
+  }
 }
 
 @media (max-width: 400px) {
-	.not-found__bg {
-		height: 40vh;
-	}
+  .not-found__bg {
+    height: 40vh;
+  }
 }
